@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <array name="sport_question">
+
+        <!--TODO (1): add sports questions here-->
+
+        <item>item1</item>
+        <item>item2</item>
+        <item>item3</item>
+
+    </array>
+
+    <array name="sport_correct_answer">
+        <!--TODO (2): add sports answer here-->
+        <!--NB : Add  answer in order  -->
+
+    </array>
+
+    <array name="sport_random_answer">
+
+    </array>
+
+</resources>

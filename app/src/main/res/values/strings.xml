@@ -23,7 +23,7 @@
         completions."
     </string>
 
-  // Strings for Science Part ques..
+    // Strings for Science Part ques..
     <string-array name="Science">
         <item> ما هو اقوى الحيوانات ذاكرة؟</item>
         <item>ما هو العنصر الغذائى الذى لو وجد ف الحليب لاصبح غذاء كامل ؟</item>

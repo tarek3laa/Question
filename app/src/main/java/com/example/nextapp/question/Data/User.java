@@ -1,13 +1,16 @@
 package com.example.nextapp.question.Data;
 
 public class User {
-   private String name,userName,id,rank,score;
+   private String name,userName;
    private int _id;
+    public static int _cid=0;
+    private int rank;
+    private int score;
 
-    public User(String name, String userName, String id, String rank, String score, int _id) {
+    public User(String name, String userName, int rank, int score, int _id) {
         this.name = name;
         this.userName = userName;
-        this.id = id;
+
         this.rank = rank;
         this.score = score;
         this._id = _id;
@@ -21,15 +24,17 @@ public class User {
         return userName;
     }
 
-    public String getId() {
-        return id;
-    }
 
-    public String getRank() {
+    public int getRank() {
         return rank;
     }
 
-    public String getScore() {
+    public static int get_cid() {
+        return _cid;
+    }
+
+    public int getScore() {
+
         return score;
     }
 

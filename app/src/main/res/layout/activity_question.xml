@@ -1,9 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuestionActivity">
+    tools:context=".QuestionActivity"
+    android:orientation="vertical"
+    >
 
-</android.support.constraint.ConstraintLayout>
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="00:00"
+       android:layout_margin="10dp"
+       android:gravity="center"
+       android:id="@+id/tv_timer"
+       android:textSize="35sp"
+       android:textColor="#000000"
+       android:padding="2dp"
+       />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="نظام الحكم ف اليابان هو ؟"
+        android:textSize="35sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:padding="2dp"
+        android:id="@+id/tv_question"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:padding="2dp"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/bt_answer1"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/bt_answer2"
+
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:padding="2dp"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/bt_answer3"
+
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/bt_answer4"
+
+            />
+
+    </LinearLayout>
+</LinearLayout>

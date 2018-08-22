@@ -21,8 +21,13 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+<<<<<<< HEAD
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Strings for Science Part ques..
+=======
+
+    // Strings for Science Part ques..
+>>>>>>> 19658427973f9f831fb059d68c848fca9b2339c6
     <string-array name="Science">
         <item> ما هو اقوى الحيوانات ذاكرة؟</item>
         <item>ما هو العنصر الغذائى الذى لو وجد ف الحليب لاصبح غذاء كامل ؟</item>

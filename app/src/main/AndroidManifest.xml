@@ -23,7 +23,7 @@
         </activity>
         <activity android:name=".LevelActivity" />
         <activity android:name=".QuestionActivity" />
-        <activity android:name=".Rankactivity"></activity>
+        <activity android:name=".Rankactivity" />
     </application>
 
 </manifest>

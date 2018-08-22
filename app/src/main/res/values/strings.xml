@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Question</string>
-    <string name="rank">Your Rank</string>
-    <string name="profile">Your profile</string>
+    <string name="rank">Your Rank</string>// Strings for Science Part ques..<string name="profile">Your profile</string>
     <string name="item1">Sport</string>
     <string name="item2">Science</string>
     <string name="item3">item3</string>
@@ -22,7 +21,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Strings for Science Part ques..
     <string-array name="Science">
         <item> ما هو اقوى الحيوانات ذاكرة؟</item>
@@ -137,4 +136,233 @@
     </string-array>
 
 
+    //right ans
+    <string-array name="RightAns">
+        <item>الجمل</item>
+        <item>الحديد</item>
+        <item>نجمة البحر</item>
+        <item>الزئبق</item>
+        <item>القرد</item>
+        <item>لندن</item>
+        <item>ثانى اكسيد الكربون</item>
+        <item>الدرفيل</item>
+        <item>الكنغر البرى</item>
+        <item>الاسفنج</item>
+        <item>1000كجم</item>
+        <item>اسيا</item>
+        <item>7</item>
+        <item>العسل</item>
+        <item>فرنسا و بريطانيا</item>
+        <item>الحوت الازرق</item>
+        <item>امبراطورى</item>
+        <item>الكعبة المشرفة</item>
+        <item>بطرس العظيم</item>
+        <item>ريال</item>
+        <item>الحصان</item>
+        <item>العمر</item>
+        <item>124</item>
+        <item>5</item>
+        <item>9</item>
+        <item>5</item>
+        <item>قرنية العين</item>
+        <item>البيرونى</item>
+        <item>سويسرا</item>
+        <item>لوساكا</item>
+        <item>الهند</item>
+        <item>900</item>
+        <item>صلاح الدين الايوبى</item>
+        <item>الكتاب</item>
+        <item>كرات الدم البيضاء</item>
+        <item>الميلانين</item>
+        <item>الخلايا العصبية</item>
+        <item>الطاعون</item>
+        <item>صفر</item>
+        <item>250الف كيلومتر</item>
+        <item>الشريان</item>
+        <item>جورج برناردشو</item>
+        <item>الجزائر</item>
+        <item>ايزابيلا الاولى</item>
+        <item>200مليون</item>
+        <item>سويسرا</item>
+        <item>ابراهام طليطلة</item>
+        <item>كندا</item>
+        <item>الحروب الصليبية</item>
+        <item>الاخوين رايت</item>
+        <item>الخضر(عليه السلام)</item>
+        <item>6ايام</item>
+        <item>نهر النيل</item>
+        <item>استانا</item>
+        <item>الصومال</item>
+        <item>الفراعنة</item>
+        <item>البرتغالية</item>
+        <item>المخابرات البريطانية</item>
+        <item>عبد الله بن المعتز</item>
+        <item>8 جيوب</item>
+        <item>40 سنة</item>
+        <item>النمر</item>
+        <item>البحرين</item>
+        <item>علم الخلايا</item>
+        <item>علم الاجناس</item>
+        <item>علم الارصاد الجوية</item>
+        <item>علم الارض</item>
+        <item>علم الاجتماع</item>
+        <item>الرقص ف الهواء</item>
+        <item>أبقراط</item>
+        <item>الشهر الخامس</item>
+        <item>ابن البيطار</item>
+        <item>25سم</item>
+        <item>الشهر السادس</item>
+        <item>علم النسج</item>
+        <item>توماس اديسون</item>
+        <item>ارتيايوس</item>
+        <item>الكمايون</item>
+        <item>الكمايون</item>
+        <item>النشويات</item>
+        <item>الشفاه</item>
+        <item>ألاحماض الامينية</item>
+        <item>الكالسيوم</item>
+        <item>اليزابيث بلاكويل</item>
+        <item>فلورانس نايتينجيل</item>
+        <item>ابن زهر الاندلس</item>
+        <item>البروتين</item>
+        <item>اليافوخ</item>
+        <item>عديمة اللون</item>
+        <item>الكبد</item>
+        <item>السكروز</item>
+        <item>الضفدع</item>
+        <item>سميرة موسى</item>
+        <item>سويسرا</item>
+        <item>1884م</item>
+        <item>صمويل كولت</item>
+        <item>الخط الكوفى</item>
+        <item>الخبر</item>
+        <item>مجلس العموم البريطانى</item>
+        <item>اكلى اللحم النئ</item>
+        <item>عيسى(عليه السلام)</item>
+        <item>داوود(عليه السلام)</item>
+        <item>استراليا</item>
+        <item>أيوب(عليه السلام)</item>
+        <item>أبوك</item>
+        <item>إسماعيل(عليه السلام)</item>
+        <item>قابيل</item>
+        <item>سليمان(عليه السلام)</item>
+        <item>إدريس(عليه السلام)</item>
+    </string-array>
+
+     //wrong choose 1
+    <string-array name="wrongans1">
+        <item>القرد</item>
+        <item>الدهون</item>
+        <item>السحلية</item>
+        <item>السيزيوم</item>
+        <item>الكلب</item>
+        <item>سويسرا</item>
+        <item>الهيدروجين</item>
+        <item>الفيل</item>
+        <item>السلحفاه</item>
+        <item>الكنغر</item>
+        <item>500كجم</item>
+        <item>أفريقيا</item>
+        <item>12</item>
+        <item>الكيوى</item>
+        <item>الروم و فرنسا</item>
+        <item>الفيل</item>
+        <item>جمهورى</item>
+        <item>قصر سليمان</item>
+        <item>بطرس الفاتح</item>
+        <item>ليرة</item>
+        <item>الكنغر</item>
+        <item>المال</item>
+        <item>88</item>
+        <item>7</item>
+        <item>11</item>
+        <item>100</item>
+        <item>الطحال</item>
+        <item>عباس ابن فرناس</item>
+        <item>تركيا</item>
+        <item>ياوندى</item>
+        <item>ليفربول</item>
+        <item>700</item>
+        <item>عقبة ابن نافع</item>
+        <item>ورق الشجر</item>
+        <item>كرات الدم الحمراء</item>
+        <item>الكلوروفيل</item>
+        <item>القلب</item>
+        <item>الجرب</item>
+        <item>1</item>
+        <item>500الف كيلومتر</item>
+        <item>الاوردة</item>
+        <item>شكسبير</item>
+        <item>المغرب</item>
+        <item>إليزابيث الاولى</item>
+        <item>300مليون خلية</item>
+        <item>السعودية</item>
+        <item>سيرفانتيس</item>
+        <item>المكسيك</item>
+        <item>الحرب العالمية</item>
+        <item>عباس ابن فرناس</item>
+        <item>يوسف الصديق(عليه السلام)</item>
+        <item>8ايام</item>
+        <item>نهر المسيسيبي</item>
+        <item>المازا</item>
+        <item>الصومال</item>
+        <item>الفراعنة</item>
+        <item>البرازيلية</item>
+        <item>المخابرات الروسية</item>
+        <item>المعتصم</item>
+        <item>جيبان فقط</item>
+        <item>50 سنة</item>
+        <item>اسماك القرش</item>
+        <item>العراق</item>
+        <item>علم الكائنات الحية</item>
+        <item>علم الخوارزميات</item>
+        <item>علم البحار</item>
+        <item>علم الفضاء</item>
+        <item>علم الاجناس</item>
+        <item>النظر</item>
+        <item>الخوارزمى</item>
+        <item>الشهر الثالث</item>
+        <item>ابن نوفيل</item>
+        <item>40سم</item>
+        <item>الشهر الثالث</item>
+        <item>علم البحار</item>
+        <item>أبقراط</item>
+        <item>جالينوس</item>
+        <item>أبقراط</item>
+        <item>أبقراط</item>
+        <item>البروتينات</item>
+        <item>العين</item>
+        <item>الاحماض الدهنية</item>
+        <item>عنصر الحديد</item>
+        <item>كلارا بارتون</item>
+        <item>مارى سيكول</item>
+        <item>ابن رشد</item>
+        <item>الحديد</item>
+        <item>المخيخ</item>
+        <item>احمر</item>
+        <item>الغدة الدرقية</item>
+        <item>الجلوكوز</item>
+        <item>السلحفاه</item>
+        <item>هدى الشعراوى</item>
+        <item>السويد</item>
+        <item>1905م</item>
+        <item>أوليفر وينشستر</item>
+        <item>خط النسخ</item>
+        <item>الفاعل</item>
+        <item>مجلس الوزراء</item>
+        <item>البرودة الشديدة</item>
+        <item>صالح(عليه السلام)</item>
+        <item>خضر(عليه السلام)</item>
+        <item>امريكا الجنوبية</item>
+        <item>خضر(عليه السلام)</item>
+        <item>خالك</item>
+        <item>اورغيت</item>
+        <item>هابيل</item>
+        <item>ادم(عليه السلام)</item>
+        <item>ادم(عليه السلام)</item>
+    </string-array>
+    //wrong choose 2
+    <string-array name="Wrongans2">
+        
+    </string-array>
 </resources>

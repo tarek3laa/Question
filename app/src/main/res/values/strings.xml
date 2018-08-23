@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">Question</string>
-    <string name="rank">Your Rank</string>
-    <string name="profile">Your profile</string>
-    <string name="item1">Sport</string>
-    <string name="item2">Science</string>
-    <string name="item3">item3</string>
+    <string name="rank">ترتيبك</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="your_name">اسمك</string>
+    <string name="item1">رياضه</string>
+    <string name="item2">علوم</string>
+    <string name="item3">دين</string>
     <string name="item4">item4</string>
     <string name="item5">item5</string>
     <string name="item6">item6</string>
@@ -23,7 +24,7 @@
         completions."
     </string>
 
-    // Strings for Science Part ques..
+    <!-- Strings for Science Part ques..-->
     <string-array name="Science">
         <item> ما هو اقوى الحيوانات ذاكرة؟</item>
         <item>ما هو العنصر الغذائى الذى لو وجد ف الحليب لاصبح غذاء كامل ؟</item>

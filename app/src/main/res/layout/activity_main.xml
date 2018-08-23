@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#e5e5e5"
+    android:background="#f8f8f8"
 
     >
 
@@ -15,8 +15,8 @@
         android:layout_width="130dp"
         android:layout_height="180dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="30dp"
+        android:layout_alignTop="@+id/cv_ranking"
+        android:layout_marginEnd="37dp"
         card:cardCornerRadius="20dp"
         card:cardElevation="2dp">
 
@@ -40,7 +40,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
 
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/profile"
 
                 />
 
@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="your name "
+                android:text="@string/your_name"
                 android:textColor="#000000"
                 android:textSize="17sp" />
         </LinearLayout>
@@ -59,12 +59,11 @@
     <android.support.v7.widget.CardView
         android:id="@+id/cv_ranking"
         android:layout_width="130dp"
-
         android:layout_height="180dp"
-
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="27dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="46dp"
         card:cardCornerRadius="20dp"
         card:cardElevation="2dp">
 
@@ -136,7 +135,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@drawable/sport"
                        android:layout_margin="5dp"
                         />
                     <TextView
@@ -158,15 +157,16 @@
                     android:orientation="vertical"
                     android:layout_margin="5dp"
                     android:padding="5dp"
+                    android:id="@+id/it_science"
                     >
 
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
                         android:layout_margin="5dp"
-                        />
+
+                        android:src="@drawable/scince" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -186,6 +186,7 @@
                     android:layout_margin="5dp"
                     android:orientation="vertical"
                     android:padding="5dp"
+                    android:id="@+id/it_religion"
 
                     >
 
@@ -194,7 +195,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/religion" />
 
                     <TextView
                         android:layout_width="wrap_content"

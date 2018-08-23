@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuestionActivity"
+    tools:context=".QuestionActivity">
+<LinearLayout
     android:orientation="vertical"
+    android:background="@drawable/background9"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
     >
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="7dp"
+        android:text="science"
+        android:id="@+id/tv_category"
+        android:gravity="center"
+        android:textColor="#FEFEFE "
+        android:textStyle="bold"
+        android:textSize="15sp" />
    <TextView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
@@ -16,9 +31,22 @@
        android:gravity="center"
        android:id="@+id/tv_timer"
        android:textSize="35sp"
-       android:textColor="#000000"
+       android:textColor="#FEFEFE"
        android:padding="2dp"
        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="7dp"
+        android:text="Question 3"
+        android:gravity="center"
+        android:textColor="#FEFEFE "
+        android:textStyle="normal"
+        android:textSize="15sp"
+        android:id="@+id/tv_no_question"
+        />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,16 +54,22 @@
         android:textSize="35sp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
         android:padding="2dp"
+        android:textColor="#FEFEFE "
         android:id="@+id/tv_question"
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="20dp"
-        android:padding="2dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
         >
 
         <Button
@@ -45,6 +79,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
             android:id="@+id/bt_answer1"
+            android:text="answer 1"
             />
 
         <Button
@@ -54,7 +89,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
             android:id="@+id/bt_answer2"
-
+            android:text="answer 2"
 
             />
 
@@ -64,14 +99,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="20dp"
-        android:padding="2dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:padding="5dp"
         >
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:text="answer 3"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
             android:id="@+id/bt_answer3"
@@ -81,7 +119,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:text="answer 4"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
             android:id="@+id/bt_answer4"
@@ -90,3 +128,4 @@
 
     </LinearLayout>
 </LinearLayout>
+</ScrollView>

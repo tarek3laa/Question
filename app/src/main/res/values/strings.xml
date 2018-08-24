@@ -6,7 +6,9 @@
     <string name="item1">رياضه</string>
     <string name="item2">علوم</string>
     <string name="item3">دين</string>
-
+    <string name="item4">item4</string>
+    <string name="item5">item5</string>
+    <string name="item6">item6</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

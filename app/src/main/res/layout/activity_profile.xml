@@ -7,11 +7,55 @@
     tools:context=".ProfileActivity"
     android:orientation="vertical"
     >
-   <TextView
+   <LinearLayout
        android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:id="@+id/name"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:layout_margin="10dp"
+       >
+       <de.hdodenhof.circleimageview.CircleImageView
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:src="@drawable/profile"
+           android:layout_margin="10dp"
+           />
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="name........"
+           android:layout_marginTop="25dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginLeft="40dp"
+           android:layout_marginBottom="10dp"
+           android:id="@+id/tv_pa_name"
+           />
 
-       />
+
+   </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EMAIL : "
+            android:layout_margin="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="email"
+            android:id="@+id/tv_pa_email"
+
+            android:layout_margin="20dp"
+            />
+
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

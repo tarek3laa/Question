@@ -28,8 +28,10 @@ public class SignUpActivity extends AppCompatActivity {
     LinearLayout mlyName, mlyUser;
     TextView mtvsign;
     boolean haveAccount = false;
-    User user0, user;
+    User user;
     DataBase dataBase;
+
+    private String name, Email, password, userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +45,12 @@ public class SignUpActivity extends AppCompatActivity {
         mbtHaveaccount = (Button) findViewById(R.id.bt_have_account);
         mlyName = (LinearLayout) findViewById(R.id.ly_name);
         mlyUser = (LinearLayout) findViewById(R.id.ly_user);
+        dataBase = new DataBase();
         mtvsign = (TextView) findViewById(R.id.tv_sign_or_sign_up);
         mbtHaveaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dataBase = new DataBase();
+
                 mtvsign.setText("Sign In");
                 mlyName.setVisibility(View.INVISIBLE);
                 mlyUser.setVisibility(View.INVISIBLE);
@@ -56,42 +59,47 @@ public class SignUpActivity extends AppCompatActivity {
                 haveAccount = true;
             }
         });
-        user0 = new User(this);
+
         mbtSign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 if (haveAccount) {
-                    //get email and password
-                    if (dataBase.getCurrUser(metUser.getText().toString()) != null) {
-                        user = dataBase.getCurrUser(metUser.getText().toString());
-                        if (metPassword.getText().toString().equals(user.getPassword())) {
-                            //user0.sharedPreferences.edit().putBoolean(User.IS_SIGN_KEY, true);
+                    userName = metUser.getText().toString();
+                    password = metPassword.getText().toString();
 
-                        } else {
-                            Toast.makeText(SignUpActivity.this, "password incorruct", Toast.LENGTH_LONG).show();
-                        }
-                    } else {
-                        Toast.makeText(SignUpActivity.this, "user name not found , please sign up ", Toast.LENGTH_LONG).show();
-
+                    if(dataBase.getCurrUser(userName,password)) {
+                        Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
+                    startActivity(intent);
                     }
+                    else Toast.makeText(SignUpActivity.this,"Error please try again",Toast.LENGTH_LONG).show();
 
 
                 } else {
-                    dataBase.setData(metName.getText().toString(), metUser.getText().toString(), metEmail.getText().toString(), metPassword.getText().toString());
-                  //  user0.sharedPreferences.edit().putString(User.EMAIL_KEY, metEmail.getText().toString());
-                  //  user0.sharedPreferences.edit().putString(User.NAME_KEY, metName.getText().toString());
-                   // user0.sharedPreferences.edit().putString(User.USER_KEY, metUser.getText().toString());
+                    name = metName.getText().toString();
+                    userName = metUser.getText().toString();
+                    Email = metEmail.getText().toString();
+                    password = metPassword.getText().toString();
+                    dataBase.setData(name, userName, Email, password);
+
+
+                    //  user0.sharedPreferences.edit().putString(User.EMAIL_KEY, metEmail.getText().toString());
+                    //  user0.sharedPreferences.edit().putString(User.NAME_KEY, metName.getText().toString());
+                    // user0.sharedPreferences.edit().putString(User.USER_KEY, metUser.getText().toString());
                     //user0.sharedPreferences.edit().putInt(User.SCORE_KEY, 0);
                     //user0.sharedPreferences.edit().putBoolean(User.IS_SIGN_KEY, true);
+                    Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
+                    intent.putExtra(User.NAME_KEY, name);
+                    intent.putExtra(User.EMAIL_KEY, Email);
 
-
+                    User.setSignUp(true);
+                    startActivity(intent);
 
 
                 }
+
             }
         });
-
 
     }
 

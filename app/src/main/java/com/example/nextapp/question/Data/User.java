@@ -1,37 +1,41 @@
 package com.example.nextapp.question.Data;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+
+import com.example.nextapp.question.MainActivity;
+
+import java.io.Serializable;
+
 
 public class User {
    private String name,Email,password;
 
     private int rank;
     private int score;
-    private boolean isSignUp =false;
+    private static boolean isSignUp =false;
     public static final String IS_SIGN_KEY="sign_in_key";
     public static final String NAME_KEY="name";
-    public static final String USER_KEY="name";
-    public static final String RANK_KEY="name";
-    public static final String SCORE_KEY="name";
-    public static final String EMAIL_KEY="name";
+    public static final String USER_KEY="user";
+    public static final String RANK_KEY="rank";
+    public static final String SCORE_KEY="score";
+    public static final String EMAIL_KEY="email";
 
+    public static final String FILE_NAME="com.example.nextapp.question.Data";
 
-    public static final String collectionReference="USER";
-    public SharedPreferences sharedPreferences;
-    public boolean isSignUp() {
+    public static final String collectionReference="USERS";
+
+    public static boolean isSignUp() {
         return isSignUp;
     }
 
-    public void setSignUp(boolean signUp) {
+    public static void setSignUp(boolean signUp) {
+
         isSignUp = signUp;
+        MainActivity.sharedPreferences.edit().putBoolean(IS_SIGN_KEY,signUp).apply();
     }
 
-    public User(Context context){
-        sharedPreferences=PreferenceManager.getDefaultSharedPreferences(context);
+    public User(){
 
     }
     public User(String name, String email,String password, int rank, int score ) {
@@ -44,7 +48,7 @@ public class User {
 
     }
 
-    public String getPassword() {
+    public  String getPassword() {
         return password;
     }
 

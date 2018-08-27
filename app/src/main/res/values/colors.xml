@@ -7,5 +7,9 @@
     <color name="true_answer">#8000ff00</color>
     <color name="wrong_answer">#80ff0000</color>
     <color name="button">#80334499</color>
+    <color name="color1">#80000000</color>
+    <color name="color2">#99ffffff</color>
+    <color name="color3">#fff</color>
+    <color name="color4">#50ff0000</color>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.example.nextapp.question;
 
+import android.content.Context;
 import android.content.Intent;
 
 import android.content.SharedPreferences;
@@ -19,29 +20,31 @@ public class MainActivity extends AppCompatActivity {
 
    private CardView mProfile;
    private LinearLayout sport;
-   User user;
-
-
-
-
+    User user;
+    public static  SharedPreferences sharedPreferences;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // user.sharedPreferences.edit().putBoolean(User.IS_SIGN_KEY,user.isSignUp());
+        sharedPreferences=getSharedPreferences(User.FILE_NAME, Context.MODE_PRIVATE);
+
 
         mProfile=(CardView)findViewById(R.id.cv_profile);
-        user=new User(this);
+
         mProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (user.isSignUp())
+                if (User.isSignUp())
 
                      startActivity(new Intent(MainActivity.this, ProfileActivity.class));
 
-                else startActivity(new Intent(MainActivity.this,SignUpActivity.class));
+                else {
+
+                    startActivity(new Intent(MainActivity.this,SignUpActivity.class));
+
+                }
             }
         });
 
@@ -59,7 +62,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        user.sharedPreferences.edit().putBoolean(User.IS_SIGN_KEY,user.isSignUp());
+
+       User.setSignUp(sharedPreferences.getBoolean(User.IS_SIGN_KEY,false));
+
+       String name = sharedPreferences.getString(User.NAME_KEY,"NULL"),Email = sharedPreferences.getString(User.EMAIL_KEY,"NULL"),password ="" ;
+       int score = sharedPreferences.getInt(User.SCORE_KEY,0),rank =sharedPreferences.getInt(User.RANK_KEY,-1);
+
+       user=new User(name,Email,password,score,rank);
+
 
     }
 }

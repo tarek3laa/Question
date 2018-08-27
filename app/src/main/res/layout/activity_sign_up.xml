@@ -6,11 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity"
     android:orientation="vertical"
+
     >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textAllCaps="true"
+        android:text="Sign Up"
+        android:gravity="center"
+        android:textSize="35sp"
+        android:textStyle="normal"
+        android:id="@+id/tv_sign_or_sign_up"
+        android:textColor="@color/button"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/ly_name"
+        android:visibility="visible"
+
+        >
 
         <TextView
             android:layout_width="0dp"
@@ -27,14 +53,49 @@
             android:layout_margin="5dp"
             android:padding="5dp"
             android:id="@+id/et_name"
+            android:inputType="textPersonName"
+
             />
 
 
     </LinearLayout>
-    <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/ly_user"
+
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Email : "
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:id="@+id/et_email"
+                android:inputType="textEmailAddress"
+                />
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="visible"
+        >
 
         <TextView
             android:layout_width="0dp"
@@ -51,7 +112,10 @@
             android:layout_margin="5dp"
             android:padding="5dp"
             android:id="@+id/et_user"
+            android:inputType="textAutoComplete"
             />
+
+
 
 
     </LinearLayout>
@@ -59,7 +123,57 @@
 
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Password : "
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:id="@+id/et_password"
+            android:inputType="textPassword"
+            android:visibility="visible"
+            />
 
 
+
+
+    </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@color/true_answer"
+            android:gravity="center"
+            android:text="SIGN UP"
+            android:id="@+id/bt_sign_up"
+
+            />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Already Have An Account    Sign In"
+            android:textColor="#7799ff"
+            android:textAllCaps="false"
+            android:layout_margin="20dp"
+            android:id="@+id/bt_have_account"
+            />
+    </LinearLayout>
 
 </LinearLayout>

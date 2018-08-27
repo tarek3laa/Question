@@ -22,9 +22,9 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
         timer = (TextView) findViewById(R.id.tv_timer);
-        ActionBar actionBar=getSupportActionBar();
-        actionBar.setTitle(Html.fromHtml("<font  color='#000000' > Sport</font>"));
-        startTimer();
+        //ActionBar actionBar=getSupportActionBar();
+       // actionBar.setTitle(Html.fromHtml("<font  color='#000000' > Sport</font>"));
+       startTimer();
 
 
     }

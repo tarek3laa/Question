@@ -20,8 +20,6 @@
         </activity>
         <activity android:name=".QuestionActivity" />
 
-        <activity android:name=".Rankactivity" />
-
         <activity android:name=".RankingActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".SignUpActivity"></activity>

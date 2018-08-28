@@ -31,34 +31,33 @@
        android:textColor="#FEFEFE"
        android:padding="2dp"
        />
+
     <TextView
+        android:id="@+id/tv_no._question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:padding="7dp"
-        android:text="Question 3"
         android:gravity="center"
+        android:padding="7dp"
+        android:text="Question 1"
         android:textColor="#FEFEFE "
-        android:textStyle="normal"
         android:textSize="15sp"
-        android:id="@+id/tv_no._question"
-        />
+        android:textStyle="normal" />
 
     <TextView
+        android:id="@+id/t1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="نظام الحكم ف اليابان هو ؟"
-        android:textSize="35sp"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
         android:padding="2dp"
+        android:text="نظام الحكم ف اليابان هو ؟"
         android:textColor="#FEFEFE "
-        android:id="@+id/tv_question"
-        />
+        android:textSize="35sp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,32 +69,30 @@
         >
 
         <Button
+            android:id="@+id/q1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:id="@+id/bt_answer1"
-            android:text="answer 1"
+            android:layout_marginTop="20dp"
             android:background="@drawable/button_style"
-            android:textColor="#ffff"
-            android:textStyle="normal"
+            android:text="answer 1"
             android:textAllCaps="false"
-            />
+            android:textColor="#ffff"
+            android:textStyle="normal" />
 
         <Button
+            android:id="@+id/q2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
+            android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
-            android:id="@+id/bt_answer2"
-            android:text="answer 2"
             android:background="@drawable/button_style"
-            android:textColor="#ecd9d9"
-            android:textStyle="normal"
+            android:text="answer 2"
             android:textAllCaps="false"
-            />
+            android:textColor="#ecd9d9"
+            android:textStyle="normal" />
 
     </LinearLayout>
 
@@ -111,30 +108,28 @@
         >
 
         <Button
+            android:id="@+id/q3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="answer 3"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
-            android:id="@+id/bt_answer3"
+            android:layout_marginTop="20dp"
             android:background="@drawable/button_style"
-            android:textColor="#ffff"
-            android:textStyle="normal"
+            android:text="answer 3"
             android:textAllCaps="false"
-            />
+            android:textColor="#ffff"
+            android:textStyle="normal" />
 
         <Button
+            android:id="@+id/q4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="answer 4"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
-            android:id="@+id/bt_answer4"
-            android:textColor="#ffff"
             android:background="@drawable/button_style"
-            android:textStyle="normal"
+            android:text="answer 4"
             android:textAllCaps="false"
-            />
+            android:textColor="#ffff"
+            android:textStyle="normal" />
 
     </LinearLayout>
 

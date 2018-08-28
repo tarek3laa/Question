@@ -28,7 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
     LinearLayout mlyName, mlyUser;
     TextView mtvsign;
     boolean haveAccount = false;
-    User user;
+
     DataBase dataBase;
 
     private String name, Email, password, userName;

@@ -7,8 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/background17"
 
+    android:background="@drawable/background17"
     >
 
     <android.support.v7.widget.CardView
@@ -181,16 +181,19 @@
                         android:layout_margin="5dp"
 
                         android:src="@drawable/scince" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="@string/item2"
                         android:padding="5dp"
                         android:textSize="18sp"
                         android:textColor="@color/color2"
-
+                        android:text="@string/item2"
+                       />
                         />
+
+
                 </LinearLayout>
 
 

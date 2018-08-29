@@ -3,6 +3,7 @@ package com.example.nextapp.question;
 import android.accounts.Account;
 import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,11 @@ import android.widget.Toast;
 
 import com.example.nextapp.question.Data.DataBase;
 import com.example.nextapp.question.Data.User;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class SignUpActivity extends AppCompatActivity {
@@ -68,11 +74,37 @@ public class SignUpActivity extends AppCompatActivity {
                     userName = metUser.getText().toString();
                     password = metPassword.getText().toString();
 
-                    if(dataBase.getCurrUser(userName,password)) {
-                        Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
-                    startActivity(intent);
-                    }
-                    else Toast.makeText(SignUpActivity.this,"Error please try again",Toast.LENGTH_LONG).show();
+                    /***********  ***************/
+                    DocumentReference UserReference0 = FirebaseFirestore.getInstance().collection(User.collectionReference).document(userName);
+                    UserReference0.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            if (documentSnapshot.exists()) {
+                                User user05 = documentSnapshot.toObject(User.class);
+                                if (user05.getPassword().equals(password)) {
+                                    //user and password are correct
+
+                                } else {
+
+                                    // password incorrect
+                                }
+
+
+                            } else {
+                                //user incorrect
+                            }
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(SignUpActivity.this, "try again", Toast.LENGTH_LONG).show();
+
+                        }
+                    });
+
+
+                    /*************************/
 
 
                 } else {

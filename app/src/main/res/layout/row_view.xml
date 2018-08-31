@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/rv_tv_email"
+            android:layout_width="334dp"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/rv_tv_score"
+            android:layout_toEndOf="@+id/rv_tv_score"
+            android:text="Email"
+            android:textColor="@color/color2"
+            android:textSize="25sp" />
+
+
+    <TextView
+        android:id="@+id/rv_tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/text_view_style"
+        android:gravity="center"
+        android:text="20"
+        android:textColor="@color/color4"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/rv_tv_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rv_tv_email"
+        android:layout_toStartOf="@+id/rv_tv_email"
+        android:background="@drawable/text_view_style2"
+        android:gravity="center"
+        android:text="10"
+        android:textColor="@color/color4"
+        android:textSize="20sp" />
+
+
+    </RelativeLayout>

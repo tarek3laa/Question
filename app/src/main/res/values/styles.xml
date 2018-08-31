@@ -7,8 +7,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 
         <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="android:listViewStyle">@style/StyleListView</item>
     </style>
-
+    <style name="StyleListView" parent="Widget.AppCompat.ListView">
+        <item name="android:requiresFadingEdge">vertical</item>
+        <item name="android:fadingEdgeLength">10dp</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
 
 </resources>

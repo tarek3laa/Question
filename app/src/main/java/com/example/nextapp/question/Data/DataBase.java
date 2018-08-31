@@ -1,30 +1,34 @@
 package com.example.nextapp.question.Data;
 
-import android.app.Activity;
-import android.app.Application;
+
 import android.support.annotation.NonNull;
-import android.widget.Toast;
 
 import com.example.nextapp.question.MainActivity;
-import com.google.android.gms.tasks.OnFailureListener;
+
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
+
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import static java.lang.Integer.parseInt;
 
 public class DataBase {
+
+
 
     DocumentReference UserReference;
     CollectionReference collectionReference;
     User user;
     public void setData(String name,String userName,String email,String password){
         UserReference = FirebaseFirestore.getInstance().collection(User.collectionReference).document(userName);
-        collectionReference =FirebaseFirestore.getInstance().collection("USER");
+
 
          user =new User(name,email,password,0,0);
         MainActivity.sharedPreferences.edit().putString(User.NAME_KEY,name);
@@ -33,19 +37,36 @@ public class DataBase {
         UserReference.set(user);
 
     }
-    public boolean getCurrUser(final String userName, final String password){
-        final boolean[] success = {false};
-        UserReference=FirebaseFirestore.getInstance().collection(User.collectionReference).document(userName);
-        UserReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
+   public static ArrayList<User>users;
+    public static boolean Success =false;
+   public void getUsers(){
+       collectionReference =FirebaseFirestore.getInstance().collection(User.collectionReference);
+       final ArrayList<User> users=new ArrayList<>();
+        users.add(new User("name","email","yjfyj",0,0));
+       collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+           @Override
+           public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
-                if (documentSnapshot.getId().equals(userName))success[0]=true;
+               for (QueryDocumentSnapshot documentSnapshot :queryDocumentSnapshots){
 
-                else success[0] = false;
-            }
-        });
+                   User user0=documentSnapshot.toObject(User.class);
+                   users.add(user0);
+                   System.out.println(user0.getName());
+               }
+           }
+       }).addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+           @Override
+           public void onComplete(@NonNull Task<QuerySnapshot> task) {
+               Success=true;
+           }
+       });
 
-        return success[0];
+
+
+
+
     }
-}
+
+
+
+ }

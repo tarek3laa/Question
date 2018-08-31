@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -48,6 +49,9 @@ public class QuestionActivity extends AppCompatActivity {
         q4 = (Button) findViewById(R.id.q4);
         t1 = (TextView) findViewById(R.id.t1);
         Question = (TextView) findViewById(R.id.tv_no__question);
+        // make textview scrollable
+        t1.setMovementMethod(new ScrollingMovementMethod());
+
         ans = getResources().getStringArray(R.array.RightAns);
         ques = getResources().getStringArray(R.array.Science);
         ans1 = getResources().getStringArray(R.array.wrong_ans1);
@@ -55,9 +59,8 @@ public class QuestionActivity extends AppCompatActivity {
         ans3 = getResources().getStringArray(R.array.Wrongans3);
         RightAnsTest = ans[s];
 
-
         t1.setText(ques[s]);
-        RandomModule();
+      //  RandomModule();
         s=s+1;
 
 

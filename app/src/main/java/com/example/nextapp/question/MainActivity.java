@@ -14,24 +14,28 @@ import android.widget.LinearLayout;
 
 import com.example.nextapp.question.Data.User;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class MainActivity extends AppCompatActivity {
 
 
-   private CardView mProfile;
-   private LinearLayout sport;
+     private CardView mProfile,mRank;
+     private LinearLayout sport;
     User user;
     public static  SharedPreferences sharedPreferences;
+    CircleImageView circleImageView;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         sharedPreferences=getSharedPreferences(User.FILE_NAME, Context.MODE_PRIVATE);
 
 
         mProfile=(CardView)findViewById(R.id.cv_profile);
-
+        mRank=(CardView)findViewById(R.id.cv_ranking);
         mProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +51,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        mRank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,RankingActivity.class));
+            }
+        });
+
+
 
         sport=(LinearLayout)findViewById(R.id.it_sport);
         sport.setOnClickListener(new View.OnClickListener() {

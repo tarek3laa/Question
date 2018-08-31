@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".QuestionActivity"
 
-    >
-<LinearLayout
-    android:orientation="vertical"
-    android:background="@drawable/background14"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
 
+    android:orientation="vertical"
+    android:background="@drawable/background16"
     >
+
+
 
 
    <TextView
@@ -47,7 +45,7 @@
     <TextView
         android:id="@+id/t1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="125dp"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="20dp"
@@ -55,9 +53,12 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:padding="2dp"
-        android:text="نظام الحكم ف اليابان هو ؟"
+        android:text="تكتب اللغة العربية بعدة خطوط منها الرقعة والنسخ والكوفى فأى تلك الخطوط أقدمها trhh  hdffddf gghhdhdhdhdhdhdhdhdfdhh  hd fd fdh  f d df d hf dhfd  df dfd  df df f hd h dh   hh  h h fhd hh hf hf f  f h fhf ؟"
         android:textColor="#FEFEFE "
-        android:textSize="35sp" />
+        android:textSize="25sp"
+        android:scrollbars = "vertical"
+
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -138,4 +139,3 @@
 
 
 </LinearLayout>
-</ScrollView>

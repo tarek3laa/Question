@@ -36,6 +36,10 @@ public class User {
         return isSignUp;
     }
 
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
     public static void setSignUp(boolean signUp) {
 
         isSignUp = signUp;
@@ -46,11 +50,9 @@ public class User {
 
     }
 
-    public User(String name, String email, String password, int rank, int score) {
+    public User(String name, String email, String password,int score) {
         this.name = name;
         this.Email = email;
-
-        this.rank = rank;
         this.score = score;
         this.password = password;
 

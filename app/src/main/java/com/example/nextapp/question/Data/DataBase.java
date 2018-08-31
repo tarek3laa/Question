@@ -30,7 +30,7 @@ public class DataBase {
         UserReference = FirebaseFirestore.getInstance().collection(User.collectionReference).document(userName);
 
 
-         user =new User(name,email,password,0,0);
+         user =new User(name,email,password,0);
         MainActivity.sharedPreferences.edit().putString(User.NAME_KEY,name);
         MainActivity.sharedPreferences.edit().putString(User.EMAIL_KEY,email);
         MainActivity.sharedPreferences.edit().apply();
@@ -42,7 +42,7 @@ public class DataBase {
    public void getUsers(){
        collectionReference =FirebaseFirestore.getInstance().collection(User.collectionReference);
        final ArrayList<User> users=new ArrayList<>();
-        users.add(new User("name","email","yjfyj",0,0));
+        users.add(new User("name","email","yjfyj",0));
        collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
            @Override
            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {

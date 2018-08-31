@@ -35,12 +35,8 @@ public class RecyclerViewAdapter  extends RecyclerView.Adapter<RecyclerViewAdapt
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.email.setText("Name : "
-                +String.valueOf(arrayList.get(position).getName())+
-                "  "+
-                "Email : "
-                +String.valueOf(arrayList.get(position).getEmail()));
-
+        holder.email.setText(String.valueOf(arrayList.get(position).getEmail()));
+           arrayList.get(position).setRank(position+1);
         holder.rank.setText(String.valueOf(arrayList.get(position).getRank()));
         holder.score.setText(String.valueOf(arrayList.get(position).getScore()));
 

@@ -1,11 +1,16 @@
 package com.example.nextapp.question;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.example.nextapp.question.Data.DataBase;
@@ -19,7 +24,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class RankingActivity extends AppCompatActivity {
 
@@ -27,16 +37,20 @@ public class RankingActivity extends AppCompatActivity {
     RecyclerViewAdapter adapter;
    ArrayList<User>users;
    CollectionReference collectionReference;
+   ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
 
        listView=(RecyclerView) findViewById(R.id.lv_ranking);
+       progressBar=(ProgressBar)findViewById(R.id.loading);
        users=new ArrayList<>();
+       final ArrayList<User>sortedUsers=new ArrayList<>();
        /**************************************************************************************************/
 
         collectionReference = FirebaseFirestore.getInstance().collection(User.collectionReference);
+        progressBar.setVisibility(View.VISIBLE);
 
         collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -50,14 +64,26 @@ public class RankingActivity extends AppCompatActivity {
                 }
             }
         }).addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @TargetApi(Build.VERSION_CODES.N)
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+
+                Collections.sort(users, new Comparator<User>() {
+                    @Override
+                    public int compare(User user, User t1) {
+                        return Integer.valueOf(t1.getScore()).compareTo(user.getScore());
+                    }
+                });
+
                 adapter=new RecyclerViewAdapter(users);
                 LinearLayoutManager layoutManager = new LinearLayoutManager(RankingActivity.this);
                 listView.setHasFixedSize(true);
                 listView.setLayoutManager(layoutManager);
 
                 listView.setAdapter(adapter);
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
 

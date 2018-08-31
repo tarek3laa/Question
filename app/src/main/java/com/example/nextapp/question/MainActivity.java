@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,10 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
 
      private CardView mProfile,mRank;
-     private LinearLayout sport;
+     private LinearLayout sport,generalInfo;
     User user;
     public static  SharedPreferences sharedPreferences;
     CircleImageView circleImageView;
+    public static final String Intentkey="Question";
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,10 +65,27 @@ public class MainActivity extends AppCompatActivity {
 
 
         sport=(LinearLayout)findViewById(R.id.it_sport);
+        generalInfo=(LinearLayout)findViewById(R.id.it_general_info);
+
+
         sport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,QuestionActivity.class));
+
+                Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
+                intent.putExtra(Intentkey,"sport");
+                startActivity(intent);
+            }
+        });
+
+
+        generalInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
+                intent.putExtra(Intentkey,"general info");
+                startActivity(intent);
             }
         });
 
@@ -82,8 +101,11 @@ public class MainActivity extends AppCompatActivity {
        String name = sharedPreferences.getString(User.NAME_KEY,"NULL"),Email = sharedPreferences.getString(User.EMAIL_KEY,"NULL"),password ="" ;
        int score = sharedPreferences.getInt(User.SCORE_KEY,0),rank =sharedPreferences.getInt(User.RANK_KEY,-1);
 
-       user=new User(name,Email,password,score,rank);
-
+       user=new User(name,Email,password,score);
+      // user.setRank(rank);
 
     }
+
+
+
 }

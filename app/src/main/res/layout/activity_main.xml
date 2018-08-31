@@ -248,13 +248,14 @@
                     android:orientation="vertical"
                     android:layout_margin="5dp"
                     android:padding="5dp"
+                    android:id="@+id/it_general_info"
                     >
 
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@drawable/askimg"
                         android:layout_margin="5dp"
                         />
                     <TextView
@@ -264,6 +265,8 @@
                         android:text="@string/item4"
                         android:padding="5dp"
                         android:textSize="18sp"
+                        android:gravity="center"
+
                         android:textColor="@color/color2"
 
 

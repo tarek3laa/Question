@@ -249,7 +249,7 @@ public class QuestionActivity extends AppCompatActivity {
         count +=0.5;
         Question.setText("Question "+ QuestionCount);
         QuestionCount = QuestionCount +1;
-        if(s==10){
+        if(s==107){
             Intent intent=new Intent(QuestionActivity.this,LastActivity.class);
             intent.putExtra("IQ",count);
 
@@ -262,7 +262,7 @@ public class QuestionActivity extends AppCompatActivity {
         s = s + 1;
         Question.setText("Question "+ QuestionCount);
         QuestionCount = QuestionCount +1;
-        if(s==10){
+        if(s==107){
             Intent intent=new Intent(QuestionActivity.this,LastActivity.class);
             intent.putExtra("IQ",count);
             startActivity(intent);

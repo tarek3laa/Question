@@ -1,8 +1,6 @@
 package com.example.nextapp.question;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.os.AsyncTask;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,11 +11,10 @@ import android.widget.TextView;
 
 import java.util.Locale;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class QuestionActivity extends AppCompatActivity {
     String[] ques;
-    TextView t1;
+    TextView mtvQuestion;
     Button q1, q2, q3, q4;
 
 
@@ -27,9 +24,10 @@ public class QuestionActivity extends AppCompatActivity {
     String[] ans1;
     String[] ans2;
     String[] ans3;
+
     String RightAnsTest;
     //count iq for any quiz
-    double count = 0;
+    double Score = 0;
     int QuestionCount = 2;
     TextView mtvQuestionNumber;
     String type = "";
@@ -50,19 +48,11 @@ public class QuestionActivity extends AppCompatActivity {
         q2 = (Button) findViewById(R.id.q2);
         q3 = (Button) findViewById(R.id.q3);
         q4 = (Button) findViewById(R.id.q4);
-        t1 = (TextView) findViewById(R.id.t1);
-
-        q1.setOnLongClickListener(new View.OnLongClickListener() {
-                                      @Override
-                                      public boolean onLongClick(View view) {
-                                          q1.setBackground(getDrawable(R.drawable.button_style_2));
-                                          return true;
-                                      }
-                                  });
+        mtvQuestion = (TextView) findViewById(R.id.tv_question);
 
         mtvQuestionNumber = (TextView) findViewById(R.id.tv_no__question);
         // make textview scrollable
-        t1.setMovementMethod(new ScrollingMovementMethod());
+        mtvQuestion.setMovementMethod(new ScrollingMovementMethod());
         Intent intent = getIntent();
         if (intent.hasExtra("Question"))
             type = intent.getStringExtra("Question");
@@ -75,7 +65,7 @@ public class QuestionActivity extends AppCompatActivity {
             ans3 = getResources().getStringArray(R.array.Wrongans3);
             RightAnsTest = ans[s];
         }
-        t1.setText(ques[s]);
+        mtvQuestion.setText(ques[s]);
         RandomModule();
         s++;
 
@@ -332,9 +322,9 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void RightAns() {
-        count += 0.5;
+        Score += 0.5;
 
-        t1.setText(ques[s]);
+        mtvQuestion.setText(ques[s]);
         s++;
 
         mtvQuestionNumber.setText("Question " + QuestionCount);
@@ -345,7 +335,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     public void WrongAns() {
 
-        t1.setText(ques[s]);
+        mtvQuestion.setText(ques[s]);
         s++;
         mtvQuestionNumber.setText("Question " + QuestionCount);
         QuestionCount++;
@@ -517,6 +507,8 @@ public class QuestionActivity extends AppCompatActivity {
 
 
     }
+
+
 
 
 

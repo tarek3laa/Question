@@ -1,25 +1,22 @@
 package com.example.nextapp.question.Data;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
 import com.example.nextapp.question.MainActivity;
-import com.google.firebase.firestore.Exclude;
-
-import java.io.Serializable;
-
 
 public class User {
-    private String name;
-    private String Email;
-    private String password;
 
+    private static int rank,score;
+    private static String name;
+    private static String Email;
+    private static String userName;
 
+    public static String getUserName() {
+        return userName;
+    }
 
+    public static void setUserName(String userName) {
+        User.userName = userName;
+    }
 
-
-    private int rank;
-    private int score;
     private static boolean isSignUp = false;
     public static final String IS_SIGN_KEY = "sign_in_key";
     public static final String NAME_KEY = "name";
@@ -28,57 +25,52 @@ public class User {
     public static final String SCORE_KEY = "score";
     public static final String EMAIL_KEY = "email";
 
-    public static final String FILE_NAME = "com.example.nextapp.question.Data";
 
-    public static final String collectionReference = "USERS";
 
     public static boolean isSignUp() {
         return isSignUp;
     }
 
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
 
     public static void setSignUp(boolean signUp) {
 
         isSignUp = signUp;
-        MainActivity.sharedPreferences.edit().putBoolean(IS_SIGN_KEY, signUp).apply();
+        MainActivity.putsharedPreferences(signUp,IS_SIGN_KEY);
     }
 
-    public User() {
-
-    }
-
-    public User(String name, String email, String password,int score) {
-        this.name = name;
-        this.Email = email;
-        this.score = score;
-        this.password = password;
-
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public int getRank() {
+    public static int getRank() {
         return rank;
     }
 
+    public static void setRank(int rank) {
+        User.rank = rank;
+    }
 
-    public int getScore() {
-
+    public static int getScore() {
         return score;
     }
+
+    public static void setScore(int score) {
+        User.score = score;
+    }
+
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        User.name = name;
+    }
+
+    public static String getEmail() {
+        return Email;
+    }
+
+    public static void setEmail(String email) {
+        Email = email;
+    }
+
+
 
 
 

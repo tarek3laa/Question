@@ -1,15 +1,9 @@
 package com.example.nextapp.question;
 
-import android.accounts.Account;
-import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.nextapp.question.Data.DataBase;
 import com.example.nextapp.question.Data.User;
+import com.example.nextapp.question.Data.Users;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -35,7 +29,6 @@ public class SignUpActivity extends AppCompatActivity {
     TextView mtvsign;
     boolean haveAccount = false;
 
-    DataBase dataBase;
 
     private String name, Email, password, userName;
 
@@ -51,7 +44,6 @@ public class SignUpActivity extends AppCompatActivity {
         mbtHaveaccount = (Button) findViewById(R.id.bt_have_account);
         mlyName = (LinearLayout) findViewById(R.id.ly_name);
         mlyUser = (LinearLayout) findViewById(R.id.ly_user);
-        dataBase = new DataBase();
         mtvsign = (TextView) findViewById(R.id.tv_sign_or_sign_up);
         mbtHaveaccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,23 +67,48 @@ public class SignUpActivity extends AppCompatActivity {
                     password = metPassword.getText().toString();
 
                     /***********  ***************/
-                    DocumentReference UserReference0 = FirebaseFirestore.getInstance().collection(User.collectionReference).document(userName);
+                    DocumentReference UserReference0 = FirebaseFirestore.getInstance().collection(Users.collectionReference).document(userName);
                     UserReference0.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             if (documentSnapshot.exists()) {
-                                User user05 = documentSnapshot.toObject(User.class);
+                                Users user05 = documentSnapshot.toObject(Users.class);
                                 if (user05.getPassword().equals(password)) {
+
+
                                     //user and password are correct
+                                    User.setSignUp(true);
+                                    User.setEmail(user05.getEmail());
+                                    User.setName(user05.getName());
+                                    User.setScore(user05.getScore());
+                                    User.setUserName(user05.getUserName());
+
+
+                                    MainActivity.putsharedPreferences(user05.getName(),User.NAME_KEY);
+                                    MainActivity.putsharedPreferences(userName,User.USER_KEY);
+                                    MainActivity.putsharedPreferences(user05.getEmail(),User.EMAIL_KEY);
+                                    MainActivity.putsharedPreferences(user05.getScore(),User.SCORE_KEY);
+
+
+
+                                    Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
+                                    startActivity(intent);
+
+
 
                                 } else {
 
-                                    // password incorrect
+                                    Toast.makeText(SignUpActivity.this,"password incorrect ",Toast.LENGTH_LONG).show();
                                 }
 
 
                             } else {
+
+
                                 //user incorrect
+                                Toast.makeText(SignUpActivity.this,"User Name incorrect ",Toast.LENGTH_LONG).show();
+
+
                             }
 
                         }
@@ -108,24 +125,28 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 } else {
+
                     name = metName.getText().toString();
                     userName = metUser.getText().toString();
-                    Email = metEmail.getText().toString();
-                    password = metPassword.getText().toString();
-                    dataBase.setData(name, userName, Email, password);
+                    DocumentReference UserReference0 = FirebaseFirestore.getInstance().collection(Users.collectionReference).document(userName);
+                    UserReference0.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            if (documentSnapshot.exists()) {
+                                Toast.makeText(SignUpActivity.this, "The username already exists ", Toast.LENGTH_LONG).show();
 
+                            }else {
+                                Email = metEmail.getText().toString();
+                                password = metPassword.getText().toString();
+                                setData(name, userName, Email, password);
+                                Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
+                                User.setSignUp(true);
+                                startActivity(intent);
+                            }
 
-                    //  user0.sharedPreferences.edit().putString(User.EMAIL_KEY, metEmail.getText().toString());
-                    //  user0.sharedPreferences.edit().putString(User.NAME_KEY, metName.getText().toString());
-                    // user0.sharedPreferences.edit().putString(User.USER_KEY, metUser.getText().toString());
-                    //user0.sharedPreferences.edit().putInt(User.SCORE_KEY, 0);
-                    //user0.sharedPreferences.edit().putBoolean(User.IS_SIGN_KEY, true);
-                    Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
-                    intent.putExtra(User.NAME_KEY, name);
-                    intent.putExtra(User.EMAIL_KEY, Email);
+                        }
+                    });
 
-                    User.setSignUp(true);
-                    startActivity(intent);
 
 
                 }
@@ -136,4 +157,25 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
+    public void setData(String name,String userName,String email,String password){
+        DocumentReference UserReference;
+        Users user;
+        UserReference = FirebaseFirestore.getInstance().collection(Users.collectionReference).document(userName);
+        user =new Users(name,email,userName,password,0);
+
+        User.setSignUp(true);
+        User.setEmail(user.getEmail());
+        User.setName(user.getName());
+        User.setScore(user.getScore());
+        User.setUserName(user.getUserName());
+        UserReference.set(user);
+
+
+
+        MainActivity.putsharedPreferences(name,User.NAME_KEY);
+        MainActivity.putsharedPreferences(userName,User.USER_KEY);
+        MainActivity.putsharedPreferences(email,User.EMAIL_KEY);
+
+
+    }
 }

@@ -43,7 +43,7 @@
         android:textStyle="normal" />
 
     <TextView
-        android:id="@+id/t1"
+        android:id="@+id/tv_question"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:layout_gravity="center"
@@ -53,7 +53,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:padding="2dp"
-        android:text="تكتب اللغة العربية بعدة خطوط منها الرقعة والنسخ والكوفى فأى تلك الخطوط أقدمها trhh  hdffddf gghhdhdhdhdhdhdhdhdfdhh  hd fd fdh  f d df d hf dhfd  df dfd  df df f hd h dh   hh  h h fhd hh hf hf f  f h fhf ؟"
+        android:text=""
         android:textColor="#FEFEFE "
         android:textSize="25sp"
         android:scrollbars = "vertical"

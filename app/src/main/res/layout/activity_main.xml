@@ -191,7 +191,7 @@
                         android:textColor="@color/color2"
                         android:text="@string/item2"
                        />
-                        />
+
 
 
                 </LinearLayout>

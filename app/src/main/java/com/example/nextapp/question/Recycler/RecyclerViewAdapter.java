@@ -8,16 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.nextapp.question.Data.User;
+import com.example.nextapp.question.Data.Users;
 import com.example.nextapp.question.R;
 
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter  extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
-    ArrayList<User>arrayList;
+    ArrayList<Users>arrayList;
 
-    public RecyclerViewAdapter(ArrayList<User> arrayList) {
+    public RecyclerViewAdapter(ArrayList<Users> arrayList) {
         this.arrayList = arrayList;
     }
 
@@ -35,10 +35,10 @@ public class RecyclerViewAdapter  extends RecyclerView.Adapter<RecyclerViewAdapt
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         holder.email.setText(String.valueOf(arrayList.get(position).getEmail()));
-           arrayList.get(position).setRank(position+1);
-        holder.rank.setText(String.valueOf(arrayList.get(position).getRank()));
         holder.score.setText(String.valueOf(arrayList.get(position).getScore()));
+        holder.rank.setText(String.valueOf(position+1));
 
     }
 

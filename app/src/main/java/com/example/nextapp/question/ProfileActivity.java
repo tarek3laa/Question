@@ -1,16 +1,14 @@
 package com.example.nextapp.question;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.nextapp.question.Data.User;
 
-
 public class ProfileActivity extends AppCompatActivity {
 
-    TextView name,email;
+   private TextView name,email,rank,score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,20 +17,19 @@ public class ProfileActivity extends AppCompatActivity {
         name=(TextView)findViewById(R.id.tv_pa_name);
         email=(TextView)findViewById(R.id.tv_pa_email);
 
+        rank=(TextView)findViewById(R.id.tv_pa_rank);
+        score=(TextView)findViewById(R.id.tv_pa_score);
 
-
-            name.setText(MainActivity.sharedPreferences.getString(User.NAME_KEY,""));
-            email.setText(MainActivity.sharedPreferences.getString(User.EMAIL_KEY,""));
-
-
-
-
-
-
-
-
+        name.setText(User.getName());
+        email.setText(User.getEmail());
+        rank.setText(String.valueOf(User.getRank()));
+        score.setText(String.valueOf(User.getScore()));
 
     }
+
+
+
+
 
 
 }

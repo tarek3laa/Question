@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        sport=(LinearLayout)findViewById(R.id.it_sport);
+        sport=(LinearLayout)findViewById(R.id.it_science);
         sport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

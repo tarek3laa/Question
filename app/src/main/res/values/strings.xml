@@ -22,7 +22,6 @@
     <string name="permission_rationale">Contacts permissions are needed for providing email completions</string>
 
 
-
     <!-- Strings for Science Part ques..-->
 
     <string-array name="Science">
@@ -251,7 +250,7 @@
         <item>إدريس(عليه السلام)</item>
     </string-array>
 
-     //wrong choose 1
+    //wrong choose 1
     <string-array name="wrong_ans1">
         <item>القرد</item>
         <item>الدهون</item>

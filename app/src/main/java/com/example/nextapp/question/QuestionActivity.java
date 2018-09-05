@@ -1,5 +1,6 @@
 package com.example.nextapp.question;
 
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -248,6 +249,12 @@ public class QuestionActivity extends AppCompatActivity {
         count +=0.5;
         Question.setText("Question "+ QuestionCount);
         QuestionCount = QuestionCount +1;
+        if(s==10){
+            Intent intent=new Intent(QuestionActivity.this,LastActivity.class);
+            intent.putExtra("IQ",count);
+
+            startActivity(intent);
+        }
     }
     public  void WrongAns(){
         t1.setText(ques[s]);
@@ -255,6 +262,11 @@ public class QuestionActivity extends AppCompatActivity {
         s = s + 1;
         Question.setText("Question "+ QuestionCount);
         QuestionCount = QuestionCount +1;
+        if(s==10){
+            Intent intent=new Intent(QuestionActivity.this,LastActivity.class);
+            intent.putExtra("IQ",count);
+            startActivity(intent);
+        }
     }
 
 }

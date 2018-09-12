@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         generalInfo=(LinearLayout)findViewById(R.id.it_general_info);
 
 
+        sport=(LinearLayout)findViewById(R.id.it_science);
         sport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -181,7 +182,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public static void putsharedPreferences(String s,String key){
-
         sharedPreferences.edit().putString(key,s).apply();
     }
     public static void putsharedPreferences(int i,String key){

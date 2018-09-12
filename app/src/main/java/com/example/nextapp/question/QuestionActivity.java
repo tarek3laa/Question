@@ -27,9 +27,9 @@ public class QuestionActivity extends AppCompatActivity {
 
     String RightAnsTest;
     //count iq for any quiz
-    double Score = 0;
+    double count = 0;
     int QuestionCount = 2;
-    TextView mtvQuestionNumber;
+    TextView Question;
     String type = "";
 
     private static final long START_TIME = 15000;
@@ -50,7 +50,7 @@ public class QuestionActivity extends AppCompatActivity {
         q4 = (Button) findViewById(R.id.q4);
         mtvQuestion = (TextView) findViewById(R.id.tv_question);
 
-        mtvQuestionNumber = (TextView) findViewById(R.id.tv_no__question);
+        Question = (TextView) findViewById(R.id.tv_no__question);
         // make textview scrollable
         mtvQuestion.setMovementMethod(new ScrollingMovementMethod());
         Intent intent = getIntent();
@@ -95,14 +95,7 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                if (q1.getText().toString().equals(ans[s]))
-                    q1.setBackground(getDrawable(R.drawable.button_style_2));
-                else if (q2.getText().toString().equals(ans[s]))
-                    q2.setBackground(getDrawable(R.drawable.button_style_2));
-                else if (q3.getText().toString().equals(ans[s]))
-                    q3.setBackground(getDrawable(R.drawable.button_style_2));
-                else if (q4.getText().toString().equals(ans[s]))
-                    q4.setBackground(getDrawable(R.drawable.button_style_2));
+                RandomModule();
             }
         }.start();
     }
@@ -322,24 +315,44 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void RightAns() {
-        Score += 0.5;
+        count += 0.5;
 
         mtvQuestion.setText(ques[s]);
         s++;
 
-        mtvQuestionNumber.setText("Question " + QuestionCount);
+        Question.setText("Question " + QuestionCount);
         QuestionCount++;
 
         RandomModule();
+
+        s = s + 1;
+        count +=0.5;
+        Question.setText("Question "+ QuestionCount);
+        QuestionCount = QuestionCount +1;
+        if(s==107){
+            Intent intent=new Intent(QuestionActivity.this,LastActivity.class);
+            intent.putExtra("IQ",count);
+
+            startActivity(intent);
+        }
     }
 
     public void WrongAns() {
 
         mtvQuestion.setText(ques[s]);
         s++;
-        mtvQuestionNumber.setText("Question " + QuestionCount);
+        Question.setText("Question " + QuestionCount);
         QuestionCount++;
         RandomModule();
+        s = s + 1;
+        Question.setText("Question "+ QuestionCount);
+        QuestionCount = QuestionCount +1;
+        if(s==107){
+            Intent intent=new Intent(QuestionActivity.this,LastActivity.class);
+            intent.putExtra("IQ",count);
+            startActivity(intent);
+        }
+
     }
 
     private void setColor(Button button, boolean b) {

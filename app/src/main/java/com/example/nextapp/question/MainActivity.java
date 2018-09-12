@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
      private LinearLayout sport,generalInfo;
      private AdView mAdView;
 
-     TextView mtvRank;
+     TextView mtvRank,mtvName;
+
 
     public static  SharedPreferences sharedPreferences;
 
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         //ad mob
         MobileAds.initialize(this, "ca-app-pub-4645956600658698~7244291082");
         mAdView = findViewById(R.id.adView);
@@ -55,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         mAdView.loadAd(adRequest);
 
-
-
+        mtvName=(TextView)findViewById(R.id.tv_name);
         sharedPreferences=getSharedPreferences(Users.FILE_NAME, Context.MODE_PRIVATE);
 
 
@@ -126,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
        User.setSignUp(sharedPreferences.getBoolean(User.IS_SIGN_KEY,false));
 
        final String name = sharedPreferences.getString(User.NAME_KEY,"NULL"),Email = sharedPreferences.getString(User.EMAIL_KEY,"NULL"),password ="" ,userName=sharedPreferences.getString(User.USER_KEY,"");
-       int score = sharedPreferences.getInt(User.SCORE_KEY,0);
+       float score = sharedPreferences.getFloat(User.SCORE_KEY,0);
 
        User.setUserName(userName);
        User.setName(name);
@@ -144,7 +146,10 @@ public class MainActivity extends AppCompatActivity {
            final ArrayList<Users> users=new ArrayList<>();
          CollectionReference collectionReference = FirebaseFirestore.getInstance().collection(Users.collectionReference);
 
+          DocumentReference documentReference=FirebaseFirestore.getInstance().collection(Users.collectionReference).document(User.getUserName());
 
+
+           documentReference.update("score",User.getScore());
            collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                @Override
                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -205,7 +210,10 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferences.edit().putBoolean(key,b).apply();
     }
+    public static void putsharedPreferences(float d,String key){
 
+        sharedPreferences.edit().putFloat(key,d).apply();
+    }
 
 
 }

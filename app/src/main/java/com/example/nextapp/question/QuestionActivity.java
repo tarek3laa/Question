@@ -8,6 +8,9 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.nextapp.question.Data.User;
 
 import java.util.Locale;
 import java.util.Random;
@@ -24,14 +27,14 @@ public class QuestionActivity extends AppCompatActivity {
     String[] ans1;
     String[] ans2;
     String[] ans3;
-
+    boolean onClick=false,trueAns=false;
     String RightAnsTest;
     //count iq for any quiz
-    double count = 0;
+    double count ;
     int QuestionCount = 2;
     TextView Question;
     String type = "";
-
+    CountDownTimer countDownTimer;
     private static final long START_TIME = 15000;
     private long mTime = START_TIME;
     private TextView timer;
@@ -57,6 +60,8 @@ public class QuestionActivity extends AppCompatActivity {
         if (intent.hasExtra("Question"))
             type = intent.getStringExtra("Question");
 
+
+
         if (type.equals("general info")) {
             ans = getResources().getStringArray(R.array.RightAns);
             ques = getResources().getStringArray(R.array.general_info);
@@ -67,7 +72,6 @@ public class QuestionActivity extends AppCompatActivity {
         }
         mtvQuestion.setText(ques[s]);
         RandomModule();
-        s++;
 
 
 
@@ -75,14 +79,14 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void startTimer() {
+       // onStartTimer=true;
         mTime = START_TIME;
         timer();
-
     }
 
     private void timer() {
 
-        new CountDownTimer(mTime, 1000) {
+       countDownTimer = new CountDownTimer(mTime, 1000) {
             @Override
             public void onTick(long l) {
                 mTime = l;
@@ -94,10 +98,50 @@ public class QuestionActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                if(q1.getText().toString().equals(ans[s]))
+                    setColor(q1,true);
+                else if(q2.getText().toString().equals(ans[s]))
+                    setColor(q2,true);
+                else if(q3.getText().toString().equals(ans[s]))
+                    setColor(q3,true);
+                else if(q4.getText().toString().equals(ans[s]))
+                    setColor(q4,true);
+                trueAns=false;
+                timer2(5);
 
-                RandomModule();
+
+
+
+
+
             }
         }.start();
+    }
+
+    private void timer2(int sec){
+        sec*=1000;
+            new CountDownTimer(sec,1000) {
+            @Override
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                onClick=false;
+                startTimer();
+
+
+                    if (trueAns) RightAns();
+                    else WrongAns();
+
+
+
+
+            }
+        }.start();
+
+
     }
 
 
@@ -110,8 +154,7 @@ public class QuestionActivity extends AppCompatActivity {
         q3.setText(ans2[s]);
         q4.setText(ans3[s]);
 
-        //checkerm1();
-        // check();
+        checkerm1();
     }
 
     public void module2() {
@@ -119,8 +162,7 @@ public class QuestionActivity extends AppCompatActivity {
         q2.setText(ans[s]);
         q3.setText(ans3[s]);
         q4.setText(ans2[s]);
-      // checkerm2();
-        // check();
+      checkerm2();
     }
 
     public void module3() {
@@ -129,8 +171,7 @@ public class QuestionActivity extends AppCompatActivity {
         q3.setText(ans[s]);
         q4.setText(ans2[s]);
 
-       // checkerm3();
-        //   check();
+        checkerm3();
     }
 
     public void module4() {
@@ -139,32 +180,26 @@ public class QuestionActivity extends AppCompatActivity {
         q3.setText(ans3[s]);
         q4.setText(ans[s]);
 
-        // checkerm4();
-       // check();
+        checkerm4();
     }
 
     public void RandomModule() {
+            q1.setBackground(getResources().getDrawable(R.drawable.button_style));
+            q2.setBackground(getResources().getDrawable(R.drawable.button_style));
+            q3.setBackground(getResources().getDrawable(R.drawable.button_style));
+            q4.setBackground(getResources().getDrawable(R.drawable.button_style));
+            Random RandomNumber = new Random();
+            int number = RandomNumber.nextInt(4);
+            if (number == 1) {
+                module1();
+            } else if (number == 2) {
+                module2();
+            } else if (number == 3) {
+                module3();
+            } else {
+                module4();
+            }
 
-
-        //  q1.setBackground(getResources().getDrawable(R.drawable.button_style));
-        //  q2.setBackground(getResources().getDrawable(R.drawable.button_style));
-        //  q3.setBackground(getResources().getDrawable(R.drawable.button_style));
-        //  q4.setBackground(getResources().getDrawable(R.drawable.button_style));
-
-
-        startTimer();
-
-        Random RandomNumber = new Random();
-        int number = RandomNumber.nextInt(4);
-        if (number == 1) {
-            module1();
-        } else if (number == 2) {
-            module2();
-        } else if (number == 3) {
-            module3();
-        } else {
-            module4();
-        }
     }
 
     public void checkerm1() {
@@ -172,34 +207,107 @@ public class QuestionActivity extends AppCompatActivity {
                                   @Override
                                   public void onClick(View view) {
 
-                                      setColor(q1, true);
-                                      RightAns();
+                                      if(!onClick) {
+                                          setColor(q1, true);
+
+                                          if (countDownTimer != null)
+                                              countDownTimer.cancel();
+                                          trueAns = true;
+                                          onClick = true;
+
+                                          if(q1.getText().toString().equals(ans[s]))
+                                              setColor(q1,true);
+                                          else if(q2.getText().toString().equals(ans[s]))
+                                              setColor(q2,true);
+                                          else if(q3.getText().toString().equals(ans[s]))
+                                              setColor(q3,true);
+                                          else if(q4.getText().toString().equals(ans[s]))
+                                              setColor(q4,true);
+                                          trueAns=false;
+
+                                          timer2(5);
+                                      }
+
                                   }
                               }
         );
         q2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q2, false);
 
-                WrongAns();
+                if (!onClick) {
+
+                    setColor(q2, false);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = false;
+                    onClick = true;
+
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
+
+                    timer2(5);
+                }
+
             }
         });
         q3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q3, false);
 
-                WrongAns();
+                if(!onClick) {
+                    setColor(q3, false);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = false;
+                    onClick = true;
+
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
+
+                    timer2(5);
+                }
+
             }
         });
         q4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q4, false);
 
+                    if(!onClick) {
+                        setColor(q4, false);
+                        if (countDownTimer != null)
+                            countDownTimer.cancel();
+                        trueAns = false;
+                        onClick = true;
 
-                WrongAns();
+                        if(q1.getText().toString().equals(ans[s]))
+                            setColor(q1,true);
+                        else if(q2.getText().toString().equals(ans[s]))
+                            setColor(q2,true);
+                        else if(q3.getText().toString().equals(ans[s]))
+                            setColor(q3,true);
+                        else if(q4.getText().toString().equals(ans[s]))
+                            setColor(q4,true);
+                        trueAns=false;
+
+                        timer2(5);
+                    }
+
             }
         });
     }
@@ -208,36 +316,102 @@ public class QuestionActivity extends AppCompatActivity {
         q1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q1, false);
+                if(!onClick) {
+                    setColor(q1, false);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = false;
+                    onClick = true;
 
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
 
-                WrongAns();
+                    timer2(5);
+                }
+
             }
         });
         q2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q2, true);
+                if(!onClick) {
+                    setColor(q2, true);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = true;
+                    onClick = true;
 
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
 
-                RightAns();
+                    timer2(5);
+                }
             }
         });
         q3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q3, false);
+                if(!onClick) {
+                    setColor(q3, false);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = false;
+                    onClick = true;
 
-                WrongAns();
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
+
+
+                    timer2(5);
+
+                }
             }
         });
 
         q4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q4, false);
 
-                WrongAns();
+                if(!onClick) {
+                    setColor(q4, false);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = false;
+                    onClick = true;
+
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
+
+                    timer2(5);
+                }
             }
         });
     }
@@ -246,34 +420,102 @@ public class QuestionActivity extends AppCompatActivity {
         q1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(!onClick){
                 setColor(q1, false);
+                if (countDownTimer!=null)
+                    countDownTimer.cancel();
+                trueAns=false;
+                onClick=true;
 
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
 
-                WrongAns();
+                timer2(5);
             }
+            }
+
         });
         q2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q2, false);
 
-                WrongAns();
+                if (!onClick) {
+                    setColor(q2, false);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = false;
+                    onClick = true;
+
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
+
+                    timer2(5);
+                }
             }
         });
         q3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q3, true);
-                RightAns();
+                if (!onClick) {
+                    setColor(q3, true);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = true;
+                    onClick = true;
+
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
+
+                    timer2(5);
+                }
             }
         });
 
         q4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q4, false);
 
-                WrongAns();
+                if(!onClick) {
+                    setColor(q4, false);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = false;
+                    onClick = true;
+
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
+
+                    timer2(5);
+                }
             }
         });
     }
@@ -282,79 +524,136 @@ public class QuestionActivity extends AppCompatActivity {
         q1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q1, false);
 
-                WrongAns();
+                if(!onClick) {
+                    setColor(q1, false);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = false;
+                    onClick = true;
+
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
+
+                    timer2(5);
+
+                }
             }
         });
         q2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!onClick) {
+                    setColor(q2, false);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = false;
+                    onClick = true;
 
-                setColor(q2, false);
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
 
-
-                WrongAns();
+                    timer2(5);
+                }
             }
         });
         q3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q3, false);
-                WrongAns();
+                if (!onClick) {
+                    setColor(q3, false);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = false;
+                    onClick = true;
+
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
+
+                    timer2(5);
+                }
             }
         });
 
         q4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setColor(q4, true);
-                RightAns();
+                if (!onClick) {
+                    setColor(q4, true);
+                    if (countDownTimer != null)
+                        countDownTimer.cancel();
+                    trueAns = true;
+                    onClick = true;
+
+                    if(q1.getText().toString().equals(ans[s]))
+                        setColor(q1,true);
+                    else if(q2.getText().toString().equals(ans[s]))
+                        setColor(q2,true);
+                    else if(q3.getText().toString().equals(ans[s]))
+                        setColor(q3,true);
+                    else if(q4.getText().toString().equals(ans[s]))
+                        setColor(q4,true);
+                    trueAns=false;
+
+                    timer2(5);
+                }
             }
         });
     }
 
     public void RightAns() {
-        count += 0.5;
+              count += 0.5;
+             s++;
+            mtvQuestion.setText(ques[s]);
 
-        mtvQuestion.setText(ques[s]);
-        s++;
+            Question.setText("Question " + QuestionCount);
+            QuestionCount++;
+             RandomModule();
+            if (s == 107) {
+                Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
+                intent.putExtra("IQ", count);
 
-        Question.setText("Question " + QuestionCount);
-        QuestionCount++;
+                startActivity(intent);
+            }
 
-        RandomModule();
-
-        s = s + 1;
-        count +=0.5;
-        Question.setText("Question "+ QuestionCount);
-        QuestionCount = QuestionCount +1;
-        if(s==107){
-            Intent intent=new Intent(QuestionActivity.this,LastActivity.class);
-            intent.putExtra("IQ",count);
-
-            startActivity(intent);
-        }
     }
-
     public void WrongAns() {
-
-        mtvQuestion.setText(ques[s]);
         s++;
-        Question.setText("Question " + QuestionCount);
-        QuestionCount++;
+            mtvQuestion.setText(ques[s]);
+
+            Question.setText("Question " + QuestionCount);
+            QuestionCount++;
         RandomModule();
-        s = s + 1;
-        Question.setText("Question "+ QuestionCount);
-        QuestionCount = QuestionCount +1;
-        if(s==107){
-            Intent intent=new Intent(QuestionActivity.this,LastActivity.class);
-            intent.putExtra("IQ",count);
-            startActivity(intent);
-        }
+            if (s == 107) {
+                Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
+                intent.putExtra("IQ", count);
+                startActivity(intent);
+            }
+
+
 
     }
-
     private void setColor(Button button, boolean b) {
 
         if (b) {
@@ -362,170 +661,18 @@ public class QuestionActivity extends AppCompatActivity {
         } else {
             button.setBackground(getDrawable(R.drawable.button_style2));
         }
-
-
-
     }
 
-    void check(){
-
-
-        q1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if(q1.getText().toString().equals(ans[s])){
-
-                    setColor(q1,true);
-
-                    RightAns();
-
-                }else {
-                    setColor(q1,false);
-                    if(q2.getText().toString().equals(ans[s])){
-
-                        setColor(q2,true);
-
-
-                    }else if(q3.getText().toString().equals(ans[s])){
-
-                        setColor(q3,true);
-
-
-                    }
-                    else if(q4.getText().toString().equals(ans[s])){
-
-                        setColor(q4,true);
-
-
-                    }
-                    WrongAns();
-
-                }
-
-
-
-            }
-        });
-        q2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if(q2.getText().toString().equals(ans[s])){
-
-                    setColor(q2,true);
-                    RightAns();
-
-                }else {
-                    setColor(q2,false);
-                     if(q1.getText().toString().equals(ans[s])){
-
-                        setColor(q1,true);
-                    }else if(q3.getText().toString().equals(ans[s])){
-
-                         setColor(q3,true);
-                     }
-                     else if(q4.getText().toString().equals(ans[s])){
-
-                         setColor(q4,true);
-
-
-                     }
-                    WrongAns();
-
-                }
-
-
-
-            }
-
-            }
-        );
-        q3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                if(q3.getText().toString().equals(ans[s])){
-
-                    setColor(q3,true);
-                    RightAns();
-
-                }else {
-                    setColor(q3,false);
-
-
-                    if(q1.getText().toString().equals(ans[s])){
-
-                        setColor(q1,true);
-                    }else if(q2.getText().toString().equals(ans[s])){
-
-                        setColor(q2,true);
-                    }
-                    else if(q4.getText().toString().equals(ans[s])){
-
-                        setColor(q4,true);
-
-
-                    }
-                WrongAns();
-
-                }
-
-
-
-            }
-
-            }
-        );
-
-        q4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-
-                if(q4.getText().toString().equals(ans[s])){
-
-                    setColor(q4,true);
-                    RightAns();
-
-                }else {
-                    setColor(q4,false);
-
-
-
-                    if(q1.getText().toString().equals(ans[s])){
-
-                        setColor(q1,true);
-                    }else if(q3.getText().toString().equals(ans[s])){
-
-                        setColor(q3,true);
-                    }
-                    else if(q2.getText().toString().equals(ans[s])){
-
-                        setColor(q2,true);
-
-
-                    }
-                    WrongAns();
-                }
-
-
-
-            }
-
-
-        });
-
-
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-
-
-
-    
+    }
 }
 
 

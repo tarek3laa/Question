@@ -4,10 +4,20 @@ import com.example.nextapp.question.MainActivity;
 
 public class User {
 
-    private static int rank,score;
+    private static int rank;
+    private static float score;
     private static String name;
     private static String Email;
     private static String userName;
+    private static int NO_QUESTIONi;
+
+    public static int getNO_QUESTIONi() {
+        return NO_QUESTIONi;
+    }
+
+    public static void setNO_QUESTIONi(int NO_QUESTIONi) {
+        User.NO_QUESTIONi = NO_QUESTIONi;
+    }
 
     public static String getUserName() {
         return userName;
@@ -25,7 +35,7 @@ public class User {
     public static final String SCORE_KEY = "score";
     public static final String EMAIL_KEY = "email";
     public static final String IMAGE_PATH_KEY="image";
-
+    public static final String NO_QUESTION="NO.";
 
 
     public static boolean isSignUp() {
@@ -47,11 +57,11 @@ public class User {
         User.rank = rank;
     }
 
-    public static int getScore() {
+    public static float getScore() {
         return score;
     }
 
-    public static void setScore(int score) {
+    public static void setScore(float score) {
         User.score = score;
     }
 

@@ -9,14 +9,36 @@
     android:background="@drawable/background31"
     >
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/profile"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/profile"
+            android:id="@+id/ci_profile"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="56dp"
+            android:clickable="true"
+            app:backgroundTint="@color/wrong_answer"
+            android:src="@drawable/ic_add_circle_black_24dp"
+
+            />
+
+
+    </RelativeLayout>
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
@@ -70,8 +92,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="|
-|"
+            android:text="|\n|"
             android:textSize="20sp"
             android:gravity="center"
             android:textColor="@color/color3"
@@ -88,13 +109,19 @@
             android:fontFamily="serif"
             android:id="@+id/tv_pa_rank"
             />
-
-
-
     </LinearLayout>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+    </com.google.android.gms.ads.AdView>
 
-
-    </LinearLayout>
+</LinearLayout>
 
 
 

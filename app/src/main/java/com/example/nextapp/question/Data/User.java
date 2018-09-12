@@ -24,6 +24,7 @@ public class User {
     public static final String RANK_KEY = "rank";
     public static final String SCORE_KEY = "score";
     public static final String EMAIL_KEY = "email";
+    public static final String IMAGE_PATH_KEY="image";
 
 
 

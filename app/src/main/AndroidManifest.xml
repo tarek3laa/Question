@@ -23,6 +23,12 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LastActivity"></activity>
+
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4645956600658698~7244291082"/>
+
     </application>
 
 </manifest>

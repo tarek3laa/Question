@@ -1,19 +1,55 @@
 package com.example.nextapp.question;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nextapp.question.Data.User;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
 
-   private TextView name,email,rank,score;
+    private static final int SELECT_IMAGE = 25 ;
+    private TextView name,email,rank,score;
+    FloatingActionButton fb;
+    CircleImageView imageView;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        //ad mob
+        MobileAds.initialize(this, "ca-app-pub-4645956600658698~7244291082");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);
+
         name=(TextView)findViewById(R.id.tv_pa_name);
         email=(TextView)findViewById(R.id.tv_pa_email);
 
@@ -25,11 +61,120 @@ public class ProfileActivity extends AppCompatActivity {
         rank.setText(String.valueOf(User.getRank()));
         score.setText(String.valueOf(User.getScore()));
 
+
+        imageView=(CircleImageView) findViewById(R.id.ci_profile);
+
+
+
+        // set image button
+        fb=(FloatingActionButton)findViewById(R.id.floatingActionButton);
+
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // intent for open gallery and return selected image
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);//
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"),SELECT_IMAGE);
+
+            }
+        });
+
     }
 
+    /**
+     * this method calling after the user choose an image
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == SELECT_IMAGE)
+        {
+            if (resultCode == Activity.RESULT_OK)
+            {
+                if (data != null)
+                {
+                    try
+                    {
 
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
+                        imageView.setImageBitmap(bitmap);
+                        //save image to app folder and put this path in sharedPreferences
+                        MainActivity.putsharedPreferences(saveToInternalStorage(bitmap).toString(),User.IMAGE_PATH_KEY);
 
+                    } catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
 
+                }
+            } else if (resultCode == Activity.RESULT_CANCELED)
+            {
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
+    /**
+     *
+     * @param bitmapImage
+     * @return
+     */
+    @NonNull
+    private String saveToInternalStorage(Bitmap bitmapImage){
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath=new File(directory,"profile.jpg");
 
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(mypath);
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return directory.getAbsolutePath();
+    }
+
+    /**
+     *
+     * @param path
+     */
+    private void loadImageFromStorage(String path)
+    {
+
+        try {
+            File f=new File(path, "profile.jpg");
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+
+           imageView.setImageBitmap(b);
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+      String path =  MainActivity.sharedPreferences.getString(User.IMAGE_PATH_KEY,null);
+       loadImageFromStorage(path);
+    }
 }

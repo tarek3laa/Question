@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import com.example.nextapp.question.Data.User;
 import com.example.nextapp.question.Data.Users;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -28,6 +31,8 @@ public class SignUpActivity extends AppCompatActivity {
     LinearLayout mlyName, mlyUser;
     TextView mtvsign;
     boolean haveAccount = false;
+    private AdView mAdView;
+
 
 
     private String name, Email, password, userName;
@@ -36,6 +41,18 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+
+        //ad mob
+        MobileAds.initialize(this, "ca-app-pub-4645956600658698~7244291082");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);
+
+
+
         metName = (EditText) findViewById(R.id.et_name);
         metUser = (EditText) findViewById(R.id.et_user);
         metEmail = (EditText) findViewById(R.id.et_email);

@@ -14,10 +14,6 @@ public class Users {
     private String Email;
     private String password;
     private String userName;
-
-
-
-
     private int score;
 
 

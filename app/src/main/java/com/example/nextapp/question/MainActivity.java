@@ -14,6 +14,9 @@ import android.widget.TextView;
 
 import com.example.nextapp.question.Data.User;
 import com.example.nextapp.question.Data.Users;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
      private CardView mProfile, mcvRank;
      private LinearLayout sport,generalInfo;
+     private AdView mAdView;
 
      TextView mtvRank;
 
@@ -42,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //ad mob
+        MobileAds.initialize(this, "ca-app-pub-4645956600658698~7244291082");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);
+
 
 
         sharedPreferences=getSharedPreferences(Users.FILE_NAME, Context.MODE_PRIVATE);

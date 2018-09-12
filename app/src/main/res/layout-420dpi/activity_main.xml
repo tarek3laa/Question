@@ -12,8 +12,8 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv_profile"
-        android:layout_width="110dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="180dp"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/cv_ranking"
         android:layout_marginEnd="37dp"
@@ -32,6 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/profile"
+                android:textSize="18sp"
                 android:textColor="@color/color2"
 
                 />
@@ -49,16 +50,17 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/your_name"
+
                 android:textColor="@color/color2"
-                android:textSize="17sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv_ranking"
-        android:layout_width="110dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="180dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="37dp"
@@ -83,6 +85,7 @@
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="@string/rank"
+                android:textSize="25sp"
                 android:textColor="@color/color2" />
 
             <TextView
@@ -93,6 +96,7 @@
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="#15"
+                android:textSize="30sp"
 
                 android:textColor="@color/color2" />
         </LinearLayout>

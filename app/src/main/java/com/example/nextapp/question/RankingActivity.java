@@ -12,6 +12,9 @@ import android.widget.ProgressBar;
 import com.example.nextapp.question.Data.User;
 import com.example.nextapp.question.Data.Users;
 import com.example.nextapp.question.Recycler.RecyclerViewAdapter;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -31,10 +34,24 @@ public class RankingActivity extends AppCompatActivity {
    ArrayList<Users>users;
    CollectionReference collectionReference;
    ProgressBar progressBar;
+   private AdView mAdView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
+
+        // ad mob
+        MobileAds.initialize(this, "ca-app-pub-4645956600658698~7244291082");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);
+
+
+
 
        listView=(RecyclerView) findViewById(R.id.lv_ranking);
        progressBar=(ProgressBar)findViewById(R.id.loading);

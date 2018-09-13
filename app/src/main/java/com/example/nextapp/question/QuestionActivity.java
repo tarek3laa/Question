@@ -79,7 +79,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void startTimer() {
-       // onStartTimer=true;
+
         mTime = START_TIME;
         timer();
     }
@@ -90,14 +90,20 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onTick(long l) {
                 mTime = l;
+                if((mTime/1000)<=5)timer.setTextColor(getResources().getColor(R.color.wrong_answer));
+                else timer.setTextColor(getResources().getColor(R.color.color3));
+                if((mTime/1000)>=10)
+                timer.setText("00:"+String.valueOf(mTime/1000));
+                else
+                    timer.setText("00:0"+String.valueOf(mTime/1000));
 
-                int m = (int) (mTime / 1000) / 60;
-                int s = (int) (mTime / 1000) % 60;
-                timer.setText(String.format(Locale.getDefault(), "0%2d:%02d", m, s));
+
             }
 
             @Override
             public void onFinish() {
+
+                System.out.println("on Finish");
                 if(q1.getText().toString().equals(ans[s]))
                     setColor(q1,true);
                 else if(q2.getText().toString().equals(ans[s]))
@@ -143,10 +149,6 @@ public class QuestionActivity extends AppCompatActivity {
 
 
     }
-
-
-
-    //TODO : Replace checkerm1(),checkerm2(),checkerm3()And checkerm4() with check()
 
     public void module1() {
         q1.setText(ans[s]);

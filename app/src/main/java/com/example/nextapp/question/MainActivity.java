@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,9 +28,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
      private AdView mAdView;
 
      TextView mtvRank,mtvName;
+
+     CircleImageView profileImage;
 
 
     public static  SharedPreferences sharedPreferences;
@@ -59,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         mtvName=(TextView)findViewById(R.id.tv_name);
+        profileImage=(CircleImageView)findViewById(R.id.ci_profile);
         sharedPreferences=getSharedPreferences(Users.FILE_NAME, Context.MODE_PRIVATE);
 
 
@@ -128,12 +138,21 @@ public class MainActivity extends AppCompatActivity {
        User.setSignUp(sharedPreferences.getBoolean(User.IS_SIGN_KEY,false));
 
        final String name = sharedPreferences.getString(User.NAME_KEY,"NULL"),Email = sharedPreferences.getString(User.EMAIL_KEY,"NULL"),password ="" ,userName=sharedPreferences.getString(User.USER_KEY,"");
-       float score = sharedPreferences.getFloat(User.SCORE_KEY,0);
+       float score = sharedPreferences.getFloat(User.SCORE_KEY, (float) 0.0);
+        String path =  MainActivity.sharedPreferences.getString(User.IMAGE_PATH_KEY,null);
 
-       User.setUserName(userName);
+
+
+
+        User.setUserName(userName);
        User.setName(name);
        User.setEmail(Email);
        User.setScore(score);
+       mtvName.setText(String.valueOf(User.getName()));
+
+       loadImageFromStorage(path,profileImage);
+
+
 
 
 
@@ -144,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
            /**************************************************************************************************/
 
            final ArrayList<Users> users=new ArrayList<>();
-         CollectionReference collectionReference = FirebaseFirestore.getInstance().collection(Users.collectionReference);
+           CollectionReference collectionReference = FirebaseFirestore.getInstance().collection(Users.collectionReference);
 
           DocumentReference documentReference=FirebaseFirestore.getInstance().collection(Users.collectionReference).document(User.getUserName());
 
@@ -213,6 +232,21 @@ public class MainActivity extends AppCompatActivity {
     public static void putsharedPreferences(float d,String key){
 
         sharedPreferences.edit().putFloat(key,d).apply();
+    }
+    private  void loadImageFromStorage(String path,CircleImageView imageView)
+    {
+
+        try {
+            File f=new File(path, "profile.jpg");
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+
+            imageView.setImageBitmap(b);
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
     }
 
 

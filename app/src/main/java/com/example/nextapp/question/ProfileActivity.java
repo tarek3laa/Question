@@ -154,7 +154,7 @@ public class ProfileActivity extends AppCompatActivity {
      *
      * @param path
      */
-    private void loadImageFromStorage(String path)
+    private  void loadImageFromStorage(String path,CircleImageView imageView)
     {
 
         try {
@@ -174,7 +174,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-      String path =  MainActivity.sharedPreferences.getString(User.IMAGE_PATH_KEY,null);
-       loadImageFromStorage(path);
+       String path =  MainActivity.sharedPreferences.getString(User.IMAGE_PATH_KEY,null);
+       loadImageFromStorage(path,imageView);
     }
 }

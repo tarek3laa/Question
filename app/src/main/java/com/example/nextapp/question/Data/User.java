@@ -9,15 +9,6 @@ public class User {
     private static String name;
     private static String Email;
     private static String userName;
-    private static int NO_QUESTIONi;
-
-    public static int getNO_QUESTIONi() {
-        return NO_QUESTIONi;
-    }
-
-    public static void setNO_QUESTIONi(int NO_QUESTIONi) {
-        User.NO_QUESTIONi = NO_QUESTIONi;
-    }
 
     public static String getUserName() {
         return userName;
@@ -35,7 +26,7 @@ public class User {
     public static final String SCORE_KEY = "score";
     public static final String EMAIL_KEY = "email";
     public static final String IMAGE_PATH_KEY="image";
-    public static final String NO_QUESTION="NO.";
+    public static final String GI_NO_QUESTION ="GI No Question";
 
 
     public static boolean isSignUp() {

@@ -41,7 +41,9 @@
                 android:layout_height="50dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/profile" />
+                android:src="@drawable/profile"
+                android:id="@+id/ci_profile"
+                />
 
             <TextView
                 android:id="@+id/tv_name"

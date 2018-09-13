@@ -66,8 +66,6 @@ public class RankingActivity extends AppCompatActivity {
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                    System.out.println("Email : "+documentSnapshot.toObject(Users.class).getEmail());
-                    System.out.println("Email : "+documentSnapshot.toObject(Users.class).getName());
 
                     users.add(documentSnapshot.toObject(Users.class));
 

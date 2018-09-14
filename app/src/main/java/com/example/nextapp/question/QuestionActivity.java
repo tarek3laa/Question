@@ -1,15 +1,14 @@
 package com.example.nextapp.question;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.nextapp.question.Data.User;
 
@@ -36,7 +35,7 @@ public class QuestionActivity extends AppCompatActivity {
     TextView Question;
     String type = "";
     CountDownTimer countDownTimer;
-    private static final long START_TIME = 15000;
+    private static final long START_TIME = 25000;
     private long mTime = START_TIME;
     private TextView timer;
 
@@ -44,6 +43,9 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
         s=MainActivity.sharedPreferences.getInt(User.GI_NO_QUESTION,0);
         QuestionCount=s+1;
@@ -71,7 +73,7 @@ public class QuestionActivity extends AppCompatActivity {
         Question.setText("Question " + QuestionCount);
 
         if (type.equals("general info")) {
-            ans = getResources().getStringArray(R.array.RightAns);
+            ans = getResources().getStringArray(R.array.GI_RightAns);
             ques = getResources().getStringArray(R.array.general_info);
             ans1 = getResources().getStringArray(R.array.wrong_ans1);
             ans2 = getResources().getStringArray(R.array.Wrongans2);

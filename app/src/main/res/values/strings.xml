@@ -138,7 +138,7 @@
 
 
     <!--right ans -->
-    <string-array name="RightAns">
+    <string-array name="GI_RightAns">
         <item>الجمل</item>
         <item>الحديد</item>
         <item>نجمة البحر</item>

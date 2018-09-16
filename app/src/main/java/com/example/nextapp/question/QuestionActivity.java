@@ -661,8 +661,8 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void RightAns() {
-        count+=05;
-             s++;
+        count+=0.5;
+            s++;
             mtvQuestion.setText(ques[s]);
             QuestionCount++;
             Question.setText("Question " + QuestionCount);
@@ -709,7 +709,6 @@ public class QuestionActivity extends AppCompatActivity {
         MainActivity.putsharedPreferences(s,type);
         MainActivity.putsharedPreferences(count,User.SCORE_KEY);
         User.setScore( count);
-        System.out.println(User.getScore());
 
     }
 

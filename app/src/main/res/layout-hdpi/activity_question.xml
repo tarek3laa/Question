@@ -12,37 +12,37 @@
 
 
 
-   <TextView
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:text="00:00"
-       android:layout_marginTop="10dp"
-       android:layout_marginBottom="7dp"
-       android:layout_marginRight="7dp"
-       android:layout_marginLeft="7dp"
-       android:gravity="center"
-       android:id="@+id/tv_timer"
-       android:textSize="50sp"
-       android:textColor="#FEFEFE"
-       android:padding="2dp"
-       />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:id="@+id/tv_timer"
+        android:textSize="30sp"
+        android:textColor="#FEFEFE"
+        android:padding="2dp"
+        />
 
     <TextView
         android:id="@+id/tv_no._question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="7dp"
+        android:layout_margin="5dp"
         android:gravity="center"
-        android:padding="7dp"
+        android:padding="5dp"
         android:text="Question 1"
         android:textColor="#FEFEFE "
-        android:textSize="40sp"
+        android:textSize="12sp"
         android:textStyle="normal" />
 
     <TextView
         android:id="@+id/tv_question"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="110dp"
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="18dp"
@@ -50,51 +50,54 @@
         android:layout_marginTop="18dp"
         android:gravity="center"
         android:padding="2dp"
-        android:scrollbars="vertical"
         android:text=""
         android:textColor="#FEFEFE "
-        android:textSize="35sp"
+        android:textSize="18sp"
+        android:scrollbars = "vertical"
 
         />
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="18dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="5dp"
-        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="3dp"
+        android:padding="5dp"
         android:layout_gravity="center"
         >
+
         <Button
             android:id="@+id/q1"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
+
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/button_style"
             android:text="answer 1"
             android:textAllCaps="false"
             android:textColor="#ecd9d9"
             android:textStyle="normal"
-            android:textSize="35sp"
+            android:textSize="15sp"
             android:padding="5dp"
+
             />
 
         <Button
             android:id="@+id/q2"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
 
             android:layout_height="wrap_content"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/button_style"
             android:text="answer 2"
             android:textAllCaps="false"
             android:textColor="#ecd9d9"
             android:textStyle="normal"
-            android:textSize="35sp"
+            android:textSize="15sp"
             android:padding="5dp"
 
             />
@@ -102,46 +105,46 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="10dp"
         android:padding="5dp"
         android:layout_gravity="center"
         >
 
         <Button
             android:id="@+id/q3"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/button_style"
             android:text="answer 3"
             android:textAllCaps="false"
             android:textColor="#ecd9d9"
             android:textStyle="normal"
-            android:textSize="35sp"
+            android:textSize="15sp"
             android:padding="5dp"
+
             />
 
         <Button
             android:id="@+id/q4"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/button_style"
             android:text="answer 4"
             android:textAllCaps="false"
             android:textColor="#ecd9d9"
             android:textStyle="normal"
-            android:textSize="35sp"
+            android:textSize="15sp"
             android:padding="5dp"
-
             />
 
     </LinearLayout>

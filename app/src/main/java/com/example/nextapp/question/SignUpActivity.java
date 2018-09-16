@@ -7,6 +7,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -91,71 +92,84 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (haveAccount) {
+
                     userName = metUser.getText().toString();
                     password = metPassword.getText().toString();
+                    if (TextUtils.isEmpty(userName)){
+                        Toast.makeText(SignUpActivity.this,"Username is required",Toast.LENGTH_LONG).show();
 
-                    /***********  ***************/
-                    DocumentReference UserReference0 = FirebaseFirestore.getInstance().collection(Users.collectionReference).document(userName);
-                    UserReference0.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                        @Override
-                        public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            if (documentSnapshot.exists()) {
-                                Users user05 = documentSnapshot.toObject(Users.class);
-                                if (user05.getPassword().equals(password)) {
+                    }if (TextUtils.isEmpty(password)){
+                        Toast.makeText(SignUpActivity.this,"password is required",Toast.LENGTH_LONG).show();
 
+                    }
+                    if ((!TextUtils.isEmpty(userName))&&(!TextUtils.isEmpty(password))) {
 
-                                    //user and password are correct
-                                    User.setSignUp(true);
-                                    User.setEmail(user05.getEmail());
-                                    User.setName(user05.getName());
-                                    User.setScore(user05.getScore());
-                                    User.setUserName(user05.getUserName());
+                        /***********  ***************/
+                        DocumentReference UserReference0 = FirebaseFirestore.getInstance().collection(Users.collectionReference).document(userName);
 
-
-                                    MainActivity.putsharedPreferences(user05.getName(),User.NAME_KEY);
-                                    MainActivity.putsharedPreferences(userName,User.USER_KEY);
-                                    MainActivity.putsharedPreferences(user05.getEmail(),User.EMAIL_KEY);
-                                    MainActivity.putsharedPreferences(user05.getScore(),User.SCORE_KEY);
+                        UserReference0.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                            @Override
+                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                if (documentSnapshot.exists()) {
+                                    Users user05 = documentSnapshot.toObject(Users.class);
+                                    if (user05.getPassword().equals(password)) {
 
 
+                                        //user and password are correct
+                                        User.setSignUp(true);
+                                        User.setEmail(user05.getEmail());
+                                        User.setName(user05.getName());
+                                        User.setScore(user05.getScore());
+                                        User.setUserName(user05.getUserName());
 
-                                    Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
-                                    startActivity(intent);
 
+                                        MainActivity.putsharedPreferences(user05.getName(), User.NAME_KEY);
+                                        MainActivity.putsharedPreferences(userName, User.USER_KEY);
+                                        MainActivity.putsharedPreferences(user05.getEmail(), User.EMAIL_KEY);
+                                        MainActivity.putsharedPreferences(user05.getScore(), User.SCORE_KEY);
+
+
+                                        Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
+                                        startActivity(intent);
+
+
+                                    } else {
+
+                                        Toast.makeText(SignUpActivity.this, "password incorrect ", Toast.LENGTH_LONG).show();
+                                    }
 
 
                                 } else {
 
-                                    Toast.makeText(SignUpActivity.this,"password incorrect ",Toast.LENGTH_LONG).show();
+
+                                    //user incorrect
+                                    Toast.makeText(SignUpActivity.this, "User Name incorrect ", Toast.LENGTH_LONG).show();
+
+
                                 }
 
-
-                            } else {
-
-
-                                //user incorrect
-                                Toast.makeText(SignUpActivity.this,"User Name incorrect ",Toast.LENGTH_LONG).show();
-
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(SignUpActivity.this, "try again", Toast.LENGTH_LONG).show();
 
                             }
-
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(SignUpActivity.this, "try again", Toast.LENGTH_LONG).show();
-
-                        }
-                    });
+                        });
 
 
-                    /*************************/
-
+                        /*************************/
+                    }
 
                 } else {
 
                     name = metName.getText().toString();
                     userName = metUser.getText().toString();
+                    if (TextUtils.isEmpty(userName)) {
+                        Toast.makeText(SignUpActivity.this, "Username is required", Toast.LENGTH_LONG).show();
+
+                    }
+                     else{
                     DocumentReference UserReference0 = FirebaseFirestore.getInstance().collection(Users.collectionReference).document(userName);
                     UserReference0.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
@@ -163,18 +177,22 @@ public class SignUpActivity extends AppCompatActivity {
                             if (documentSnapshot.exists()) {
                                 Toast.makeText(SignUpActivity.this, "The username already exists ", Toast.LENGTH_LONG).show();
 
-                            }else {
+                            } else {
                                 Email = metEmail.getText().toString();
                                 password = metPassword.getText().toString();
-                                setData(name, userName, Email, password);
-                                Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
-                                User.setSignUp(true);
-                                startActivity(intent);
+                                if (TextUtils.isEmpty(name)&&TextUtils.isEmpty(Email)&&TextUtils.isEmpty(password))
+                                    Toast.makeText(SignUpActivity.this, "There is an empty field", Toast.LENGTH_LONG).show();
+                                else {
+                                    setData(name, userName, Email, password);
+                                    Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
+                                    User.setSignUp(true);
+                                    startActivity(intent);
+                                }
                             }
 
                         }
                     });
-
+                }
 
 
                 }

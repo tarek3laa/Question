@@ -69,7 +69,7 @@
 
         <Button
             android:id="@+id/q1"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
 
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -82,7 +82,7 @@
 
         <Button
             android:id="@+id/q2"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
 
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -108,7 +108,7 @@
 
         <Button
             android:id="@+id/q3"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
@@ -120,7 +120,7 @@
 
         <Button
             android:id="@+id/q4"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"

@@ -3,9 +3,12 @@ package com.example.nextapp.question;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.CountDownTimer;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -38,18 +41,20 @@ public class QuestionActivity extends AppCompatActivity {
     private static final long START_TIME = 25000;
     private long mTime = START_TIME;
     private TextView timer;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
+        actionBar = this.getSupportActionBar();
+        if(actionBar!=null)actionBar.setDisplayHomeAsUpEnabled(true);
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
-        s=MainActivity.sharedPreferences.getInt(User.GI_NO_QUESTION,0);
-        QuestionCount=s+1;
-        count=MainActivity.sharedPreferences.getFloat(User.SCORE_KEY, (float) 0);
+
 
 
 
@@ -70,16 +75,41 @@ public class QuestionActivity extends AppCompatActivity {
         if (intent.hasExtra("Question"))
             type = intent.getStringExtra("Question");
 
+        s=MainActivity.sharedPreferences.getInt(type,0);
+        QuestionCount=s+1;
+        count=MainActivity.sharedPreferences.getFloat(User.SCORE_KEY, (float) 0);
+
         Question.setText("Question " + QuestionCount);
 
-        if (type.equals("general info")) {
+        if (type.equals(User.GI_QUESTION)) {
             ans = getResources().getStringArray(R.array.GI_RightAns);
             ques = getResources().getStringArray(R.array.general_info);
-            ans1 = getResources().getStringArray(R.array.wrong_ans1);
-            ans2 = getResources().getStringArray(R.array.Wrongans2);
-            ans3 = getResources().getStringArray(R.array.Wrongans3);
-            RightAnsTest = ans[s];
+            ans1 = getResources().getStringArray(R.array.GI_wrong_ans1);
+            ans2 = getResources().getStringArray(R.array.GI_Wrongans2);
+            ans3 = getResources().getStringArray(R.array.GI_Wrongans3);
         }
+      else if(type.equals(User.RELIGION_QUESTION)){
+
+            ans = getResources().getStringArray(R.array.RELIGION_TRUE_ANS);
+            ques = getResources().getStringArray(R.array.RELIGION_QUESTION);
+            ans1 = getResources().getStringArray(R.array.RELIGION_WRONG_ANS1);
+            ans2 = getResources().getStringArray(R.array.RELIGION_WRONG_ANS2);
+            ans3 = getResources().getStringArray(R.array.RELIGION_WRONG_ANS3);
+        }
+        else if (type.equals(User.SPORT_QUESTION)){
+
+
+
+        }
+        else if(type.equals(User.SCIENCE_QUESTION)){
+
+
+
+        }
+
+
+
+
         mtvQuestion.setText(ques[s]);
         RandomModule();
 
@@ -676,11 +706,20 @@ public class QuestionActivity extends AppCompatActivity {
         super.onPause();
 
         countDownTimer.cancel();
-        MainActivity.putsharedPreferences(s,User.GI_NO_QUESTION);
+        MainActivity.putsharedPreferences(s,type);
         MainActivity.putsharedPreferences(count,User.SCORE_KEY);
         User.setScore( count);
         System.out.println(User.getScore());
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

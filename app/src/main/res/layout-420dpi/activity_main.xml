@@ -98,7 +98,7 @@
                 android:layout_margin="10dp"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="#15"
+                android:text="#"
                 android:textSize="30sp"
 
                 android:textColor="@color/color2" />
@@ -292,8 +292,6 @@
                         android:text="@string/item5"
                         android:textColor="@color/color2"
                         android:textSize="18sp"
-
-
                         />
                 </LinearLayout>
 

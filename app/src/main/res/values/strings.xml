@@ -7,8 +7,8 @@
     <string name="item2">علوم</string>
     <string name="item3">دين</string>
     <string name="item4">معلومات \n عامه</string>
-    <string name="item5">item5</string>
-    <string name="item6">item6</string>
+    <string name="item5">قريبا</string>
+    <string name="item6">قريبا</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -250,8 +250,8 @@
         <item>إدريس(عليه السلام)</item>
     </string-array>
 
-    //wrong choose 1
-    <string-array name="wrong_ans1">
+    <!--wrong choose 1-->
+    <string-array name="GI_wrong_ans1">
         <item>القرد</item>
         <item>الدهون</item>
         <item>السحلية</item>
@@ -362,8 +362,8 @@
         <item>ادم(عليه السلام)</item>
         <item>ادم(عليه السلام)</item>
     </string-array>
-    //wrong choose 2
-    <string-array name="Wrongans2">
+    <!--wrong choose 2-->
+    <string-array name="GI_Wrongans2">
         <item>الكلب</item>
         <item>البروتين</item>
         <item>كلب البحر</item>
@@ -475,7 +475,7 @@
         <item>موسى(عليه السلام)</item>
     </string-array>
 
-    <string-array name="Wrongans3">
+    <string-array name="GI_Wrongans3">
         <item>القطة</item>
         <item>الفسفور</item>
         <item>الكانجارو</item>
@@ -586,5 +586,277 @@
         <item>اسماعيل(عليه السلام)</item>
         <item>اسماعيل(عليه السلام)</item>
     </string-array>
+
+
+    <string-array name="RELIGION_QUESTION">
+        <item>أول من سمى القرآن بالمصحف هو</item>
+        <item>أول فدائية في الإسلام هي </item>
+        <item>أول من رمى بسهم في سبيل الله هو </item>
+        <item>كانت زرقاء اليمامة تبصر من مسيرة تقارب </item>
+        <item>أول بيت بني في الأرض هو </item>
+        <item>أول من خط و خاط هو </item>
+        <item> أول من حفظ القرآن الكريم عن ظهر قلب بعد محمد الله عليه الصلاة والسلام</item>
+        <item> أول من اتخذ جهاز شرطة في الإسلام و جعل لها جهازا مستقلا لحفظ الأمن هو</item>
+        <item>أول من سل سيف في سبيل الله هو </item>
+        <item> أول من قدم المدينة من المهاجرين هو</item>
+        <item>أول آية نزلت في القتال قوله تعالى ( أذن للذين يقاتلون بأنهم ظلموا و إن الله على نصرهم لقدير) في اي سورة ذكرت هذه الايه</item>
+        <item> ماعدد سور القرآن الكريم</item>
+        <item> ماعدد السور المكيه </item>
+        <item>ماعدد السور المدنية </item>
+        <item> ما أطول كلمة فى القرآن الكريم</item>
+        <item>ماعدد السجدات فى القرآن الكريم</item>
+        <item>ماأول سورة كاملة نزلت على الرسول صلى الله عليه وسلم </item>
+        <item>  ما السورة التى بدأت بلفظ (سورة) </item>
+        <item>ما السورة التى تبدأ بالتسبيح وتنتهى بالتسبيح </item>
+        <item>كم مره ذكرت كلمة الجنة في القران الكريم </item>
+        <item>كم مره ذكر سيدنا محمد عليه الصلاة والسلام في القران الكريم  </item>
+        <item> كم مره ذكر سيدنا عيسى عليه الصلاة والسلام في القران الكريم</item>
+        <item>أول صحابي حيّا الرسول صلى الله عليه وسلم بتحية الإسلام هو</item>
+        <item>
+        أسماء بنت عمرو بن عدي ونسيبة بنت كعب بايعتا الرسول صلى الله عليه وسلم في بيعة العقبة الثانية في بيعة
+        </item>
+
+
+        <item>
+        اذا قطع المسلم إحدى شفتي أخيه المسلم فيجب عليه أن يسلم له
+        </item>
+
+
+        <item>
+         ما المقصود بيوم الفرقان الذي ذكره الله تعالى في القرآن
+        </item>
+
+
+        <item>
+        أقسم الله عزوجل بالتين والزيتون كناية عن الأرض التي تزرع فيها ومهبط الرسالات السماوية وهي أرض
+        </item>
+
+
+        <item>
+        من قائد المسلمين في معركة القادسية
+        </item>
+
+
+        <item>
+        قال تعالى(وفرعون ذي الأوتاد)سورة الفجر (10) المقصود بـ (الأوتاد) هي
+        </item>
+
+
+        <item>
+        قال تعالى(ماودعك ربك وما قلى)سورة الضحى... المقصود بـ (ما قلى)
+        </item>
+
+
+        <item>
+        أنزل الله القرآن الكريم جملة واحدة من اللوح المحفوظ إلى السماء الدنيا ثم كان ينزل على النبي صلى الله عليه وسلم منجماً على حسب الحاجة وذلك خلال فترة
+        </item>
+
+
+        <item>
+         قال تعالى(يوم تكون السماء كالمهل)سورة المعارج( المقصود بـ(المهل).
+        </item>
+
+        <item>
+         ما أكثر سورة تكرر فيها أسم الرحمن
+        </item>
+
+
+        <item>
+        ما هي الصلاة التي يركع فيها المصلي أربع مرات ويسجد أربع مرات
+        </item>
+
+
+        <item>
+        ما الإسم الذي أطلق على الذين آمنوا بعيسى عليه السلام
+        </item>
+
+
+        <item>
+        ما هو مقدار زكاة الثمار والزرع في حالة الري دون كلفة
+
+        </item>
+
+
+        <item>
+        من هو النبي الذي صام عن الكلام ثلاثة أيام
+        </item>
+
+
+        <item>
+        من أي أبواب الجنة يدخل الصائمون يوم القيامة
+        </item>
+
+
+    </string-array>
+    <string-array name="RELIGION_TRUE_ANS">
+
+        <item>أبو بكر الصديق</item>
+        <item>أسماء بنت أبي بكر </item>
+        <item> سعد بن أبي وقاص</item>
+        <item> ثلاثة أيام</item>
+        <item>الكعبة </item>
+        <item>إدريس عليه السلام</item>
+        <item> علي بن أبي طالب</item>
+        <item> عثمان بن عفان</item>
+        <item>الزبير بن العوام </item>
+        <item>مصعب بن عمير </item>
+        <item> سورة الحج</item>
+        <item>114</item>
+        <item>86</item>
+        <item>28</item>
+        <item> فأسقيناكموه</item>
+        <item>15</item>
+        <item> الفرقان</item>
+        <item> سورة النور</item>
+        <item> سورة الحشر</item>
+        <item>66 </item>
+        <item>4 </item>
+        <item>25 </item>
+        <item>  أبو ذر الغفاري </item>
+        <item> العقبة الثانية </item>
+        <item>  نصف الدية </item>
+        <item> غزوة بدر  </item>
+        <item> فلسطين </item>
+        <item> سعد بن أبي وقاص  </item>
+        <item> الأهرام </item>
+        <item> ما ابغضك </item>
+        <item> 23 سنة  </item>
+        <item> المعدن المذاب </item>
+        <item> سورة مريم </item>
+        <item>  صلاة الخسوف والكسوف</item>
+        <item>  الحواريون</item>
+        <item> العشر  </item>
+        <item> زكريا عليه السلام </item>
+        <item>الريان   </item>
+
+    </string-array>
+    <string-array name="RELIGION_WRONG_ANS1">
+
+        <item> عمر بن الخطاب</item>
+        <item>ام المؤمنين عائشه</item>
+        <item> أبو أيوب الأنصاري</item>
+        <item>يوم</item>
+        <item>بيت المقدس </item>
+        <item>ابراهيم عليه السلام</item>
+        <item> عمرو بن العاص</item>
+        <item> عمر بن الخطاب</item>
+        <item> عمرو بن العاص</item>
+        <item> عمر بن الخطاب</item>
+        <item>سورة الاعراف</item>
+        <item>112</item>
+        <item>52</item>
+        <item>33 </item>
+        <item>أفأسقيناكموه</item>
+        <item> 14</item>
+        <item> الانفال</item>
+        <item> سورة النساء</item>
+        <item> سورة الاعلى </item>
+        <item>70 </item>
+        <item>11 </item>
+        <item> 5</item>
+        <item> أبو أيوب الأنصاري </item>
+        <item>العقبة الثالثه</item>
+        <item>  ربع الدية </item>
+        <item>  غزوة تبوك</item>
+        <item> مصر  </item>
+        <item>  خالد بن الوليد </item>
+        <item>  التلال </item>
+        <item> ما هجرك  </item>
+        <item>  20سنة</item>
+        <item> الصوف المبعثر  </item>
+        <item> سورة آل عمران </item>
+        <item> صلاة الاستخارة </item>
+        <item> الاميين </item>
+        <item>  التسع</item>
+        <item> يحيى عليه السلام </item>
+        <item> الراضين </item>
+
+
+
+    </string-array>
+    <string-array name="RELIGION_WRONG_ANS2">
+        <item>علي بن ابي طالب</item>
+        <item> الشيماء بنت الحارث</item>
+        <item>أبو بكر الصديق</item>
+        <item>يومين</item>
+        <item> بيت سيدنا ادم</item>
+        <item> يوسف عليه السلام</item>
+        <item> عثمان بن عفان</item>
+        <item> ابو بكر الصديق</item>
+        <item> عثمان بن عفان</item>
+        <item>أبو عبيدة بن الجراح</item>
+        <item> سورة المؤمنون</item>
+        <item>122</item>
+        <item>43</item>
+        <item>38 </item>
+        <item>أنلزمكموها</item>
+        <item>13 </item>
+        <item> الاخلاص</item>
+        <item> سورة الحج</item>
+        <item> سورة الرحمن</item>
+        <item> 76</item>
+        <item>23 </item>
+        <item> 14</item>
+        <item> أبو موسى الأشعري </item>
+        <item> العقبة الأولى </item>
+        <item> دية النفس كاملة </item>
+        <item> غزوة أحد  </item>
+        <item>  الحجاز </item>
+        <item> شرحبيل بن حسنة </item>
+        <item>  الجبال</item>
+        <item>  ما عذلك</item>
+        <item> 25 سنة </item>
+        <item> الحرير المنفوش </item>
+        <item> سورة الرحمن  </item>
+        <item>  صلاة الاستسقاء </item>
+        <item>  النصارى</item>
+        <item> الثمن </item>
+        <item>  ادريس عليه السلام </item>
+        <item>  الكاظمين الغيظ</item>
+
+
+    </string-array>
+
+    <string-array name="RELIGION_WRONG_ANS3">
+        <item>عمرو بن العاص</item>
+        <item>حفصة بنت عمر </item>
+        <item>أبي سعيد الخدري</item>
+        <item> اربعة ايام</item>
+        <item> المسجد النبوي</item>
+        <item> موسى عليه السلام</item>
+        <item>أبو عبيدة بن الجراح</item>
+        <item>أبو موسى الأشعري</item>
+        <item>أبو هريرة  </item>
+        <item>سورة النساء </item>
+        <item>132</item>
+        <item>76</item>
+        <item>19</item>
+        <item> أفنسقيكموه</item>
+        <item> 16</item>
+        <item> التوبه</item>
+        <item> سورة فصلت</item>
+        <item> سورة التغابن</item>
+        <item> 77</item>
+        <item>7</item>
+        <item> 3</item>
+        <item>   أبو بكر الصديق </item>
+        <item>  بيعة الرضوان</item>
+        <item> ثلث الدية </item>
+        <item>  فتح مكة</item>
+        <item>  اليمن</item>
+        <item>  عمرو بن العاص</item>
+        <item>  القصور</item>
+        <item> ما جفاك </item>
+        <item>  27سنة</item>
+        <item>  القطن المتطاير</item>
+        <item>  سورة البقرة</item>
+        <item>  صلاة الجنازه</item>
+        <item> الرهبانيين </item>
+        <item>  الربع</item>
+        <item> عيسى عليه السلام </item>
+        <item>  الايمن</item>
+
+    </string-array>
+
 
 </resources>

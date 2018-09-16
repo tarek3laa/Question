@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
 
      private CardView mProfile, mcvRank;
-     private LinearLayout sport,generalInfo;
+     private LinearLayout sport,generalInfo,religion;
+     private LinearLayout science;
      private AdView mAdView;
 
      TextView mtvRank,mtvName;
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
     public static  SharedPreferences sharedPreferences;
 
     public static final String Intentkey="Question";
+
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,15 +110,15 @@ public class MainActivity extends AppCompatActivity {
 
         sport=(LinearLayout)findViewById(R.id.it_sport);
         generalInfo=(LinearLayout)findViewById(R.id.it_general_info);
+        science=(LinearLayout)findViewById(R.id.it_science);
+        religion=(LinearLayout)findViewById(R.id.it_religion);
 
-
-        sport=(LinearLayout)findViewById(R.id.it_science);
         sport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
-                intent.putExtra(Intentkey,"sport");
+                intent.putExtra(Intentkey,User.SPORT_QUESTION);
                 startActivity(intent);
             }
         });
@@ -126,10 +129,29 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
-                intent.putExtra(Intentkey,"general info");
+                intent.putExtra(Intentkey,User.GI_QUESTION);
                 startActivity(intent);
             }
         });
+
+
+        science.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
+                intent.putExtra(Intentkey,User.SCIENCE_QUESTION);
+                startActivity(intent);
+            }
+        });
+        religion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
+                intent.putExtra(Intentkey,User.RELIGION_QUESTION);
+                startActivity(intent);
+            }
+        });
+
 
 
     }

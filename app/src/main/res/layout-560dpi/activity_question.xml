@@ -12,20 +12,20 @@
 
 
 
-   <TextView
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:text="00:00"
-       android:layout_marginTop="10dp"
-       android:layout_marginBottom="7dp"
-       android:layout_marginRight="7dp"
-       android:layout_marginLeft="7dp"
-       android:gravity="center"
-       android:id="@+id/tv_timer"
-       android:textSize="35sp"
-       android:textColor="#FEFEFE"
-       android:padding="2dp"
-       />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="7dp"
+        android:gravity="center"
+        android:id="@+id/tv_timer"
+        android:textSize="35sp"
+        android:textColor="#FEFEFE"
+        android:padding="2dp"
+        />
 
     <TextView
         android:id="@+id/tv_no._question"
@@ -42,7 +42,7 @@
     <TextView
         android:id="@+id/tv_question"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="18dp"
@@ -52,7 +52,7 @@
         android:padding="2dp"
         android:text=""
         android:textColor="#FEFEFE "
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:scrollbars = "vertical"
 
         />
@@ -60,11 +60,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginBottom="18dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:padding="5dp"
+        android:layout_gravity="center"
+
         >
 
         <Button
@@ -78,7 +80,10 @@
             android:text="answer 1"
             android:textAllCaps="false"
             android:textColor="#ffff"
-            android:textStyle="normal" />
+            android:textStyle="normal"
+            android:textSize="25sp"
+            android:padding="5dp"
+            />
 
         <Button
             android:id="@+id/q2"
@@ -91,7 +96,11 @@
             android:text="answer 2"
             android:textAllCaps="false"
             android:textColor="#ecd9d9"
-            android:textStyle="normal" />
+            android:textStyle="normal"
+            android:textSize="25sp"
+            android:padding="5dp"
+
+            />
 
     </LinearLayout>
 
@@ -102,8 +111,9 @@
         android:layout_marginRight="5dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="15dp"
         android:padding="5dp"
+        android:layout_gravity="center"
         >
 
         <Button
@@ -116,7 +126,10 @@
             android:text="answer 3"
             android:textAllCaps="false"
             android:textColor="#ffff"
-            android:textStyle="normal" />
+            android:textStyle="normal"
+            android:textSize="25sp"
+            android:padding="5dp"
+            />
 
         <Button
             android:id="@+id/q4"
@@ -128,7 +141,11 @@
             android:text="answer 4"
             android:textAllCaps="false"
             android:textColor="#ffff"
-            android:textStyle="normal" />
+            android:textStyle="normal"
+            android:textSize="25sp"
+            android:padding="5dp"
+
+            />
 
     </LinearLayout>
 

@@ -26,7 +26,10 @@ public class User {
     public static final String SCORE_KEY = "score";
     public static final String EMAIL_KEY = "email";
     public static final String IMAGE_PATH_KEY="image";
-    public static final String GI_NO_QUESTION ="GI No Question";
+    public static final String GI_QUESTION ="GI Question";
+    public static final String SPORT_QUESTION ="Sport Question";
+    public static final String RELIGION_QUESTION ="Religion Question";
+    public static final String SCIENCE_QUESTION ="Science Question";
 
 
     public static boolean isSignUp() {

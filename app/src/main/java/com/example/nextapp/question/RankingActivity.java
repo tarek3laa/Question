@@ -3,10 +3,13 @@ package com.example.nextapp.question;
 
 import android.content.pm.ActivityInfo;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -36,6 +39,7 @@ public class RankingActivity extends AppCompatActivity {
    CollectionReference collectionReference;
    ProgressBar progressBar;
    private AdView mAdView;
+    private ActionBar actionBar;
 
 
     @Override
@@ -43,7 +47,8 @@ public class RankingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
+        actionBar = this.getSupportActionBar();
+        if(actionBar!=null)actionBar.setDisplayHomeAsUpEnabled(true);
 
         // ad mob
         MobileAds.initialize(this, "ca-app-pub-4645956600658698~7244291082");
@@ -103,6 +108,15 @@ public class RankingActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

@@ -18,16 +18,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QuestionActivity" />
-        <activity android:name=".RankingActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".SignUpActivity" />
+        <activity
+            android:name=".QuestionActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"></meta-data>
+        </activity>
+        <activity
+            android:name=".RankingActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"></meta-data>
+        </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:parentActivityName=".MainActivity"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"></meta-data>
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:parentActivityName=".MainActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"></meta-data>
+        </activity>
         <activity android:name=".LastActivity"></activity>
 
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-4645956600658698~7244291082"/>
+            android:value="ca-app-pub-4645956600658698~7244291082" />
 
     </application>
 

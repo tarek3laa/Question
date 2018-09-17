@@ -39,7 +39,7 @@ public class RankingActivity extends AppCompatActivity {
    CollectionReference collectionReference;
    ProgressBar progressBar;
    private AdView mAdView;
-    private ActionBar actionBar;
+   private ActionBar actionBar;
 
 
     @Override

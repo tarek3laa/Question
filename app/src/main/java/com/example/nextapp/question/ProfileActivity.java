@@ -97,6 +97,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
+
+
     /**
      * this method calling after the user choose an image
      *
@@ -199,5 +201,10 @@ public class ProfileActivity extends AppCompatActivity {
                 NavUtils.navigateUpFromSameTask(this);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

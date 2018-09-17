@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nextapp.question.Data.User;
 
@@ -154,7 +155,7 @@ public class QuestionActivity extends AppCompatActivity {
                     setColor(q4,true);
                 trueAns=false;
                 onClick=true;
-                timer2(5);
+                timer2(3);
 
 
 
@@ -273,7 +274,7 @@ public class QuestionActivity extends AppCompatActivity {
                                           else if(q4.getText().toString().equals(ans[s]))
                                               setColor(q4,true);
 
-                                          timer2(5);
+                                          timer2(3);
                                       }
 
                                   }
@@ -300,7 +301,7 @@ public class QuestionActivity extends AppCompatActivity {
                     else if(q4.getText().toString().equals(ans[s]))
                         setColor(q4,true);
 
-                    timer2(5);
+                    timer2(3);
                 }
 
             }
@@ -325,7 +326,7 @@ public class QuestionActivity extends AppCompatActivity {
                     else if(q4.getText().toString().equals(ans[s]))
                         setColor(q4,true);
 
-                    timer2(5);
+                    timer2(3);
                 }
 
             }
@@ -350,7 +351,7 @@ public class QuestionActivity extends AppCompatActivity {
                         else if(q4.getText().toString().equals(ans[s]))
                             setColor(q4,true);
 
-                        timer2(5);
+                        timer2(3);
                     }
 
             }
@@ -377,7 +378,7 @@ public class QuestionActivity extends AppCompatActivity {
                     else if(q4.getText().toString().equals(ans[s]))
                         setColor(q4,true);
 
-                    timer2(5);
+                    timer2(3);
                 }
 
             }
@@ -401,7 +402,7 @@ public class QuestionActivity extends AppCompatActivity {
                     else if(q4.getText().toString().equals(ans[s]))
                         setColor(q4,true);
 
-                    timer2(5);
+                    timer2(3);
                 }
             }
         });
@@ -425,7 +426,7 @@ public class QuestionActivity extends AppCompatActivity {
                         setColor(q4,true);
 
 
-                    timer2(5);
+                    timer2(3);
 
                 }
             }
@@ -451,7 +452,7 @@ public class QuestionActivity extends AppCompatActivity {
                     else if(q4.getText().toString().equals(ans[s]))
                         setColor(q4,true);
 
-                    timer2(5);
+                    timer2(3);
                 }
             }
         });
@@ -478,7 +479,7 @@ public class QuestionActivity extends AppCompatActivity {
                     else if(q4.getText().toString().equals(ans[s]))
                         setColor(q4,true);
 
-                timer2(5);
+                timer2(3);
             }
             }
 
@@ -503,7 +504,7 @@ public class QuestionActivity extends AppCompatActivity {
                     else if(q4.getText().toString().equals(ans[s]))
                         setColor(q4,true);
 
-                    timer2(5);
+                    timer2(3);
                 }
             }
         });
@@ -526,7 +527,7 @@ public class QuestionActivity extends AppCompatActivity {
                     else if(q4.getText().toString().equals(ans[s]))
                         setColor(q4,true);
 
-                    timer2(5);
+                    timer2(3);
                 }
             }
         });
@@ -552,7 +553,7 @@ public class QuestionActivity extends AppCompatActivity {
                         setColor(q4,true);
 
 
-                    timer2(5);
+                    timer2(3);
                 }
             }
         });
@@ -580,7 +581,7 @@ public class QuestionActivity extends AppCompatActivity {
                         setColor(q4,true);
 
 
-                    timer2(5);
+                    timer2(3);
 
                 }
             }
@@ -605,7 +606,7 @@ public class QuestionActivity extends AppCompatActivity {
                         setColor(q4,true);
 
 
-                    timer2(5);
+                    timer2(3);
                 }
             }
         });
@@ -629,7 +630,7 @@ public class QuestionActivity extends AppCompatActivity {
                         setColor(q4,true);
 
 
-                    timer2(5);
+                    timer2(3);
                 }
             }
         });
@@ -654,7 +655,7 @@ public class QuestionActivity extends AppCompatActivity {
                         setColor(q4,true);
 
 
-                    timer2(5);
+                    timer2(3);
                 }
             }
         });
@@ -662,7 +663,12 @@ public class QuestionActivity extends AppCompatActivity {
 
     public void RightAns() {
         count+=0.5;
+        if(s<ques.length)
             s++;
+        else {
+            Toast.makeText(this,"مبروك لقد انهيت جميع اسئلة هذا القسم",Toast.LENGTH_LONG).show();
+            finish();
+        }
             mtvQuestion.setText(ques[s]);
             QuestionCount++;
             Question.setText("Question " + QuestionCount);
@@ -677,8 +683,13 @@ public class QuestionActivity extends AppCompatActivity {
 
     }
     public void WrongAns() {
+        if(s<ques.length)
             s++;
-            mtvQuestion.setText(ques[s]);
+        else {
+            Toast.makeText(this,"مبروك لقد انهيت جميع اسئلة هذا القسم",Toast.LENGTH_LONG).show();
+            finish();
+             }
+        mtvQuestion.setText(ques[s]);
             QuestionCount++;
             Question.setText("Question " + QuestionCount);
 

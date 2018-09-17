@@ -122,7 +122,6 @@ public class SignUpActivity extends AppCompatActivity {
                                         User.setScore(user05.getScore());
                                         User.setUserName(user05.getUserName());
 
-
                                         MainActivity.putsharedPreferences(user05.getName(), User.NAME_KEY);
                                         MainActivity.putsharedPreferences(userName, User.USER_KEY);
                                         MainActivity.putsharedPreferences(user05.getEmail(), User.EMAIL_KEY);

@@ -5,8 +5,8 @@
         android:color="@color/wrong_answer" />
 
     <size
-        android:width="60dp"
-        android:height="60dp" />
+        android:width="50dp"
+        android:height="50dp" />
 
     <corners
         android:bottomLeftRadius="30dp"

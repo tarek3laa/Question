@@ -39,6 +39,8 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView name,email,rank,score;
     FloatingActionButton fb;
     CircleImageView imageView;
+    FloatingActionButton editprofile;
+    String types;
     private AdView mAdView;
     private android.support.v7.app.ActionBar actionBar;
 
@@ -46,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+       types="current";
          actionBar = this.getSupportActionBar();
         if(actionBar!=null)actionBar.setDisplayHomeAsUpEnabled(true);
 
@@ -70,8 +72,6 @@ public class ProfileActivity extends AppCompatActivity {
         rank=(TextView)findViewById(R.id.tv_pa_rank);
         score=(TextView)findViewById(R.id.tv_pa_score);
 
-        name.setText(User.getName());
-        email.setText(User.getEmail());
         rank.setText(String.valueOf(User.getRank()));
         score.setText(String.valueOf(User.getScore()));
 
@@ -95,7 +95,19 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
+        editprofile=(FloatingActionButton)findViewById(R.id.editfloat);
+        editprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ProfileActivity.this,EditActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
+
 
 
 
@@ -192,6 +204,10 @@ public class ProfileActivity extends AppCompatActivity {
 
        String path =  MainActivity.sharedPreferences.getString(User.IMAGE_PATH_KEY,null);
        loadImageFromStorage(path,imageView);
+        name.setText(User.getName());
+        email.setText(User.getEmail());
+
+
     }
 
     @Override
@@ -203,8 +219,6 @@ public class ProfileActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
 
-    }
+
 }

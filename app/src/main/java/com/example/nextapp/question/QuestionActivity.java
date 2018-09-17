@@ -19,11 +19,9 @@ import com.example.nextapp.question.Data.User;
 import java.util.Random;
 
 public class QuestionActivity extends AppCompatActivity {
-    private static final String TAG = QuestionActivity.class.getCanonicalName();
     String[] ques;
     TextView mtvQuestion;
     Button q1, q2, q3, q4;
-
 
     //ans ques count ans[0] & ques[0]
     int s = 0;
@@ -98,7 +96,11 @@ public class QuestionActivity extends AppCompatActivity {
             ans3 = getResources().getStringArray(R.array.RELIGION_WRONG_ANS3);
         }
         else if (type.equals(User.SPORT_QUESTION)){
-
+            ans = getResources().getStringArray(R.array.SPORT_RIGHT_ANS);
+            ques = getResources().getStringArray(R.array.SPORT_QUESTION);
+            ans1 = getResources().getStringArray(R.array.SPORT_WRONG_ANS1);
+            ans2 = getResources().getStringArray(R.array.SPORT_WRONG_ANS2);
+            ans3 = getResources().getStringArray(R.array.SPORT_WRONG_ANS3);
 
 
         }
@@ -668,19 +670,20 @@ public class QuestionActivity extends AppCompatActivity {
         else {
             Toast.makeText(this,"مبروك لقد انهيت جميع اسئلة هذا القسم",Toast.LENGTH_LONG).show();
             finish();
+        if (s == 10) {
+            Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
+            intent.putExtra("IQ", count);
+
+            startActivity(intent);
         }
             mtvQuestion.setText(ques[s]);
             QuestionCount++;
             Question.setText("Question " + QuestionCount);
 
              RandomModule();
-            if (s == 107) {
-                Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
-                intent.putExtra("IQ", count);
 
-                startActivity(intent);
-            }
 
+    }
     }
     public void WrongAns() {
         if(s<ques.length)
@@ -690,15 +693,17 @@ public class QuestionActivity extends AppCompatActivity {
             finish();
              }
         mtvQuestion.setText(ques[s]);
+        if (s == 10) {
+            Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
+            intent.putExtra("IQ", count);
+            startActivity(intent);
+        }
+            mtvQuestion.setText(ques[s]);
             QuestionCount++;
             Question.setText("Question " + QuestionCount);
 
         RandomModule();
-            if (s == 107) {
-                Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
-                intent.putExtra("IQ", count);
-                startActivity(intent);
-            }
+
 
 
 

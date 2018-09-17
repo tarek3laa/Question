@@ -266,7 +266,7 @@
                         android:padding="5dp"
                         android:text="@string/item4"
                         android:textColor="@color/color2"
-                        android:textSize="10sp"
+                        android:textSize="15sp"
 
 
                         />
@@ -342,6 +342,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
+        ads:adUnitId="@string/unit1"></com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

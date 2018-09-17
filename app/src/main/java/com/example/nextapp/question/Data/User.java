@@ -31,6 +31,8 @@ public class User {
     public static final String RELIGION_QUESTION ="Religion Question";
     public static final String SCIENCE_QUESTION ="Science Question";
 
+    public static final String APP_ID="ca-app-pub-1041023466257355~7577782244";
+
 
     public static boolean isSignUp() {
         return isSignUp;

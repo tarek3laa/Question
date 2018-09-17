@@ -94,7 +94,7 @@ public class QuestionActivity extends AppCompatActivity {
             ans1 = getResources().getStringArray(R.array.RELIGION_WRONG_ANS1);
             ans2 = getResources().getStringArray(R.array.RELIGION_WRONG_ANS2);
             ans3 = getResources().getStringArray(R.array.RELIGION_WRONG_ANS3);
-        }
+            }
         else if (type.equals(User.SPORT_QUESTION)){
             ans = getResources().getStringArray(R.array.SPORT_RIGHT_ANS);
             ques = getResources().getStringArray(R.array.SPORT_QUESTION);

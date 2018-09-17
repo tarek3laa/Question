@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Sports">
+        <item>ما هو عدد لاعبين كرة القدم لكل فريق؟</item>
+        <item>أين أقيمت أول بطولة لكأس العالم بكرة القدم؟</item>
+        <item>ما هو الفريق الذي فاز بأول بطولة بكأس العالم مرتين متتاليتين؟</item>
+        <item>كم عدد التبديلات المسموح بها للاعبين في الفريق الواحد في كل مباراة؟</item>
+        <item>كم عدد الإنذارات التي يعطيها الحكم للاعب الواحد قبل أن يُطرد؟</item>
+        <item>ما هو أكثر فريق حاز على كأس العالم حتى عام 2014؟</item>
+        <item>ما هو أكثر فريق وصل إلى المباراة النهائية لكأس العالم؟</item>
+        <item>أين أقيمت أول بطولة لكأس القارات؟</item>
+        <item>كم عدد أشواط كرة السلة؟</item>
+        <item>كم عدد نقاط الرامية الحرة فى كرة السلة؟</item>
+        <item>كم عدد لاعبين كرة السلة لكل فريق؟</item>
+        <item>من الذى إخترع لعبة كرة السلة؟</item>
+        <item>كم عدد لاعبين كرة الطائرة لكل فريق؟</item>
+        <item>من الذى إخترع لعبة كرة الطائرة؟</item>
+        <item>كم مرة يُسمح لكل فريق بلمس كرة الطائرة قبل أن يرميها إلى جهة خصمه؟</item>
+        <item>ما هي عدد بطولات لعبة كرة التنس؟</item>
+        <item>كم عدد اللاعبين لكل فريق في كرة اليد للملاعب الخارجية؟</item>
+        <item>كم عدد التبديلات المسموح بها في كرة اليد؟</item>
+        <item>كم عدد الخطوات المسموح بها لكل لاعب قبل أن يرمي أو يمرر الكرة أو يراوغ بها؟</item>//19
+        <item>كم مدة كل جولة في لعبة الملاكمة؟</item>
+        <item>كم مدة الاستراحة بعد كل جولة في لعبة الملاكمة؟</item>
+        <item>كم عدد جولات لعبة الملاكمة؟</item>
+        <item>كم عدد المنظمات التابعة للملاكمة؟</item>
+        <item>من هو أول بطل في الملاكمة؟</item>
+        <item>كم مرة تقام الألعاب الأولمبية الصيفية والشتوية؟</item>
+        <item>كم عدد اللاعبين في لعبة البولو؟</item>
+        <item>أين تأسّس أول نادي منظم للعبة الغولف؟</item>
+        <item>من هو أول من فاز بأول بطولة للغولف؟</item>
+        <item>أين لُعبت لعبة البولو للمرة الأخيرة في الأولمبياد؟</item>
+        <item>كم يبلغ طول ممر الشخب للعبة البولينغ بالأقدام؟</item>
+        <item>ما هي أول دولة افريقية غير عربية تشارك في نهائيات كأس العالم ؟</item>
+        <item>من سجل أول هدف في تاريخ مباريات كاس العالم ؟</item>
+        <item>كم دولة شاركت في نهائيات كاس العالم 2002؟</item>
+        <item> كم مره الغيت بطولة كاس العالم منذ إنطلاقتها 1930؟</item>//34
+        <item>ما هي نتيجة المباراة النهائية لكأس العالم بين فرنسا والبرازيل سنة 1998؟</item>
+        <item>ماذا كانت تسمى كأس العالم قبل تسميتها بهذا الاسم ؟</item>
+        <item>كم مرة حصلت البحرين على كاس اسيا ؟</item>
+        <item>كم مرة استطاع الأسباني بوشكاش تحقيق لقب هداف الدوري الأسباني ؟</item>
+        <item>من هو اول منتخب حقق لقب كأس الأمم الافريقية 4مرات ؟</item>
+        <item>في أي بطولة لأمم آسيا لكرة القدم لم تشترك أي دولة عربية؟</item>
+        <item>من أول فريق عربي يحصل على بطولة الأمم الآسيوية؟</item>
+        <item>ما أعلى النتائج في كأس العالم لكرة القدم؟</item>
+        <item>من أول المتأهلين العرب لنهائيات كأس العالم لكرة القدم؟</item>
+        <item>فى أى عام وأين تم سرقت كأس العالم ﻷو مرة؟</item>
+        <item>أين كانت أول مشاركة لحكم سعودي في نهائيات كأس العالم لكرة القدم؟</item>
+        <item>كم يزن كأس العالم لكرة القدم الجديد؟</item>//45
+        <item>متى تأسس الإتحاد الدولي لألعاب القوى؟</item>
+        <item>أين موطن لعبة الهوكي؟</item>
+        <item>من أول فريق عربي يفوز ببطولة العالم العسكرية لكرة القدم؟</item>
+        <item>ما اللعبة التي تمارس في ملعب محاط بأربعة جدران؟</item>
+        <item>ما هو أعلى ارتفاع لسلم الغطس؟</item>
+        <item>من أول من حصل على الميدالية الذهبية على المستوى الأولمبي من العرب؟</item>
+        <item>ماذا تعني كلمة الكاراتيه؟</item>
+        <item>ايهما بدأ أولا؟</item>
+
+
+    </string-array>
+
+    <string-array name="rightans">
+        <item>11</item>
+        <item>ألأوروغوى</item>
+        <item>إيطاليا</item>
+        <item>3</item>
+        <item>إنذاران</item>
+        <item>البرازيل</item>
+        <item>المانيا</item>
+        <item>السعودية</item>
+        <item>شوطان</item>
+        <item>نقطة واحدة</item>
+        <item>5 لاعبين</item>
+        <item>جيمس نايسميث</item>
+        <item>6 لاعبين</item>
+        <item>ويليم مورجان </item>
+        <item>3 مرات</item>
+        <item>4 بطولات</item>
+        <item>11</item>
+        <item>لايوجد عدد محدد</item>
+        <item>3 خطوات</item>
+        <item>3 دقائق</item>
+        <item>دقيقة واحدة</item>
+        <item>12 جولة</item>
+        <item>3 منظمات</item>
+        <item>جيمس فيغ</item>
+        <item>كل أربع سنوات</item>
+        <item>4 لاعبين</item>
+        <item>إسكتلندا</item>
+        <item>هورتن سميث</item>
+        <item>المانيا</item>
+        <item>60 قدما</item>
+        <item>زائير</item>
+        <item>لوكسان لاورينت</item>
+        <item>32 دولة</item>
+        <item>مرتين</item>
+        <item>3 - 0</item>
+        <item>كأس جول ريميه</item>
+        <item>لم تحصل قط</item>
+        <item>4 مرات</item>
+        <item>غانا</item>
+        <item>1964م</item>
+        <item>الكويت</item>
+        <item>المجر و السلفادور</item>
+        <item>مصر</item>
+        <item>إنجلترا(1966)</item>
+        <item>المكسيك</item>
+        <item>5 كجم من الذهب</item>
+        <item>1912م</item>
+        <item>الهند</item>
+        <item>العراق</item>
+        <item>الإسكواش</item>
+        <item>10 متر</item>
+        <item>السيد نصير</item>
+        <item>سلاح اليد المجردة من كل سلاح</item>
+        <item>بطولة كرة القدم الأولمبية</item>
+
+
+    </string-array>
+    <string-array name="wrongans1">
+        <item>12</item>
+        <item>البرازيل</item>
+        <item>البرازيل</item>
+        <item>4</item>
+        <item>3 إنذارات</item>
+        <item>الأوروغواى</item>
+        <item>البرازيل</item>
+        <item>المغرب</item>
+        <item>3 أشواط</item>
+        <item>نقطتين</item>
+        <item>10 لاعبين</item>
+        <item>ويليم مورجان</item>
+        <item>5 لاعبين</item>
+        <item>جيمس نايسميث</item>
+        <item>4 مرات</item>
+        <item>10 بطولات</item>
+        <item>10</item>
+        <item>3</item>
+        <item>4 خطوات</item>
+        <item>4 دقائق</item>
+        <item>دقيقتان</item>
+        <item>10 جولات</item>
+        <item>4 منظمات</item>
+        <item>مايكل فرادفيلبس</item>
+        <item>كل ستة سنوات</item>
+        <item>3 لاعبين</item>
+        <item>بريطانيا</item>
+        <item>روبينيوس جاك</item>
+        <item>بريطانيا</item>
+        <item>120 قدما</item>
+        <item>غانا</item>
+        <item>ألبرت جيمس</item>
+        <item>40 دولة</item>
+        <item>3 مرات</item>
+        <item>4 - 0</item>
+        <item>كأس العالم</item>
+        <item>4 مرات</item>
+        <item>15 مرة</item>
+        <item>الكاميرون</item>
+        <item>1960م</item>
+        <item>السعودية</item>
+        <item>المانيا و البرازيل</item>
+        <item>غانا</item>
+        <item>إنجلترا(1977)</item>
+        <item>روسيا</item>
+        <item>10 كجم من الذهب</item>
+        <item>1922م</item>
+        <item>بريطانيا</item>
+        <item>مصر</item>
+        <item>كرة القدم</item>
+        <item>15 متر</item>
+        <item>السيد أحمد</item>
+        <item>سلاح النفس</item>
+        <item>بطولة كأس العالم</item>
+
+    </string-array>
+    <string-array name="wrongans2">
+        <item>10</item>
+        <item>البرتغال</item>
+        <item>الأوروغواى</item>
+        <item>7</item>
+        <item>إنذار</item>
+        <item>إيطاليا</item>
+        <item>فرنسا</item>
+        <item>فرنسا</item>
+        <item>4 أشواط</item>
+        <item>4 نقط</item>
+        <item>7 لاعبين</item>
+        <item>الرومان</item>
+        <item>10 لاعبين</item>
+        <item>الألمان</item>
+        <item>مرتين</item>
+        <item>5 بطولات</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5 خطوات</item>
+        <item>5 دقائق</item>
+        <item>3 نقط</item>
+        <item>8 جولات</item>
+        <item>5 منظمات</item>
+        <item>جيمس نايسميث</item>
+        <item>كل 3 سنوات</item>
+        <item>6 لاعبين</item>
+        <item>فرنسا</item>
+        <item>مينا إسكو</item>
+        <item>فرنسا</item>
+        <item>80 قدما</item>
+        <item>السودان</item>
+        <item>مرادونا</item>
+        <item>25 دولة</item>
+        <item>10 مرات</item>
+        <item>5 - 0</item>
+        <item>كأس بوشكاش</item>
+        <item>مرة واحدة</item>
+        <item>مرة واحدة</item>
+        <item>غينيا</item>
+        <item>1980م</item>
+        <item>الإمارات</item>
+        <item>فرنسا و كوروتيا</item>
+        <item>السعودية</item>
+        <item>فرنسا(1966)</item>
+        <item>الهند</item>
+        <item>15 كجم من الذهب</item>
+        <item>1990م</item>
+        <item>فرنسا</item>
+        <item>الكويت</item>
+        <item>كرة السلة</item>
+        <item>7 متر</item>
+        <item>السيد يوسرى</item>
+        <item>الرجل المجردة من اى سلاح</item>
+        <item>بطولة الأندية</item>
+
+    </string-array>
+    <string-array name="wrongans3">
+        <item>13</item>
+        <item>اسبانيا</item>
+        <item>اسبانيا</item>
+        <item>2</item>
+        <item>4 إنذارات</item>
+        <item>اسبانيا</item>
+        <item>اسبانيا</item>
+        <item>روسيا</item>
+        <item>6 أشواط</item>
+        <item>5 نقط</item>
+        <item>3 لاعبين</item>
+        <item>البرازيل</item>
+        <item>7 لاعبين</item>
+        <item>أمريكا</item>
+        <item>مرة واحدة</item>
+        <item>7 بطولات</item>
+        <item>7</item>
+        <item>7</item>
+        <item>لا يوجد عدد محدد</item>
+        <item>دقيقتين</item>
+        <item>4 دقائق</item>
+        <item>6 جولات</item>
+        <item>منظمتين</item>
+        <item>أسامة الملولى</item>
+        <item>كل سنتين</item>
+        <item>12 لاعب</item>
+        <item>هولندا</item>
+        <item>مايكل فرادفيلبس</item>
+        <item>البرتغال</item>
+        <item>100 قدما</item>
+        <item>الكاميرون</item>
+        <item>بليه</item>
+        <item>45 دولة</item>
+        <item>5 مرات</item>
+        <item>7 - 0 </item>
+        <item>كأس الأمم</item>
+        <item>مرتين</item>
+        <item>لم يحصل قط</item>
+        <item>مصر</item>
+        <item>1999م</item>
+        <item>تركيا</item>
+        <item>مصر و روسيا</item>
+        <item>الجزائر</item>
+        <item>فرنسا(1977)</item>
+        <item>البرتغال</item>
+        <item>7 كجم من الذهب</item>
+        <item>1980م</item>
+        <item>اليابان</item>
+        <item>تركيا</item>
+        <item>كرة التنس</item>
+        <item>5 متر</item>
+        <item>السيد شهاب</item>
+        <item>سلاح العقل</item>
+        <item>بطولة كأس القارات</item>
+
+
+    </string-array>
+</resources>

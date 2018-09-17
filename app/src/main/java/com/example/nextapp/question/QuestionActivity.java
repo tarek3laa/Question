@@ -97,7 +97,11 @@ public class QuestionActivity extends AppCompatActivity {
             ans3 = getResources().getStringArray(R.array.RELIGION_WRONG_ANS3);
         }
         else if (type.equals(User.SPORT_QUESTION)){
-
+            ans = getResources().getStringArray(R.array.rightans);
+            ques = getResources().getStringArray(R.array.Sports);
+            ans1 = getResources().getStringArray(R.array.wrongans1);
+            ans2 = getResources().getStringArray(R.array.wrongans2);
+            ans3 = getResources().getStringArray(R.array.wrongans3);
 
 
         }
@@ -663,31 +667,33 @@ public class QuestionActivity extends AppCompatActivity {
     public void RightAns() {
         count+=0.5;
             s++;
+        if (s == 10) {
+            Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
+            intent.putExtra("IQ", count);
+
+            startActivity(intent);
+        }
             mtvQuestion.setText(ques[s]);
             QuestionCount++;
             Question.setText("Question " + QuestionCount);
 
              RandomModule();
-            if (s == 107) {
-                Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
-                intent.putExtra("IQ", count);
 
-                startActivity(intent);
-            }
 
     }
     public void WrongAns() {
             s++;
+        if (s == 10) {
+            Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
+            intent.putExtra("IQ", count);
+            startActivity(intent);
+        }
             mtvQuestion.setText(ques[s]);
             QuestionCount++;
             Question.setText("Question " + QuestionCount);
 
         RandomModule();
-            if (s == 107) {
-                Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
-                intent.putExtra("IQ", count);
-                startActivity(intent);
-            }
+
 
 
 

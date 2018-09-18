@@ -1,6 +1,5 @@
 package com.example.nextapp.question;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.nextapp.question.Data.User;
+import com.example.nextapp.question.Data.Users;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class EditActivity extends AppCompatActivity {
     EditText editname;
@@ -38,6 +40,12 @@ public class EditActivity extends AppCompatActivity {
                 String passstring =editpass.getText().toString();
                 User.setName(namestring);
                 User.setEmail(emailstring);
+
+                DocumentReference documentReference= FirebaseFirestore.getInstance().collection(Users.collectionReference).document(User.getUserName());
+
+                documentReference.update("name",namestring);
+                documentReference.update("email",emailstring);
+                documentReference.update("password",passstring);
                 finish();
 
             }

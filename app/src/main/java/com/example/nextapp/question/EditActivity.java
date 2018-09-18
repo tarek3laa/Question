@@ -19,7 +19,7 @@ public class EditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-
+`12 
   //findview
         editemail=(EditText)findViewById(R.id.editemail);
         editname=(EditText)findViewById(R.id.editname);

@@ -76,12 +76,12 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/button_style"
-            android:text="answer 1"
+            android:padding="5dp"
+            android:text="answer1"
             android:textAllCaps="false"
             android:textColor="#ecd9d9"
-            android:textStyle="normal"
             android:textSize="15sp"
-            android:padding="5dp"
+            android:textStyle="normal"
 
             />
 

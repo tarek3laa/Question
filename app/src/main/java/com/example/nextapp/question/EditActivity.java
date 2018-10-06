@@ -20,9 +20,7 @@ public class EditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit);
-`12 
-  //findview
+        setContentView(R.layout.activity_edit);//findview
         editemail=(EditText)findViewById(R.id.editemail);
         editname=(EditText)findViewById(R.id.editname);
         editpass=(EditText)findViewById(R.id.editpass);

@@ -32,11 +32,11 @@ public class SignUpActivity extends AppCompatActivity {
 
     EditText metName, metUser, metEmail, metPassword;
 
-    Button mbtSign, mbtHaveaccount;
-    LinearLayout mlyName, mlyUser;
-    TextView mtvsign;
-    boolean haveAccount = false;
-    private AdView mAdView;
+    Button mbtSign, mbtHaveaccount ;
+    LinearLayout mlyName, mlyUser ;
+    TextView mtvsign ;
+    boolean haveAccount = false ;
+    private AdView mAdView ;
 
 
 
@@ -46,9 +46,9 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_sign_up) ;
 
-        actionBar = this.getSupportActionBar();
+        actionBar = this.getSupportActionBar() ;
         if(actionBar!=null)actionBar.setDisplayHomeAsUpEnabled(true);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -57,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         //ad mob
         MobileAds.initialize(this, User.APP_ID);
-        mAdView = findViewById(R.id.adView);
+        mAdView = findViewById(R.id.adView) ;
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
@@ -65,24 +65,24 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-        metName = (EditText) findViewById(R.id.et_name);
-        metUser = (EditText) findViewById(R.id.et_user);
-        metEmail = (EditText) findViewById(R.id.et_email);
-        metPassword = (EditText) findViewById(R.id.et_password);
-        mbtSign = (Button) findViewById(R.id.bt_sign_up);
-        mbtHaveaccount = (Button) findViewById(R.id.bt_have_account);
-        mlyName = (LinearLayout) findViewById(R.id.ly_name);
-        mlyUser = (LinearLayout) findViewById(R.id.ly_user);
-        mtvsign = (TextView) findViewById(R.id.tv_sign_or_sign_up);
+        metName = (EditText) findViewById(R.id.et_name) ;
+        metUser = (EditText) findViewById(R.id.et_user) ;
+        metEmail = (EditText) findViewById(R.id.et_email) ;
+        metPassword = (EditText) findViewById(R.id.et_password) ;
+        mbtSign = (Button) findViewById(R.id.bt_sign_up) ;
+        mbtHaveaccount = (Button) findViewById(R.id.bt_have_account) ;
+        mlyName = (LinearLayout) findViewById(R.id.ly_name) ;
+        mlyUser = (LinearLayout) findViewById(R.id.ly_user) ;
+        mtvsign = (TextView) findViewById(R.id.tv_sign_or_sign_up)  ;
         mbtHaveaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 mtvsign.setText("Sign In");
-                mlyName.setVisibility(View.INVISIBLE);
-                mlyUser.setVisibility(View.INVISIBLE);
+                mlyName.setVisibility(View.INVISIBLE) ;
+                mlyUser.setVisibility(View.INVISIBLE) ;
                 mbtSign.setText("Sign In");
-                mbtHaveaccount.setVisibility(View.INVISIBLE);
+                mbtHaveaccount.setVisibility(View.INVISIBLE) ;
                 haveAccount = true;
             }
         });
@@ -93,13 +93,13 @@ public class SignUpActivity extends AppCompatActivity {
 
                 if (haveAccount) {
 
-                    userName = metUser.getText().toString();
-                    password = metPassword.getText().toString();
+                    userName = metUser.getText().toString() ;
+                    password = metPassword.getText().toString() ;
                     if (TextUtils.isEmpty(userName)){
-                        Toast.makeText(SignUpActivity.this,"Username is required",Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignUpActivity.this,"Username is required",Toast.LENGTH_LONG).show() ;
 
                     }if (TextUtils.isEmpty(password)){
-                        Toast.makeText(SignUpActivity.this,"password is required",Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignUpActivity.this,"password is required",Toast.LENGTH_LONG).show() ;
 
                     }
                     if ((!TextUtils.isEmpty(userName))&&(!TextUtils.isEmpty(password))) {
@@ -117,28 +117,28 @@ public class SignUpActivity extends AppCompatActivity {
 
                                         //user and password are correct
                                         User.setSignUp(true);
-                                        User.setEmail(user05.getEmail());
-                                        User.setName(user05.getName());
-                                        User.setScore(user05.getScore());
-                                        User.setUserName(user05.getUserName());
+                                        User.setEmail(user05.getEmail()) ;
+                                        User.setName(user05.getName()) ;
+                                        User.setScore(user05.getScore()) ;
+                                        User.setUserName(user05.getUserName()) ;
 
-                                        MainActivity.putsharedPreferences(user05.getName(), User.NAME_KEY);
-                                        MainActivity.putsharedPreferences(userName, User.USER_KEY);
-                                        MainActivity.putsharedPreferences(user05.getEmail(), User.EMAIL_KEY);
-                                        MainActivity.putsharedPreferences(user05.getScore(), User.SCORE_KEY);
+                                        MainActivity.putsharedPreferences(user05.getName(), User.NAME_KEY) ;
+                                        MainActivity.putsharedPreferences(userName, User.USER_KEY) ;
+                                        MainActivity.putsharedPreferences(user05.getEmail(), User.EMAIL_KEY) ;
+                                        MainActivity.putsharedPreferences(user05.getScore(), User.SCORE_KEY) ;
 
 
                                         Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
                                         startActivity(intent);
 
 
-                                    } else {
+                                    } else  {
 
                                         Toast.makeText(SignUpActivity.this, "password incorrect ", Toast.LENGTH_LONG).show();
                                     }
 
 
-                                } else {
+                                } else  {
 
 
                                     //user incorrect
@@ -148,7 +148,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 }
 
                             }
-                        }).addOnFailureListener(new OnFailureListener() {
+                        }).addOnFailureListener(new OnFailureListener()  {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(SignUpActivity.this, "try again", Toast.LENGTH_LONG).show();
@@ -162,8 +162,8 @@ public class SignUpActivity extends AppCompatActivity {
 
                 } else {
 
-                    name = metName.getText().toString();
-                    userName = metUser.getText().toString();
+                    name = metName.getText().toString() ;
+                    userName = metUser.getText().toString() ;
                     if (TextUtils.isEmpty(userName)) {
                         Toast.makeText(SignUpActivity.this, "Username is required", Toast.LENGTH_LONG).show();
 
@@ -177,12 +177,12 @@ public class SignUpActivity extends AppCompatActivity {
                                 Toast.makeText(SignUpActivity.this, "The username already exists ", Toast.LENGTH_LONG).show();
 
                             } else {
-                                Email = metEmail.getText().toString();
-                                password = metPassword.getText().toString();
+                                Email = metEmail.getText().toString() ;
+                                password = metPassword.getText().toString() ;
                                 if (TextUtils.isEmpty(name)&&TextUtils.isEmpty(Email)&&TextUtils.isEmpty(password))
                                     Toast.makeText(SignUpActivity.this, "There is an empty field", Toast.LENGTH_LONG).show();
                                 else {
-                                    setData(name, userName, Email, password);
+                                    setData(name, userName, Email, password) ;
                                     Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
                                     User.setSignUp(true);
                                     startActivity(intent);
@@ -190,14 +190,14 @@ public class SignUpActivity extends AppCompatActivity {
                             }
 
                         }
-                    });
+                    }) ;
                 }
 
 
                 }
 
             }
-        });
+        }) ;
 
     }
 
@@ -209,27 +209,27 @@ public class SignUpActivity extends AppCompatActivity {
         user =new Users(name,email,userName,password,0);
 
         User.setSignUp(true);
-        User.setEmail(user.getEmail());
-        User.setName(user.getName());
-        User.setScore(user.getScore());
-        User.setUserName(user.getUserName());
-        UserReference.set(user);
+        User.setEmail(user.getEmail()) ;
+        User.setName(user.getName()) ;
+        User.setScore(user.getScore()) ;
+        User.setUserName(user.getUserName()) ;
+        UserReference.set(user) ;
 
 
 
-        MainActivity.putsharedPreferences(name,User.NAME_KEY);
-        MainActivity.putsharedPreferences(userName,User.USER_KEY);
-        MainActivity.putsharedPreferences(email,User.EMAIL_KEY);
+        MainActivity.putsharedPreferences(name,User.NAME_KEY) ;
+        MainActivity.putsharedPreferences(userName,User.USER_KEY) ;
+        MainActivity.putsharedPreferences(email,User.EMAIL_KEY) ;
 
 
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem item)  {
+        switch (item.getItemId()) {
             case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
+                NavUtils.navigateUpFromSameTask(this) ;
         }
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item) ;
     }
 }

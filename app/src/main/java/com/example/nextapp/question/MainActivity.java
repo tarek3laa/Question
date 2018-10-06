@@ -43,14 +43,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity extends AppCompatActivity {
 
 
-     private CardView mProfile, mcvRank;
-     private LinearLayout sport,generalInfo,religion;
-     private LinearLayout science;
-     private AdView mAdView;
+     private CardView mProfile, mcvRank ;
+     private LinearLayout sport,generalInfo,religion ;
+     private LinearLayout science ;
+     private AdView mAdView ;
 
-     TextView mtvRank,mtvName;
+     TextView mtvRank,mtvName ;
 
-     CircleImageView profileImage;
+     CircleImageView profileImage ;
 
 
     public static  SharedPreferences sharedPreferences;
@@ -67,34 +67,34 @@ public class MainActivity extends AppCompatActivity {
 
         //ad mob
         MobileAds.initialize(this, User.APP_ID);
-        mAdView = findViewById(R.id.adView);
+        mAdView = findViewById(R.id.adView) ;
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         mAdView.loadAd(adRequest);
 
-        mtvName=(TextView)findViewById(R.id.tv_name);
+        mtvName=(TextView)findViewById(R.id.tv_name) ;
         profileImage=(CircleImageView)findViewById(R.id.ci_profile);
         sharedPreferences=getSharedPreferences(Users.FILE_NAME, Context.MODE_PRIVATE);
 
 
-        mProfile=(CardView)findViewById(R.id.cv_profile);
-        mcvRank =(CardView)findViewById(R.id.cv_ranking);
-        mtvRank=(TextView)findViewById(R.id.tv_ranking);
+        mProfile=(CardView)findViewById(R.id.cv_profile) ;
+        mcvRank =(CardView)findViewById(R.id.cv_ranking) ;
+        mtvRank=(TextView)findViewById(R.id.tv_ranking) ;
 
         mProfile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)  {
 
-                if (User.isSignUp())
+                if  (User.isSignUp())
 
                      startActivity(new Intent(MainActivity.this, ProfileActivity.class));
 
-                else {
+                else  {
 
                     startActivity(new Intent(MainActivity.this,SignUpActivity.class));
 
-                }
+                 }
             }
         });
 
@@ -102,24 +102,24 @@ public class MainActivity extends AppCompatActivity {
         mcvRank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,RankingActivity.class));
+                startActivity(new Intent(MainActivity.this,RankingActivity.class)) ;
             }
         });
 
 
 
-        sport=(LinearLayout)findViewById(R.id.it_sport);
-        generalInfo=(LinearLayout)findViewById(R.id.it_general_info);
-        science=(LinearLayout)findViewById(R.id.it_science);
-        religion=(LinearLayout)findViewById(R.id.it_religion);
+        sport=(LinearLayout)findViewById(R.id.it_sport) ;
+        generalInfo=(LinearLayout)findViewById(R.id.it_general_info) ;
+        science=(LinearLayout)findViewById(R.id.it_science) ;
+        religion=(LinearLayout)findViewById(R.id.it_religion) ;
 
         sport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
-                intent.putExtra(Intentkey,User.SPORT_QUESTION);
-                startActivity(intent);
+                intent.putExtra(Intentkey,User.SPORT_QUESTION) ;
+                startActivity(intent) ;
             }
         });
 
@@ -129,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
-                intent.putExtra(Intentkey,User.GI_QUESTION);
-                startActivity(intent);
+                intent.putExtra(Intentkey,User.GI_QUESTION) ;
+                startActivity(intent) ;
             }
         });
 
@@ -140,15 +140,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
                 intent.putExtra(Intentkey,User.SCIENCE_QUESTION);
-                startActivity(intent);
+                startActivity(intent) ;
             }
         });
         religion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
-                intent.putExtra(Intentkey,User.RELIGION_QUESTION);
-                startActivity(intent);
+                Intent intent=new Intent(MainActivity.this,QuestionActivity.class) ;
+                intent.putExtra(Intentkey,User.RELIGION_QUESTION) ;
+                startActivity(intent) ;
             }
         });
 
@@ -158,24 +158,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        super.onResume();
+        super.onResume() ;
 
        User.setSignUp(sharedPreferences.getBoolean(User.IS_SIGN_KEY,false));
 
        final String name = sharedPreferences.getString(User.NAME_KEY,"NULL"),Email = sharedPreferences.getString(User.EMAIL_KEY,"NULL"),password ="" ,userName=sharedPreferences.getString(User.USER_KEY,"");
        float score = sharedPreferences.getFloat(User.SCORE_KEY, (float) 0.0);
-        String path =  MainActivity.sharedPreferences.getString(User.IMAGE_PATH_KEY,null);
+        String path =  MainActivity.sharedPreferences.getString(User.IMAGE_PATH_KEY,null) ;
 
 
 
 
-        User.setUserName(userName);
-       User.setName(name);
-       User.setEmail(Email);
-       User.setScore(score);
-       mtvName.setText(String.valueOf(User.getName()));
+        User.setUserName(userName) ;
+       User.setName(name) ;
+       User.setEmail(Email) ;
+       User.setScore(score) ;
+       mtvName.setText(String.valueOf(User.getName())) ;
 
-       loadImageFromStorage(path,profileImage);
+       loadImageFromStorage(path,profileImage) ;
 
 
 
@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                            break;
                        }
                    }
-                   mtvRank.setText("# "+String.valueOf(User.getRank()));
+                   mtvRank.setText("# "+String.valueOf(User.getRank())) ;
 
 
                }
@@ -244,19 +244,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     public static void putsharedPreferences(String s,String key){
-        sharedPreferences.edit().putString(key,s).apply();
+        sharedPreferences.edit().putString(key,s).apply() ;
     }
     public static void putsharedPreferences(int i,String key){
 
-        sharedPreferences.edit().putInt(key,i).apply();
+        sharedPreferences.edit().putInt(key,i).apply() ;
     }
     public static void putsharedPreferences(boolean b,String key){
 
-        sharedPreferences.edit().putBoolean(key,b).apply();
+        sharedPreferences.edit().putBoolean(key,b).apply() ;
     }
     public static void putsharedPreferences(float d,String key){
 
-        sharedPreferences.edit().putFloat(key,d).apply();
+        sharedPreferences.edit().putFloat(key,d).apply() ;
     }
     private  void loadImageFromStorage(String path,CircleImageView imageView)
     {
@@ -265,11 +265,11 @@ public class MainActivity extends AppCompatActivity {
             File f=new File(path, "profile.jpg");
             Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
 
-            imageView.setImageBitmap(b);
+            imageView.setImageBitmap(b) ;
         }
         catch (FileNotFoundException e)
         {
-            e.printStackTrace();
+            e.printStackTrace() ;
         }
 
     }

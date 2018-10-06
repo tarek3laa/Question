@@ -55,7 +55,7 @@ public class RankingActivity extends AppCompatActivity {
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
+                .build() ;
         mAdView.loadAd(adRequest);
 
 
@@ -95,10 +95,10 @@ public class RankingActivity extends AppCompatActivity {
                 adapter=new RecyclerViewAdapter(users);
                 LinearLayoutManager layoutManager = new LinearLayoutManager(RankingActivity.this);
                 listView.setHasFixedSize(true);
-                listView.setLayoutManager(layoutManager);
+                listView.setLayoutManager(layoutManager) ;
 
-                listView.setAdapter(adapter);
-                progressBar.setVisibility(View.INVISIBLE);
+                listView.setAdapter(adapter) ;
+                progressBar.setVisibility(View.INVISIBLE) ;
             }
         });
 
@@ -109,12 +109,13 @@ public class RankingActivity extends AppCompatActivity {
 
 
     }
+    //munu
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
+                NavUtils.navigateUpFromSameTask(this) ;
         }
         return super.onOptionsItemSelected(item);
     }

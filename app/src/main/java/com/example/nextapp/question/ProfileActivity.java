@@ -40,7 +40,6 @@ public class ProfileActivity extends AppCompatActivity {
     FloatingActionButton fb;
     CircleImageView imageView;
     FloatingActionButton editprofile;
-    String types;
     private AdView mAdView;
     private android.support.v7.app.ActionBar actionBar;
 
@@ -48,7 +47,6 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-       types="current";
          actionBar = this.getSupportActionBar();
         if(actionBar!=null)actionBar.setDisplayHomeAsUpEnabled(true);
 

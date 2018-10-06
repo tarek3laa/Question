@@ -75,7 +75,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_style"
-            android:text="answer 1"
+            android:text="answer @string/item1"
             android:textAllCaps="false"
             android:textColor="#ecd9d9"
             android:textStyle="normal" />

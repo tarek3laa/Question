@@ -25,15 +25,15 @@ public class QuestionActivity extends AppCompatActivity {
 
     //ans ques count ans[0] & ques[0]
     int s = 0;
-    String[] ans;
-    String[] ans1;
-    String[] ans2;
-    String[] ans3;
+    String[] ans ;
+    String[] ans1 ;
+    String[] ans2 ;
+    String[] ans3 ;
     boolean onClick=false,trueAns=false;
     String RightAnsTest;
     //count iq for any quiz
     float count=0 ;
-    int QuestionCount = 1;
+    int QuestionCount = 1 ;
     TextView Question;
     String type = "";
     CountDownTimer countDownTimer;
@@ -72,7 +72,7 @@ public class QuestionActivity extends AppCompatActivity {
         mtvQuestion.setMovementMethod(new ScrollingMovementMethod());
         Intent intent = getIntent();
         if (intent.hasExtra("Question"))
-            type = intent.getStringExtra("Question");
+            type = intent.getStringExtra("Question") ;
 
         s=MainActivity.sharedPreferences.getInt(type,0);
         QuestionCount=s+1;
@@ -83,7 +83,7 @@ public class QuestionActivity extends AppCompatActivity {
         if (type.equals(User.GI_QUESTION)) {
             ans = getResources().getStringArray(R.array.GI_RightAns);
             ques = getResources().getStringArray(R.array.general_info);
-            ans1 = getResources().getStringArray(R.array.GI_wrong_ans1);
+            ans1 = getResources().getStringArray(R.array.GI_wrong_ans1) ;
             ans2 = getResources().getStringArray(R.array.GI_Wrongans2);
             ans3 = getResources().getStringArray(R.array.GI_Wrongans3);
         }
@@ -98,13 +98,13 @@ public class QuestionActivity extends AppCompatActivity {
         else if (type.equals(User.SPORT_QUESTION)){
             ans = getResources().getStringArray(R.array.SPORT_RIGHT_ANS);
             ques = getResources().getStringArray(R.array.SPORT_QUESTION);
-            ans1 = getResources().getStringArray(R.array.SPORT_WRONG_ANS1);
+            ans1 = getResources().getStringArray(R.array.SPORT_WRONG_ANS1) ;
             ans2 = getResources().getStringArray(R.array.SPORT_WRONG_ANS2);
             ans3 = getResources().getStringArray(R.array.SPORT_WRONG_ANS3);
 
 
         }
-        else if(type.equals(User.SCIENCE_QUESTION)){
+        else if(type.equals(User.SCIENCE_QUESTION)) {
 
 
 
@@ -113,7 +113,7 @@ public class QuestionActivity extends AppCompatActivity {
 
 
 
-        mtvQuestion.setText(ques[s]);
+        mtvQuestion.setText(ques[s]) ;
         RandomModule();
 
 
@@ -123,7 +123,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     private void startTimer() {
 
-        mTime = START_TIME;
+        mTime = START_TIME ;
         timer();
     }
 
@@ -136,9 +136,9 @@ public class QuestionActivity extends AppCompatActivity {
                 if((mTime/1000)<=5)timer.setTextColor(getResources().getColor(R.color.wrong_answer));
                 else timer.setTextColor(getResources().getColor(R.color.color3));
                 if((mTime/1000)>=10)
-                timer.setText("00:"+String.valueOf(mTime/1000));
+                timer.setText("00:"+String.valueOf(mTime/1000)) ;
                 else
-                    timer.setText("00:0"+String.valueOf(mTime/1000));
+                    timer.setText("00:0"+String.valueOf(mTime/1000)) ;
 
 
             }
@@ -149,13 +149,13 @@ public class QuestionActivity extends AppCompatActivity {
                 System.out.println("on Finish");
                 if(q1.getText().toString().equals(ans[s]))
                     setColor(q1,true);
-                else if(q2.getText().toString().equals(ans[s]))
+                else if(q2.getText().toString().equals(ans[s]) )
                     setColor(q2,true);
                 else if(q3.getText().toString().equals(ans[s]))
                     setColor(q3,true);
                 else if(q4.getText().toString().equals(ans[s]))
                     setColor(q4,true);
-                trueAns=false;
+                trueAns=false ;
                 onClick=true;
                 timer2(3);
 
@@ -168,7 +168,7 @@ public class QuestionActivity extends AppCompatActivity {
         }.start();
     }
 
-    private void timer2(int sec){
+    private void timer2(int sec) {
         sec*=1000;
             new CountDownTimer(sec,1000) {
             @Override
@@ -183,13 +183,13 @@ public class QuestionActivity extends AppCompatActivity {
 
 
                     if (trueAns)
-                        RightAns();
+                        RightAns() ;
 
                     else
 
-                        WrongAns();
+                        WrongAns() ;
 
-                    trueAns=false;
+                    trueAns=false ;
 
 
 
@@ -203,14 +203,14 @@ public class QuestionActivity extends AppCompatActivity {
     public void module1() {
         q1.setText(ans[s]);
         q2.setText(ans1[s]);
-        q3.setText(ans2[s]);
+        q3.setText(ans2[s]) ;
         q4.setText(ans3[s]);
 
         checkerm1();
     }
 
     public void module2() {
-        q1.setText(ans1[s]);
+        q1.setText(ans1[s]) ;
         q2.setText(ans[s]);
         q3.setText(ans3[s]);
         q4.setText(ans2[s]);
@@ -219,7 +219,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     public void module3() {
         q1.setText(ans1[s]);
-        q2.setText(ans3[s]);
+        q2.setText(ans3[s]) ;
         q3.setText(ans[s]);
         q4.setText(ans2[s]);
 
@@ -227,7 +227,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void module4() {
-        q1.setText(ans1[s]);
+        q1.setText(ans1[s]) ;
         q2.setText(ans2[s]);
         q3.setText(ans3[s]);
         q4.setText(ans[s]);
@@ -236,7 +236,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void RandomModule() {
-            q1.setBackground(getResources().getDrawable(R.drawable.button_style));
+            q1.setBackground(getResources().getDrawable(R.drawable.button_style)) ;
             q2.setBackground(getResources().getDrawable(R.drawable.button_style));
             q3.setBackground(getResources().getDrawable(R.drawable.button_style));
             q4.setBackground(getResources().getDrawable(R.drawable.button_style));
@@ -246,7 +246,7 @@ public class QuestionActivity extends AppCompatActivity {
                 module1();
             } else if (number == 2) {
                 module2();
-            } else if (number == 3) {
+            } else if (number == 3)  {
                 module3();
             } else {
                 module4();
@@ -264,7 +264,7 @@ public class QuestionActivity extends AppCompatActivity {
 
                                           if (countDownTimer != null)
                                               countDownTimer.cancel();
-                                          trueAns = true;
+                                          trueAns = true ;
                                           onClick = true;
 
                                           if(q1.getText().toString().equals(ans[s]))
@@ -274,7 +274,7 @@ public class QuestionActivity extends AppCompatActivity {
                                           else if(q3.getText().toString().equals(ans[s]))
                                               setColor(q3,true);
                                           else if(q4.getText().toString().equals(ans[s]))
-                                              setColor(q4,true);
+                                              setColor(q4,true) ;
                                           timer2(3);
                                       }
 
@@ -293,11 +293,11 @@ public class QuestionActivity extends AppCompatActivity {
                     trueAns = false;
                     onClick = true;
 
-                    if(q1.getText().toString().equals(ans[s]))
+                    if(q1.getText().toString().equals(ans[s]) )
                         setColor(q1,true);
-                    else if(q2.getText().toString().equals(ans[s]))
+                    else if(q2.getText().toString().equals(ans[s]) )
                         setColor(q2,true);
-                    else if(q3.getText().toString().equals(ans[s]))
+                    else if(q3.getText().toString().equals(ans[s]) )
                         setColor(q3,true);
                     else if(q4.getText().toString().equals(ans[s]))
                         setColor(q4,true);
@@ -320,11 +320,11 @@ public class QuestionActivity extends AppCompatActivity {
 
                     if(q1.getText().toString().equals(ans[s]))
                         setColor(q1,true);
-                    else if(q2.getText().toString().equals(ans[s]))
+                    else if(q2.getText().toString().equals(ans[s]) )
                         setColor(q2,true);
                     else if(q3.getText().toString().equals(ans[s]))
                         setColor(q3,true);
-                    else if(q4.getText().toString().equals(ans[s]))
+                    else if(q4.getText().toString().equals(ans[s]) )
                         setColor(q4,true);
 
                     timer2(3);
@@ -349,7 +349,7 @@ public class QuestionActivity extends AppCompatActivity {
                             setColor(q2,true);
                         else if(q3.getText().toString().equals(ans[s]))
                             setColor(q3,true);
-                        else if(q4.getText().toString().equals(ans[s]))
+                        else if(q4.getText().toString().equals(ans[s]) )
                             setColor(q4,true);
 
                         timer2(3);
@@ -467,7 +467,7 @@ public class QuestionActivity extends AppCompatActivity {
                 if(!onClick){
                 setColor(q1, false);
                 if (countDownTimer!=null)
-                    countDownTimer.cancel();
+                    countDownTimer.cancel() ;
                 trueAns=false;
                 onClick=true;
 
@@ -498,7 +498,7 @@ public class QuestionActivity extends AppCompatActivity {
 
                     if(q1.getText().toString().equals(ans[s]))
                         setColor(q1,true);
-                    else if(q2.getText().toString().equals(ans[s]))
+                    else if(q2.getText().toString().equals(ans[s]) )
                         setColor(q2,true);
                     else if(q3.getText().toString().equals(ans[s]))
                         setColor(q3,true);
@@ -522,11 +522,11 @@ public class QuestionActivity extends AppCompatActivity {
                     if(q1.getText().toString().equals(ans[s]))
                         setColor(q1,true);
                     else if(q2.getText().toString().equals(ans[s]))
-                        setColor(q2,true);
+                        setColor(q2,true) ;
                     else if(q3.getText().toString().equals(ans[s]))
                         setColor(q3,true);
                     else if(q4.getText().toString().equals(ans[s]))
-                        setColor(q4,true);
+                        setColor(q4,true) ;
 
                     timer2(3);
                 }
@@ -549,12 +549,12 @@ public class QuestionActivity extends AppCompatActivity {
                     else if(q2.getText().toString().equals(ans[s]))
                         setColor(q2,true);
                     else if(q3.getText().toString().equals(ans[s]))
-                        setColor(q3,true);
+                        setColor(q3,true) ;
                     else if(q4.getText().toString().equals(ans[s]))
                         setColor(q4,true);
 
 
-                    timer2(3);
+                    timer2(3) ;
                 }
             }
         });
@@ -577,12 +577,12 @@ public class QuestionActivity extends AppCompatActivity {
                     else if(q2.getText().toString().equals(ans[s]))
                         setColor(q2,true);
                     else if(q3.getText().toString().equals(ans[s]))
-                        setColor(q3,true);
+                        setColor(q3,true) ;
                     else if(q4.getText().toString().equals(ans[s]))
                         setColor(q4,true);
 
 
-                    timer2(3);
+                    timer2(3)  ;
 
                 }
             }
@@ -594,7 +594,7 @@ public class QuestionActivity extends AppCompatActivity {
                     setColor(q2, false);
                     if (countDownTimer != null)
                         countDownTimer.cancel();
-                    trueAns = false;
+                    trueAns = false ;
                     onClick = true;
 
                     if(q1.getText().toString().equals(ans[s]))
@@ -603,7 +603,7 @@ public class QuestionActivity extends AppCompatActivity {
                         setColor(q2,true);
                     else if(q3.getText().toString().equals(ans[s]))
                         setColor(q3,true);
-                    else if(q4.getText().toString().equals(ans[s]))
+                    else if(q4.getText().toString().equals(ans[s]) )
                         setColor(q4,true);
 
 
@@ -623,7 +623,7 @@ public class QuestionActivity extends AppCompatActivity {
 
                     if(q1.getText().toString().equals(ans[s]))
                         setColor(q1,true);
-                    else if(q2.getText().toString().equals(ans[s]))
+                    else if(q2.getText().toString().equals(ans[s]) )
                         setColor(q2,true);
                     else if(q3.getText().toString().equals(ans[s]))
                         setColor(q3,true);
@@ -647,7 +647,7 @@ public class QuestionActivity extends AppCompatActivity {
                     onClick = true;
 
                     if(q1.getText().toString().equals(ans[s]))
-                        setColor(q1,true);
+                        setColor(q1,true) ;
                     else if(q2.getText().toString().equals(ans[s]))
                         setColor(q2,true);
                     else if(q3.getText().toString().equals(ans[s]))
@@ -671,13 +671,13 @@ public class QuestionActivity extends AppCompatActivity {
             finish();
         if (s == 15) {
             Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
-            intent.putExtra("IQ", count);
+            intent.putExtra("IQ", count) ;
 
-            startActivity(intent);
+            startActivity(intent) ;
         }
-            mtvQuestion.setText(ques[s]);
+            mtvQuestion.setText(ques[s]) ;
             QuestionCount++;
-            Question.setText("Question " + QuestionCount);
+            Question.setText("Question " + QuestionCount) ;
 
              RandomModule();
 

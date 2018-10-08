@@ -28,23 +28,23 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity  {
 
     EditText metName, metUser, metEmail, metPassword;
 
     Button mbtSign, mbtHaveaccount ;
-    LinearLayout mlyName, mlyUser ;
+    LinearLayout mlyName, mlyUser;
     TextView mtvsign ;
-    boolean haveAccount = false ;
+    boolean haveAccount = false;
     private AdView mAdView ;
 
 
 
-    private String name, Email, password, userName;
+    private String name, Email, password, userName ;
     private ActionBar actionBar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up) ;
 
@@ -56,24 +56,24 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         //ad mob
-        MobileAds.initialize(this, User.APP_ID);
+        MobileAds.initialize(this, User.APP_ID) ;
         mAdView = findViewById(R.id.adView) ;
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
-        mAdView.loadAd(adRequest);
+        mAdView.loadAd(adRequest) ;
 
 
 
         metName = (EditText) findViewById(R.id.et_name) ;
-        metUser = (EditText) findViewById(R.id.et_user) ;
+        metUser = (EditText) findViewById(R.id.et_user);
         metEmail = (EditText) findViewById(R.id.et_email) ;
         metPassword = (EditText) findViewById(R.id.et_password) ;
         mbtSign = (Button) findViewById(R.id.bt_sign_up) ;
         mbtHaveaccount = (Button) findViewById(R.id.bt_have_account) ;
-        mlyName = (LinearLayout) findViewById(R.id.ly_name) ;
-        mlyUser = (LinearLayout) findViewById(R.id.ly_user) ;
-        mtvsign = (TextView) findViewById(R.id.tv_sign_or_sign_up)  ;
+        mlyName = (LinearLayout) findViewById(R.id.ly_name);
+        mlyUser = (LinearLayout) findViewById(R.id.ly_user);
+        mtvsign = (TextView) findViewById(R.id.tv_sign_or_sign_up) ;
         mbtHaveaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,7 +105,7 @@ public class SignUpActivity extends AppCompatActivity {
                     if ((!TextUtils.isEmpty(userName))&&(!TextUtils.isEmpty(password))) {
 
                         /***********  ***************/
-                        DocumentReference UserReference0 = FirebaseFirestore.getInstance().collection(Users.collectionReference).document(userName);
+                        DocumentReference UserReference0 = FirebaseFirestore . getInstance().collection(Users.collectionReference).document(userName);
 
                         UserReference0.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                             @Override
@@ -117,9 +117,9 @@ public class SignUpActivity extends AppCompatActivity {
 
                                         //user and password are correct
                                         User.setSignUp(true);
-                                        User.setEmail(user05.getEmail()) ;
+                                        User.setEmail(user05.getEmail());
                                         User.setName(user05.getName()) ;
-                                        User.setScore(user05.getScore()) ;
+                                        User.setScore(user05.getScore());
                                         User.setUserName(user05.getUserName()) ;
 
                                         MainActivity.putsharedPreferences(user05.getName(), User.NAME_KEY) ;
@@ -128,7 +128,7 @@ public class SignUpActivity extends AppCompatActivity {
                                         MainActivity.putsharedPreferences(user05.getScore(), User.SCORE_KEY) ;
 
 
-                                        Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
+                                        Intent intent = new Intent(SignUpActivity . this, ProfileActivity.class);
                                         startActivity(intent);
 
 
@@ -142,7 +142,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                                     //user incorrect
-                                    Toast.makeText(SignUpActivity.this, "User Name incorrect ", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(SignUpActivity.this , "User Name incorrect ", Toast.LENGTH_LONG).show();
 
 
                                 }
@@ -165,7 +165,7 @@ public class SignUpActivity extends AppCompatActivity {
                     name = metName.getText().toString() ;
                     userName = metUser.getText().toString() ;
                     if (TextUtils.isEmpty(userName)) {
-                        Toast.makeText(SignUpActivity.this, "Username is required", Toast.LENGTH_LONG).show();
+                        Toast.makeText(SignUpActivity . this, "Username is required", Toast.LENGTH_LONG).show();
 
                     }
                      else{
@@ -174,7 +174,7 @@ public class SignUpActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                             if (documentSnapshot.exists()) {
-                                Toast.makeText(SignUpActivity.this, "The username already exists ", Toast.LENGTH_LONG).show();
+                                Toast.makeText(SignUpActivity.this , "The username already exists ", Toast.LENGTH_LONG).show();
 
                             } else {
                                 Email = metEmail.getText().toString() ;
@@ -184,13 +184,13 @@ public class SignUpActivity extends AppCompatActivity {
                                 else {
                                     setData(name, userName, Email, password) ;
                                     Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
-                                    User.setSignUp(true);
+                                    User.setSignUp(true) ;
                                     startActivity(intent);
                                 }
                             }
 
                         }
-                    }) ;
+                    })  ;
                 }
 
 
@@ -209,10 +209,10 @@ public class SignUpActivity extends AppCompatActivity {
         user =new Users(name,email,userName,password,0);
 
         User.setSignUp(true);
-        User.setEmail(user.getEmail()) ;
-        User.setName(user.getName()) ;
+        User.setEmail(user.getEmail());
+        User.setName(user.getName());
         User.setScore(user.getScore()) ;
-        User.setUserName(user.getUserName()) ;
+        User.setUserName(user.getUserName());
         UserReference.set(user) ;
 
 
@@ -227,9 +227,9 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item)  {
         switch (item.getItemId()) {
-            case android.R.id.home:
+            case android.R.id.home :
                 NavUtils.navigateUpFromSameTask(this) ;
         }
         return super.onOptionsItemSelected(item) ;
-    }
+     }
 }

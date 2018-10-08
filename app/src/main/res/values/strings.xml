@@ -5,12 +5,12 @@
     <string name="your_name">اسمك</string>
     <string name="item1">رياضه</string>
     <string name="item2">علوم</string>
-    <string name="item3">دين</string>
+     <string name="item3">دين</string>
     <string name="item4">معلومات</string>
     <string name="item5">برمجة</string>
     <string name="item6">قريبااا</string>
     <string name="unit1">ca-app-pub-1041023466257355/8818162988</string>
-    <string name="unit2">ca-app-pub-1041023466257355/5346370578</string>
+     <string name="unit2">ca-app-pub-1041023466257355/5346370578</string>
     <string name="unit3">ca-app-pub-1041023466257355/1635190429</string>
     <string name="unit4">ca-app-pub-1041023466257355/6333925280</string>
 

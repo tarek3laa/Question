@@ -31,15 +31,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class RankingActivity extends AppCompatActivity {
+public class RankingActivity extends AppCompatActivity  {
 
    RecyclerView listView;
    RecyclerViewAdapter adapter;
    ArrayList<Users>users;
-   CollectionReference collectionReference;
+   CollectionReference collectionReference ;
    ProgressBar progressBar;
    private AdView mAdView;
-   private ActionBar actionBar;
+   private ActionBar actionBar ;
 
 
     @Override
@@ -47,26 +47,26 @@ public class RankingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        actionBar = this.getSupportActionBar();
+        actionBar = this.getSupportActionBar() ;
         if(actionBar!=null)actionBar.setDisplayHomeAsUpEnabled(true);
 
         // ad mob
         MobileAds.initialize(this, User.APP_ID);
-        mAdView = findViewById(R.id.adView);
+        mAdView = findViewById(R.id.adView) ;
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build() ;
-        mAdView.loadAd(adRequest);
+        mAdView.loadAd(adRequest) ;
 
 
 
 
        listView=(RecyclerView) findViewById(R.id.lv_ranking);
-       progressBar=(ProgressBar)findViewById(R.id.loading);
+       progressBar=(ProgressBar)findViewById(R.id.loading) ;
        users=new ArrayList<>();
        /**************************************************************************************************/
 
-        collectionReference = FirebaseFirestore.getInstance().collection(Users.collectionReference);
+        collectionReference = FirebaseFirestore.getInstance() . collection(Users.collectionReference);
         progressBar.setVisibility(View.VISIBLE);
 
         collectionReference.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -75,7 +75,7 @@ public class RankingActivity extends AppCompatActivity {
 
                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
 
-                    users.add(documentSnapshot.toObject(Users.class));
+                    users.add(documentSnapshot.toObject(Users . class));
 
 
                 }
@@ -84,10 +84,10 @@ public class RankingActivity extends AppCompatActivity {
 
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                Collections.sort(users, new Comparator<Users>() {
+                Collections.sort(users, new Comparator<Users>()  {
                     @Override
                     public int compare(Users user, Users t1) {
-                        return Integer.valueOf(t1.getScore()).compareTo(user.getScore());
+                        return Integer.valueOf(t1.getScore()) . compareTo(user.getScore());
                     }
                 });
 
@@ -95,7 +95,7 @@ public class RankingActivity extends AppCompatActivity {
                 adapter=new RecyclerViewAdapter(users);
                 LinearLayoutManager layoutManager = new LinearLayoutManager(RankingActivity.this);
                 listView.setHasFixedSize(true);
-                listView.setLayoutManager(layoutManager) ;
+                listView.setLayoutManager(layoutManager);
 
                 listView.setAdapter(adapter) ;
                 progressBar.setVisibility(View.INVISIBLE) ;
@@ -117,7 +117,7 @@ public class RankingActivity extends AppCompatActivity {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this) ;
         }
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item) ;
     }
 
 

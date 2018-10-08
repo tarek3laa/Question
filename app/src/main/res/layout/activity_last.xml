@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LastActivity"
-    android:background="@drawable/lastactivityshow">
+    android:background="@drawable/lastactivityshow" >
 
 
 
@@ -22,7 +22,7 @@
         android:textSize="30sp"
         android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="214dp" />
+        tools:layout_editor_absoluteY="214dp"  />
 
 
     <TextView
@@ -36,7 +36,7 @@
         android:textAllCaps="false"
         android:textColor="#000"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"  />
 
     <Button
         android:id="@+id/MenuAc"
@@ -48,6 +48,6 @@
         android:text="BackToMenu"
         android:textAllCaps="false"
         android:textColor="#fff"
-        android:textStyle="bold" />
+        android:textStyle="bold"  />
 
 </RelativeLayout>

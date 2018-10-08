@@ -12,8 +12,8 @@ import java.io.Serializable;
 public class Users {
     private String name;
     private String Email;
-    private String password;
-    private String userName;
+    private String password ;
+    private String userName ;
     private int score;
 
 
@@ -28,16 +28,16 @@ public class Users {
 
     public String getUserName() {
         return userName;
-    }
+     }
 
 
 
     public Users(String name, String email, String userName, String password, int score) {
         this.name = name;
-        this.Email = email;
+        this.Email = email ;
         this.score = score;
         this.password = password;
-        this.userName=userName;
+        this.userName=userName ;
 
 
     }
@@ -46,7 +46,7 @@ public class Users {
         return password;
     }
 
-    public String getName() {
+    public String getName()  {
         return name;
     }
 
@@ -59,7 +59,7 @@ public class Users {
         return score;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email)  {
         Email = email;
     }
 }

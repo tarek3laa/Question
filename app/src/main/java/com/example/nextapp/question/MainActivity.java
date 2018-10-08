@@ -43,14 +43,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity extends AppCompatActivity {
 
 
-     private CardView mProfile, mcvRank ;
-     private LinearLayout sport,generalInfo,religion ;
-     private LinearLayout science ;
-     private AdView mAdView ;
+     private CardView mProfile, mcvRank;
+     private LinearLayout sport,generalInfo,religion  ;
+     private LinearLayout science;
+     private AdView mAdView;
 
-     TextView mtvRank,mtvName ;
+     TextView mtvRank,mtvName;
 
-     CircleImageView profileImage ;
+     CircleImageView profileImage;
 
 
     public static  SharedPreferences sharedPreferences;
@@ -59,14 +59,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
         //ad mob
-        MobileAds.initialize(this, User.APP_ID);
+        MobileAds.initialize(this, User.APP_ID) ;
         mAdView = findViewById(R.id.adView) ;
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -78,21 +78,21 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences=getSharedPreferences(Users.FILE_NAME, Context.MODE_PRIVATE);
 
 
-        mProfile=(CardView)findViewById(R.id.cv_profile) ;
+        mProfile=(CardView)findViewById(R.id.cv_profile);
         mcvRank =(CardView)findViewById(R.id.cv_ranking) ;
         mtvRank=(TextView)findViewById(R.id.tv_ranking) ;
 
-        mProfile.setOnClickListener(new View.OnClickListener() {
+        mProfile.setOnClickListener(new View.OnClickListener()  {
             @Override
             public void onClick(View view)  {
 
                 if  (User.isSignUp())
 
-                     startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                     startActivity(new Intent(MainActivity.this , ProfileActivity.class));
 
                 else  {
 
-                    startActivity(new Intent(MainActivity.this,SignUpActivity.class));
+                    startActivity(new Intent(MainActivity.this , SignUpActivity.class));
 
                  }
             }
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         mcvRank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,RankingActivity.class)) ;
+                startActivity(new Intent(MainActivity.this , RankingActivity.class)) ;
             }
         });
 
@@ -113,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
         science=(LinearLayout)findViewById(R.id.it_science) ;
         religion=(LinearLayout)findViewById(R.id.it_religion) ;
 
-        sport.setOnClickListener(new View.OnClickListener() {
+        sport.setOnClickListener(new View.OnClickListener()  {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)  {
 
                 Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
                 intent.putExtra(Intentkey,User.SPORT_QUESTION) ;
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        generalInfo.setOnClickListener(new View.OnClickListener() {
+        generalInfo.setOnClickListener(new View.OnClickListener()  {
             @Override
             public void onClick(View view) {
 
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
         science.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)  {
                 Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
                 intent.putExtra(Intentkey,User.SCIENCE_QUESTION);
                 startActivity(intent) ;
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         });
         religion.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)  {
                 Intent intent=new Intent(MainActivity.this,QuestionActivity.class) ;
                 intent.putExtra(Intentkey,User.RELIGION_QUESTION) ;
                 startActivity(intent) ;
@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume()  {
         super.onResume() ;
 
        User.setSignUp(sharedPreferences.getBoolean(User.IS_SIGN_KEY,false));
@@ -169,9 +169,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        User.setUserName(userName) ;
+        User.setUserName(userName);
        User.setName(name) ;
-       User.setEmail(Email) ;
+       User.setEmail(Email);
        User.setScore(score) ;
        mtvName.setText(String.valueOf(User.getName())) ;
 
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-       if(User.isSignUp()){
+       if(User.isSignUp()) {
 
 
 
@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
 
                    }
                }
-           }).addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+           }).addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()  {
 
                @Override
                public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                            break;
                        }
                    }
-                   mtvRank.setText("# "+String.valueOf(User.getRank())) ;
+                   mtvRank.setText("# "+String.valueOf(User.getRank()))  ;
 
 
                }
@@ -244,11 +244,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     public static void putsharedPreferences(String s,String key){
-        sharedPreferences.edit().putString(key,s).apply() ;
+        sharedPreferences.edit().putString(key,s).apply();
     }
     public static void putsharedPreferences(int i,String key){
 
-        sharedPreferences.edit().putInt(key,i).apply() ;
+        sharedPreferences.edit().putInt(key,i).apply();
     }
     public static void putsharedPreferences(boolean b,String key){
 
@@ -269,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
         }
         catch (FileNotFoundException e)
         {
-            e.printStackTrace() ;
+            e.printStackTrace();
         }
 
     }

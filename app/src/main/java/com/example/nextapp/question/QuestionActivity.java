@@ -2,6 +2,7 @@ package com.example.nextapp.question;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
@@ -22,6 +23,9 @@ public class QuestionActivity extends AppCompatActivity {
     String[] ques;
     TextView mtvQuestion;
     Button q1, q2, q3, q4;
+    //mediaplayer
+    MediaPlayer mp3right;
+    MediaPlayer mp3wrong;
 
     //ans ques count ans[0] & ques[0]
     int s = 0;
@@ -46,6 +50,11 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        //mediaplayer
+        mp3right=MediaPlayer.create(this,R.raw.righttone);
+        mp3wrong=MediaPlayer.create(this,R.raw.wrongtone);
+
 
         actionBar = this.getSupportActionBar();
         if(actionBar!=null)actionBar.setDisplayHomeAsUpEnabled(true);
@@ -145,6 +154,7 @@ public class QuestionActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                mp3wrong.start();
 
                 System.out.println("on Finish");
                 if(q1.getText().toString().equals(ans[s]))
@@ -157,6 +167,7 @@ public class QuestionActivity extends AppCompatActivity {
                     setColor(q4,true);
                 trueAns=false ;
                 onClick=true;
+
                 timer2(3);
 
 
@@ -258,6 +269,8 @@ public class QuestionActivity extends AppCompatActivity {
         q1.setOnClickListener(new View.OnClickListener() {
                                   @Override
                                   public void onClick(View view) {
+                                      mp3right.start();
+
 
                                       if(!onClick) {
                                           setColor(q1, true);
@@ -284,6 +297,7 @@ public class QuestionActivity extends AppCompatActivity {
         q2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
 
                 if (!onClick) {
 
@@ -310,6 +324,7 @@ public class QuestionActivity extends AppCompatActivity {
         q3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
 
                 if(!onClick) {
                     setColor(q3, false);
@@ -335,6 +350,7 @@ public class QuestionActivity extends AppCompatActivity {
         q4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
 
                     if(!onClick) {
                         setColor(q4, false);
@@ -363,6 +379,8 @@ public class QuestionActivity extends AppCompatActivity {
         q1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
+
                 if(!onClick) {
                     setColor(q1, false);
                     if (countDownTimer != null)
@@ -387,6 +405,8 @@ public class QuestionActivity extends AppCompatActivity {
         q2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3right.start();
+
                 if(!onClick) {
                     setColor(q2, true);
                     if (countDownTimer != null)
@@ -410,6 +430,8 @@ public class QuestionActivity extends AppCompatActivity {
         q3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
+
                 if(!onClick) {
                     setColor(q3, false);
                     if (countDownTimer != null)
@@ -436,6 +458,8 @@ public class QuestionActivity extends AppCompatActivity {
         q4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
+
 
                 if(!onClick) {
                     setColor(q4, false);
@@ -463,6 +487,8 @@ public class QuestionActivity extends AppCompatActivity {
         q1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
+
 
                 if(!onClick){
                 setColor(q1, false);
@@ -488,6 +514,8 @@ public class QuestionActivity extends AppCompatActivity {
         q2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
+
 
                 if (!onClick) {
                     setColor(q2, false);
@@ -512,6 +540,8 @@ public class QuestionActivity extends AppCompatActivity {
         q3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3right.start();
+
                 if (!onClick) {
                     setColor(q3, true);
                     if (countDownTimer != null)
@@ -536,6 +566,8 @@ public class QuestionActivity extends AppCompatActivity {
         q4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
+
 
                 if(!onClick) {
                     setColor(q4, false);
@@ -564,6 +596,7 @@ public class QuestionActivity extends AppCompatActivity {
         q1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
 
                 if(!onClick) {
                     setColor(q1, false);
@@ -590,6 +623,8 @@ public class QuestionActivity extends AppCompatActivity {
         q2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
+
                 if (!onClick) {
                     setColor(q2, false);
                     if (countDownTimer != null)
@@ -614,6 +649,8 @@ public class QuestionActivity extends AppCompatActivity {
         q3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3wrong.start();
+
                 if (!onClick) {
                     setColor(q3, false);
                     if (countDownTimer != null)
@@ -639,6 +676,8 @@ public class QuestionActivity extends AppCompatActivity {
         q4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mp3right.start();
+
                 if (!onClick) {
                     setColor(q4, true);
                     if (countDownTimer != null)

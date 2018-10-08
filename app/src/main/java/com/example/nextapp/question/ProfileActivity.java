@@ -33,62 +33,62 @@ import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity  {
 
     private static final int SELECT_IMAGE = 25 ;
-    private TextView name,email,rank,score;
+    private TextView name,email,rank,score ;
     FloatingActionButton fb;
-    CircleImageView imageView;
+    CircleImageView imageView ;
     FloatingActionButton editprofile;
     private AdView mAdView;
-    private android.support.v7.app.ActionBar actionBar;
+    private android.support.v7.app.ActionBar actionBar ;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState)  {
+        super.onCreate(savedInstanceState) ;
         setContentView(R.layout.activity_profile);
          actionBar = this.getSupportActionBar();
         if(actionBar!=null)actionBar.setDisplayHomeAsUpEnabled(true);
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) ;
 
 
 
 
 
         //ad mob
-        MobileAds.initialize(this, User.APP_ID);
+        MobileAds.initialize(this, User.APP_ID) ;
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-        mAdView.loadAd(adRequest);
+                .build() ;
+        mAdView.loadAd(adRequest) ;
 
         name=(TextView)findViewById(R.id.tv_pa_name);
-        email=(TextView)findViewById(R.id.tv_pa_email);
+        email=(TextView)findViewById(R.id.tv_pa_email) ;
 
         rank=(TextView)findViewById(R.id.tv_pa_rank);
-        score=(TextView)findViewById(R.id.tv_pa_score);
+        score=(TextView)findViewById(R.id.tv_pa_score) ;
 
         rank.setText(String.valueOf(User.getRank()));
         score.setText(String.valueOf(User.getScore()));
 
 
-        imageView=(CircleImageView) findViewById(R.id.ci_profile);
+        imageView=(CircleImageView) findViewById(R.id.ci_profile) ;
 
 
 
         // set image button
-        fb=(FloatingActionButton)findViewById(R.id.floatingActionButton);
+        fb=(FloatingActionButton)findViewById(R.id.floatingActionButton) ;
 
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // intent for open gallery and return selected image
-                Intent intent = new Intent();
+                Intent intent = new Intent() ;
                 intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);//
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"),SELECT_IMAGE);
+                intent.setAction(Intent.ACTION_GET_CONTENT) ;//
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"),SELECT_IMAGE) ;
 
             }
         });
@@ -101,7 +101,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intent=new Intent(ProfileActivity.this,EditActivity.class);
                 startActivity(intent);
             }
-        });
+        }) ;
 
 
     }
@@ -117,16 +117,16 @@ public class ProfileActivity extends AppCompatActivity {
      * @param data
      */
     public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+     {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == SELECT_IMAGE)
-        {
+         {
             if (resultCode == Activity.RESULT_OK)
-            {
+             {
                 if (data != null)
-                {
+                 {
                     try
-                    {
+                     {
 
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
                         imageView.setImageBitmap(bitmap);
@@ -140,10 +140,10 @@ public class ProfileActivity extends AppCompatActivity {
 
                 }
             } else if (resultCode == Activity.RESULT_CANCELED)
-            {
+             {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
             }
-        }
+         }
     }
 
     /**
@@ -153,9 +153,9 @@ public class ProfileActivity extends AppCompatActivity {
      */
     @NonNull
     private String saveToInternalStorage(Bitmap bitmapImage){
-        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        ContextWrapper cw = new ContextWrapper(getApplicationContext()) ;
         // path to /data/data/yourapp/app_data/imageDir
-        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE) ;
         // Create imageDir
         File mypath=new File(directory,"profile.jpg");
 
@@ -169,8 +169,8 @@ public class ProfileActivity extends AppCompatActivity {
         } finally {
             try {
                 fos.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException e){
+                e.printStackTrace() ;
             }
         }
         return directory.getAbsolutePath();
@@ -187,7 +187,7 @@ public class ProfileActivity extends AppCompatActivity {
             File f=new File(path, "profile.jpg");
             Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
 
-           imageView.setImageBitmap(b);
+           imageView.setImageBitmap(b) ;
         }
         catch (FileNotFoundException e)
         {
@@ -197,7 +197,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume(){
         super.onResume();
 
        String path =  MainActivity.sharedPreferences.getString(User.IMAGE_PATH_KEY,null);
@@ -209,7 +209,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)  {
         switch (item.getItemId()){
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);

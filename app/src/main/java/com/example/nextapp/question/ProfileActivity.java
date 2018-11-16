@@ -86,7 +86,7 @@ public class ProfileActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 // intent for open gallery and return selected image
                 Intent intent = new Intent() ;
-                intent.setType("image/*");
+                intent.setType("image/*") ;
                 intent.setAction(Intent.ACTION_GET_CONTENT) ;//
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"),SELECT_IMAGE) ;
 

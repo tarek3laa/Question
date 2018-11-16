@@ -37,6 +37,7 @@ public class QuestionActivity extends AppCompatActivity {
     String RightAnsTest;
     //count iq for any quiz
     float count=0 ;
+    double countlastac=0;
     int QuestionCount = 1 ;
     TextView Question;
     String type = "";
@@ -193,15 +194,16 @@ public class QuestionActivity extends AppCompatActivity {
                 startTimer();
 
 
-                    if (trueAns)
-                        RightAns() ;
+                    if(trueAns)
+                    {
+                            RightAns();
 
-                    else
+                }else{
 
-                        WrongAns() ;
+                    WrongAns();
 
-                    trueAns=false ;
-
+                    trueAns = false;
+                }
 
 
 
@@ -288,6 +290,7 @@ public class QuestionActivity extends AppCompatActivity {
                                               setColor(q3,true);
                                           else if(q4.getText().toString().equals(ans[s]))
                                               setColor(q4,true) ;
+
                                           timer2(3);
                                       }
 
@@ -703,40 +706,34 @@ public class QuestionActivity extends AppCompatActivity {
 
     public void RightAns() {
         count +=0.5;
-        if(s<ques.length)
-            s++;
-        else {
-            Toast.makeText(this,"مبروك لقد انهيت جميع اسئلة هذا القسم",Toast.LENGTH_LONG).show();
-            finish();
-        if (s == 15) {
+        countlastac +=0.5;
+        s++;
+
+        if (QuestionCount >= 2) {
             Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
-            intent.putExtra("IQ", count) ;
+            intent.putExtra("IQ", countlastac) ;
 
             startActivity(intent) ;
         }
             mtvQuestion.setText(ques[s]) ;
             QuestionCount++;
             Question.setText("Question " + QuestionCount) ;
-
              RandomModule();
 
 
-    }
+
     }
     public void WrongAns() {
-        if(s<ques.length)
-            s++;
-        else {
-            Toast.makeText(this,"مبروك لقد انهيت جميع اسئلة هذا القسم",Toast.LENGTH_LONG).show();
-            finish();
-             }
-        mtvQuestion.setText(ques[s]);
-        if (s == 15) {
+
+        s++;
+        if (QuestionCount >= 2) {
             Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
-            intent.putExtra("IQ", count);
+            intent.putExtra("IQ", countlastac);
             startActivity(intent);
         }
-            QuestionCount++;
+
+        mtvQuestion.setText(ques[s]);
+        QuestionCount++;
             Question.setText("Question " + QuestionCount);
 
         RandomModule();
@@ -772,6 +769,7 @@ public class QuestionActivity extends AppCompatActivity {
                 NavUtils.navigateUpFromSameTask(this);
         }
         return super.onOptionsItemSelected(item);
+
     }
 }
 

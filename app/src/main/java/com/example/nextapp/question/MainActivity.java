@@ -12,6 +12,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -274,5 +276,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id =item.getItemId();
+        if(id==R.id.emerg){
+        Intent intent =new Intent(MainActivity.this,EmergancyActivity.class);
+        startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.info,menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
 }

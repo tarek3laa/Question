@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "326019974219",
-    "firebase_url": "https://question-8fc4e.firebaseio.com",
-    "project_id": "question-8fc4e",
-    "storage_bucket": "question-8fc4e.appspot.com"
+    "project_number": "686230658511",
+    "firebase_url": "https://question-c3ad0.firebaseio.com",
+    "project_id": "question-c3ad0",
+    "storage_bucket": "question-c3ad0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:326019974219:android:71bacaece2b5acc6",
+        "mobilesdk_app_id": "1:686230658511:android:71bacaece2b5acc6",
         "android_client_info": {
           "package_name": "com.example.nextapp.question"
         }
       },
       "oauth_client": [
         {
-          "client_id": "326019974219-4u35bfe5snsughrs8rtjsmno80loegbm.apps.googleusercontent.com",
+          "client_id": "686230658511-fpqmuhjr873rk8i7nd3usu7vi9mmk9du.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCWFwRBTxpNZAD898eL6cEXzeUWHB22WPk"
+          "current_key": "AIzaSyBMN06p5Vp5NCjq2ysUiynVa8dXnNQJi2g"
         }
       ],
       "services": {
@@ -35,8 +35,7 @@
         "ads_service": {
           "status": 2
         }
-      },
-      "admob_app_id": "ca-app-pub-1041023466257355~7577782244"
+      }
     }
   ],
   "configuration_version": "1"

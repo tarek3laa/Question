@@ -186,6 +186,7 @@ public class SignUpActivity extends AppCompatActivity  {
                                     Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
                                     User.setSignUp(true) ;
                                     startActivity(intent);
+                                    finish();
                                 }
                             }
 

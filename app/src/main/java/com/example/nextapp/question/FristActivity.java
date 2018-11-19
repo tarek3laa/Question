@@ -23,7 +23,14 @@ int sec=3;
             public void onFinish() {
                 Intent intent=new Intent(FristActivity.this,MainActivity.class);
                 startActivity(intent);
+                finish();
             }
+
             }.start();
+
     }
+
+
+
+
 }

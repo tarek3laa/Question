@@ -52,7 +52,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="31dp"
         android:layout_marginStart="31dp"
-        android:text="if you forgot the information of your account you can reach us.. \nDevoloper :AhmedKhlaid and TarekAlaa \nWhatsapp:  \nFacebook:ahmedkhalid246@yahoo.com \n                   tarekalaa@gmail.com \n"
+        android:text="if you forgot the information of your account you can reach us.. \nDevoloper : Ahmed Khlaid and Tarek Alaa \nWhatsapp :   \nFacebook : ahmedkhalid246@yahoo.com \n                   tarek.3laa1@gmail.com \n"
         android:textColor="#000"
         android:textSize="15dp"
         android:textStyle="italic" />

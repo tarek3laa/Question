@@ -12,19 +12,20 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class EditActivity extends AppCompatActivity {
-    EditText editname ;
-    EditText editemail;
-    EditText editpass ;
-    Button savebu;
+    //EditText editname ;
+   // EditText editemail;
+   // EditText editpass ;
+   // Button savebu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);//findview
-        editemail=(EditText)findViewById(R.id.editemail) ;
-        editname=(EditText)findViewById(R.id.editname);
+
+        /*editemail=(EditText)findViewById(R.id.editemail) ;
+        //editname=(EditText)findViewById(R.id.editname);
         editpass=(EditText)findViewById(R.id.editpass) ;
-        savebu=(Button)findViewById(R.id.savebutton);
+       // savebu=(Button)findViewById(R.id.savebutton);
 
 
         editname.setText(User.getName());
@@ -47,7 +48,7 @@ public class EditActivity extends AppCompatActivity {
                 finish();
 
             }
-        }) ;
+        }) ;*/
 
     }
 }

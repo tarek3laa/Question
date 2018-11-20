@@ -30,6 +30,7 @@
         android:textColor="@color/button"
         />
     <EditText
+        android:id="@+id/edit_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -128,5 +129,13 @@
             android:padding="5dp"
             android:textColor="#000" />
     </LinearLayout>
+    <Button
+        android:id="@+id/savebutton"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:background="@drawable/button_style_2"
+        />
 
 </LinearLayout>

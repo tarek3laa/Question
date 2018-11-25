@@ -41,7 +41,7 @@ public class QuestionActivity extends AppCompatActivity {
     int QuestionCount = 1 ;
     TextView Question;
     String type = "";
-    CountDownTimer countDownTimer;
+    CountDownTimer countDownTimer,timer2;
     private static final long START_TIME = 25000;
     private long mTime = START_TIME;
     private TextView timer;
@@ -182,7 +182,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     private void timer2(int sec) {
         sec*=1000;
-            new CountDownTimer(sec,1000) {
+        timer2 = new CountDownTimer(sec,1000) {
             @Override
             public void onTick(long l) {
 
@@ -754,8 +754,10 @@ public class QuestionActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
+        mp3right.pause();
+        mp3wrong.pause();
         countDownTimer.cancel();
+        timer2.cancel();
         MainActivity.putsharedPreferences(s,type);
         MainActivity.putsharedPreferences(count,User.SCORE_KEY);
         User.setScore( count);

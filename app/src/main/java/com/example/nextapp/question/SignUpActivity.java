@@ -115,6 +115,7 @@ public class SignUpActivity extends AppCompatActivity  {
                                     if (user05.getPassword().equals(password)) {
 
 
+
                                         //user and password are correct
                                         User.setSignUp(true);
                                         User.setEmail(user05.getEmail());
@@ -169,6 +170,7 @@ public class SignUpActivity extends AppCompatActivity  {
 
                     }
                      else{
+                        //if user already exists
                     DocumentReference UserReference0 = FirebaseFirestore.getInstance().collection(Users.collectionReference).document(userName);
                     UserReference0.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override

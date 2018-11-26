@@ -73,6 +73,9 @@ public class ProfileActivity extends AppCompatActivity  {
         rank.setText(String.valueOf(User.getRank()));
         score.setText(String.valueOf(User.getScore()));
 
+        name.setText(User.getName());
+        email.setText(User.getEmail());
+
 
         imageView=(CircleImageView) findViewById(R.id.ci_profile) ;
 

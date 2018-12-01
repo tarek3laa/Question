@@ -27,6 +27,7 @@ int sec=3;
             }
 
             }.start();
+        onStop();
 
     }
 

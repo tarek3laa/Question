@@ -7,12 +7,13 @@
     tools:context=".RankingActivity" >
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/lv_ranking"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lv_ranking"
-        android:orientation="vertical"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="@drawable/background7"
-         />
+        android:orientation="vertical" />
 
     <ProgressBar
         style="@style/Base.Widget.AppCompat.ProgressBar"

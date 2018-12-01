@@ -714,6 +714,7 @@ public class QuestionActivity extends AppCompatActivity {
             intent.putExtra("IQ", countlastac) ;
 
             startActivity(intent) ;
+            finish();
         }
             mtvQuestion.setText(ques[s]) ;
             QuestionCount++;
@@ -730,6 +731,7 @@ public class QuestionActivity extends AppCompatActivity {
             Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
             intent.putExtra("IQ", countlastac);
             startActivity(intent);
+            finish();
         }
 
         mtvQuestion.setText(ques[s]);

@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -36,7 +38,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileActivity extends AppCompatActivity  {
 
     private static final int SELECT_IMAGE = 25 ;
-    private TextView name,email,rank,score ;
+    private TextView name,email,rank,score ,user;
     FloatingActionButton fb;
     CircleImageView imageView ;
     FloatingActionButton editprofile;
@@ -47,6 +49,8 @@ public class ProfileActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState) ;
         setContentView(R.layout.activity_profile);
+
+
          actionBar = this.getSupportActionBar();
         if(actionBar!=null)actionBar.setDisplayHomeAsUpEnabled(true);
 
@@ -66,13 +70,14 @@ public class ProfileActivity extends AppCompatActivity  {
 
         name=(TextView)findViewById(R.id.tv_pa_name);
         email=(TextView)findViewById(R.id.tv_pa_email) ;
+        user=(TextView)findViewById(R.id.tv_pa_user) ;
 
         rank=(TextView)findViewById(R.id.tv_pa_rank);
         score=(TextView)findViewById(R.id.tv_pa_score) ;
 
         rank.setText(String.valueOf(User.getRank()));
         score.setText(String.valueOf(User.getScore()));
-
+        user.setText(String.valueOf(User.getUserName()));
 
         imageView=(CircleImageView) findViewById(R.id.ci_profile) ;
 

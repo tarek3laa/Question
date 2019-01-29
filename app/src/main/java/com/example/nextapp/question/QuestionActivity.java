@@ -52,6 +52,11 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
+
+        //after lvl 100
+
+
+
         //mediaplayer
         mp3right=MediaPlayer.create(this,R.raw.righttone);
         mp3wrong=MediaPlayer.create(this,R.raw.wrongtone);
@@ -91,6 +96,7 @@ public class QuestionActivity extends AppCompatActivity {
         Question.setText("Question " + QuestionCount);
 
         if (type.equals(User.GI_QUESTION)) {
+
             ans = getResources().getStringArray(R.array.GI_RightAns);
             ques = getResources().getStringArray(R.array.general_info);
             ans1 = getResources().getStringArray(R.array.GI_wrong_ans1) ;
@@ -709,7 +715,7 @@ public class QuestionActivity extends AppCompatActivity {
         countlastac +=0.5;
         s++;
 
-        if (QuestionCount >= 2) {
+        if (QuestionCount >= 100) {
             Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
             intent.putExtra("IQ", countlastac) ;
 
@@ -727,11 +733,12 @@ public class QuestionActivity extends AppCompatActivity {
     public void WrongAns() {
 
         s++;
-        if (QuestionCount >= 2) {
+        if (QuestionCount >= 100) {
             Intent intent = new Intent(QuestionActivity.this, LastActivity.class);
             intent.putExtra("IQ", countlastac);
             startActivity(intent);
             finish();
+
         }
 
         mtvQuestion.setText(ques[s]);

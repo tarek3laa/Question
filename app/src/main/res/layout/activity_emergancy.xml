@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EmergancyActivity">
+    tools:context=".EmergancyActivity"
+    android:orientation="vertical"
+  android:background="@drawable/emerg_bg">
 
 
     <TextView
@@ -17,45 +19,51 @@
         android:text="Information"
         android:textStyle="bold"
         android:textSize="17dp"
+        android:layout_marginBottom="10sp"
+        android:textColor="#088DA5"
 />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="49dp"
-        android:text="This app provide to you some questions in (history,religin,sports,general info) \n 2- Every kind of questions give you 100 questions to solve and we update it every month \n 3-there is a timer for every question so care about it and be quickly for solving \n 4-all kind of questions are so important and usefull for you \n 5- you have to make account for getting rank and profile and global score \n 6- You can change your user ,password and email \n 7- The last question that u solve will be saved and when u close the app and back to the app again you will solve the last question that you left"
+        android:layout_marginBottom="10dp"
+        android:text="This app provide to you some questions in (history,religin,sport,general info) \n 2- Every kind of questions give you 100 questions to solve and we update it every month \n 3-there is a timer for every question so care about it and be quickly for solving \n 4-all kind of questions are so important and usefull for you \n 5- you have to make account for getting rank and profile and global score \n 6- You can change your user ,password and email if u want \n "
+        android:textColor="#000"
         android:textSize="15dp"
-        android:textStyle="italic"
-        android:textColor="#000"/>
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="173dp"
         android:text="Emergency"
         android:layout_marginLeft="15dp"
         android:textSize="17dp"
         android:textStyle="bold"
+        android:layout_marginBottom="10sp"
+        android:textColor="#088DA5"
         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="353dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="31dp"
-        android:layout_marginStart="31dp"
         android:text="if you forgot the information of your account you can reach us.. \nDevoloper : Ahmed Khlaid and Tarek Alaa \nWhatsapp :   \nFacebook : ahmedkhalid246@yahoo.com \n                   tarek.3laa1@gmail.com \n"
         android:textColor="#000"
         android:textSize="15dp"
         android:textStyle="italic" />
 
 
-</RelativeLayout>
+</LinearLayout>

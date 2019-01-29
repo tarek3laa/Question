@@ -44,6 +44,7 @@ public class ProfileActivity extends AppCompatActivity  {
     FloatingActionButton editprofile;
     private AdView mAdView;
     private android.support.v7.app.ActionBar actionBar ;
+    CircleImageView logout ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -79,8 +80,21 @@ public class ProfileActivity extends AppCompatActivity  {
         score.setText(String.valueOf(User.getScore()));
         user.setText(String.valueOf(User.getUserName()));
 
+        name.setText(User.getName());
+        email.setText(User.getEmail());
+
+        logout=(CircleImageView) findViewById(R.id.logout) ;
+
         imageView=(CircleImageView) findViewById(R.id.ci_profile) ;
 
+       //logout
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(ProfileActivity.this,MainActivity.class);
+
+            }
+        });
 
 
         // set image button

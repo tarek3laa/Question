@@ -14,6 +14,15 @@
         android:layout_height="wrap_content" >
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/logout"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="340dp"
+            android:src="@drawable/eee"  />
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ci_profile"
             android:layout_width="200dp"
             android:layout_height="200dp"

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
      private LinearLayout sport,generalInfo,religion  ;
      private LinearLayout science;
      private AdView mAdView;
-
+     CircleImageView cr_vv;
      TextView mtvRank,mtvName;
 
      CircleImageView profileImage;
@@ -83,6 +83,17 @@ public class MainActivity extends AppCompatActivity {
         mProfile=(CardView)findViewById(R.id.cv_profile);
         mcvRank =(CardView)findViewById(R.id.cv_ranking) ;
         mtvRank=(TextView)findViewById(R.id.tv_ranking) ;
+        cr_vv=(CircleImageView)findViewById(R.id.cr_vv);
+
+
+        cr_vv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,EmergancyActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
         mProfile.setOnClickListener(new View.OnClickListener()  {
             @Override
@@ -130,9 +141,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
-                intent.putExtra(Intentkey,User.GI_QUESTION) ;
-                startActivity(intent) ;
+
+
+                   Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
+                   intent.putExtra(Intentkey,User.GI_QUESTION) ;
+                   startActivity(intent) ;
+
+
             }
         });
 
